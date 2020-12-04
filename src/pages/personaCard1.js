@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import PersonaCard1Component from '../components/PersonaCard1Component';
+import PersonaCard1Component from '../components/personaCard1Component';
 import NoDataImg from '../images/nodata.svg';
 
 export default function PersonaCard1() {
