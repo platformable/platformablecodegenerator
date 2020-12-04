@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+
+}
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: hsla(0, 0%, 0%, 0.8);
+  font-family: "Roboto", sans-serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+img {
+  max-width:100%;
+}
+/* COLORS */
+:root {
+  --russian-violet-dark: #1b014c;
+  --russian-violet-light: #e5ddf6;
+  --sunglow-dark: #ffd23f;
+  --sunglow-light: #ffe89e;
+  --red-orange-dark: #fb5012;
+  --red-orange-light: #fed2c2;
+  --fluorecent-blue-dark: #01fdf6;
+  --fluorecent-blue-light: #80fefa;
+  --lavender-blue-dark: #cbbaed;
+  --lavender-blue-light: #e5ddf6;
+  --light-coral-dark: #ef767a;
+  --light-coral-light: #fad8d9;
+  --sea-green-dark: #23f0c7;
+  --sea-green-light: #e0fdf7;
+  --middle-blue-purple-dark: #7d7abc;
+  --middle-blue-purple-light: #edecf5;
+}
+
+
+/* OUR CODE */
+
+.navbar-brand img {
+  width: 140px;
+  margin: -7px 0 0 0;
+}
+
+.navbar {
+  background-color: #ffd23f !important;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  background-color: #1b014c !important;
+  border: none  !important; 
+}
+
+.btn-primary:hover {
+  background-color: #ffd23f  !important;
+  border: none  !important;
+  color: #1b014c  !important;
+}
+
+.colors {
+  padding:0 !important;
+  margin:0;
+  z-index:1;
+}
+
+.colorBtn {
+  width:100%;
+  border:none;
+  height:50px;
+  margin:0 !important;
+  padding:0 !important;
+  display: block;
+}
+
+.colorBtn:focus,.colorBtn:active{
+border:none;
+}
+
+.colors:hover {
+  cursor:pointer;
+    pointer-events: auto;
+}
+
+#colorButtons {
+  margin-bottom:30px;
+}
+
+.russian-violet-dark {
+  background-color:var(--russian-violet-dark)
+  
+}
+
+.russian-violet-light {
+  background-color:var(--russian-violet-light)
+}
+
+.sunglow-dark {
+  background-color:var(--sunglow-dark)
+  
+}
+
+.sunglow-light {
+  background-color:var(--sunglow-light)
+}
+
+.red-orange-dark {
+  background-color:var(--red-orange-dark)
+  
+}
+
+.red-orange-light {
+  background-color:var(--red-orange-light)
+}
+
+.fluorecent-blue-dark {
+  background-color:var(--fluorecent-blue-dark)
+  
+}
+
+.fluorecent-blue-light {
+  background-color:var(--fluorecent-blue-light)
+}
+
+.lavender-blue-dark {
+  background-color:var(--lavender-blue-dark)
+  
+}
+
+.lavender-blue-light {
+  background-color:var(--lavender-blue-light)
+}
+
+.light-coral-dark {
+  background-color:var(--light-coral-dark)
+  
+}
+
+.light-coral-light {
+  background-color:var(--light-coral-light)
+}
+
+.sea-green-dark {
+  background-color:var(--sea-green-dark)
+  
+}
+
+.sea-green-light {
+  background-color:var(--sea-green-light)
+}
+
+.middle-blue-purple-dark {
+  background-color:var(--middle-blue-purple-dark)
+  
+}
+
+.middle-blue-purple-light {
+  background-color:var(--middle-blue-purple-light)
+}
+
+#theCode img {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:50px;
+  width:150px;
+}
