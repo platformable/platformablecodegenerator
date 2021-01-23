@@ -331,7 +331,7 @@ export default function PricingTable1() {
                 col1Row1={pricingTableContent.col1Row1}
                 col1Row2={pricingTableContent.col1Row2}
                 col1Row3={pricingTableContent.col1Row3}
-                col1Flag={pricingTableContent.col1Row3}
+                col1Flag={pricingTableContent.col1Flag}
                 col2Heading={pricingTableContent.col2Heading}
                 col2TopImg={pricingTableContent.col2TopImg}
                 col2Row1={pricingTableContent.col2Row1}
