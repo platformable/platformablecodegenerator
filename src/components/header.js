@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import {Navbar, Nav,NavDropdown , Container} from 'react-bootstrap';
+import Logo from '../images/logo.png'
 
 const Header = ({ siteTitle }) => (
   // <header
@@ -34,7 +35,7 @@ const Header = ({ siteTitle }) => (
 
   <Navbar  expand="lg">
     <Container>
-  <Navbar.Brand href="#home"><Link to="/"><img src="https://platformable.com/content/images/2020/02/logo-and-business-name-horizontal.png" alt="platformable logo"/></Link></Navbar.Brand>
+  <Navbar.Brand href="#home"><Link to="/"><img src={Logo} alt="platformable logo"/></Link></Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="ml-auto">

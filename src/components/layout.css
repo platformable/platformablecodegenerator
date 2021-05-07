@@ -168,9 +168,56 @@ border:none;
 }
 
 #theCode img {
-  display:block;
+  /* display:block;
   margin-left:auto;
   margin-right:auto;
   margin-top:50px;
-  width:150px;
+  width:150px; */
 }
+
+.summary-box-general-dark {
+  background-color:var(--russian-violet-dark);
+}
+.summary-box-bank-dark {
+  background-color:var(--red-orange-dark);
+}
+.summary-box-gov-dark {
+  background-color:#632FAE;
+}
+.summary-box-health-dark {
+  background-color:#0956FC;
+}
+.summary-box-sustain-dark {
+  background-color:#0CE6A3;
+}
+
+
+
+.inset-box-general-light {
+  background-color:var(--sunglow-dark);
+}
+.inset-box-bank-light {
+  background-color:#FBAC8F;
+}
+.inset-box-gov-light {
+  background-color:#D8C1FB;
+}
+.inset-box-health-light {
+  background-color:#87ACFC;
+}
+.inset-box-sustain-light {
+  background-color:#9686AE;
+}
+
+.code-container  {
+  color:black;
+  font-size:12px;
+  background-color:#f4f4f4;
+  padding:10px;
+  border-radius:10px;
+  }
+  
+  
+
+    
+      
