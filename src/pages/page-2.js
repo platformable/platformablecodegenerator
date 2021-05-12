@@ -1,16 +1,20 @@
-import React from "react"
-import { Link } from "gatsby"
+import React, {useState} from  'react'
+import {Modal, Button} from 'react-bootstrap'
+import ModalPreview from '../components/modalPreview'
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+function CallModalx({theHtml}) {
+  const [show, setShow] = useState(false);
+ 
 
-const SecondPage = () => (
-  <Layout>
-    <SEO title="Page two" />
-    <h1>Hi from the second page</h1>
-    <p>Welcome to page 2</p>
-    <Link to="/">Go back to the homepage</Link>
-  </Layout>
-)
+  return (
+    <>
+      <Button variant="primary" onClick={() => setShow(true)}>
+        Custom Width Modal
+      </Button>
+      {show && <ModalPreview show={show} onHide={() => setShow(false)} html={theHtml}/>}
+    </>
+  );
+}
 
-export default SecondPage
+export default CallModalx;
+

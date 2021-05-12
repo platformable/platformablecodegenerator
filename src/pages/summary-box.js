@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import SummaryBlockquoteComponent from '../components/summaryBlockquoteComponent';
-import NoDataImg from '../images/nodata.svg';
+
 
 export default function SummaryQuote () {
     const [fullContent,setFullContent] = useState(false);

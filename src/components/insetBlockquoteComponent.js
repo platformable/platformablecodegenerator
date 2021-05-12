@@ -1,6 +1,8 @@
 import React from "react"
 import "./layout.css"
 import {OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
+import CallModalBtn from './CallModal'
+
 
 export default function InsetBlockquoteComponent({
   content,
@@ -15,6 +17,7 @@ export default function InsetBlockquoteComponent({
   return (
     <>
       <div className="code-container">
+      <CallModalBtn theHtml={theHtml} selectedColor={selectedColor}/>
       <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>}>
   <span className="d-inline-block">
     {/* <Button disabled style={{ pointerEvents: 'none' }}>
@@ -42,11 +45,11 @@ export default function InsetBlockquoteComponent({
           {theHtml}
         </code>
       </div>
-      <p className="my-2 badge badge-warning">Preview</p>
+      {/* <p className="my-2 badge badge-warning">Preview</p>
       <div
         dangerouslySetInnerHTML={{ __html: theHtml }}
         className={`text-white shadow-sm px-3 py-3 rounded ${selectedColor}`}
-      />
+      /> */}
     </>
   )
 }
