@@ -14,10 +14,12 @@ export default function ModalPreview({show, onHide,theHtml, selectedColor}) {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <div className={`${selectedColor}`}>
       <div
         dangerouslySetInnerHTML={{ __html: theHtml }}
-        className={`text-white shadow-sm px-3 py-3 rounded ${selectedColor}`}
+        className={`text-white shadow-sm px-3 py-3 rounded `}
       />
+      </div>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={onHide}>Close</Button>
