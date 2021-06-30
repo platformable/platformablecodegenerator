@@ -11,10 +11,10 @@ export default function SummaryBlockquoteComponent({
   selectedColor,
 }) {
   const theHtml = `  
-    <div className="rounded-xl shadow-md my-5 px-5 text-white ${selectedColor}">
-    <strong>Who should read this:</strong> ${whoShouldReadThis} <br><br>
-    <strong>What it’s about:</strong> ${whatAbout}<br><br>
-    <strong>Why it’s important:</strong> ${whyImportant}<br>
+    <div class="rounded-xl shadow-md my-5 px-5 text-white ${selectedColor}">
+    <h3 class="font-black">Who should read this:</h3> ${whoShouldReadThis} <br><br>
+    <h3 class="font-black">What it’s about:</h3> ${whatAbout}<br><br>
+    <h3 class="font-black">Why it’s important:</h3> ${whyImportant}<br>
     </div>
 
     `

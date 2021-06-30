@@ -199,18 +199,23 @@ border:none;
 
 .summary-box-general-dark {
   background-color:var(--russian-violet-dark);
+  padding:20px;
 }
 .summary-box-bank-dark {
   background-color:var(--red-orange-dark);
+  padding:20px;
 }
 .summary-box-gov-dark {
   background-color:#632FAE;
+  padding:20px;
 }
 .summary-box-health-dark {
   background-color:#0956FC;
+  padding:20px;
 }
 .summary-box-sustain-dark {
   background-color:#0CE6A3;
+  padding:20px;
 }
 
 /* INSET BOX */
@@ -331,6 +336,7 @@ border:none;
 
 /* LARGE QUOTE */
 .large-quote {
+  margin:20px 0;
   padding:5px 10px;
 }
 .large-quote p {
@@ -544,7 +550,7 @@ font-weight:bold;
   border-collapse: collapse;
   border-radius: 10px;
   table-layout: fixed;
-  font: 13px Verdana;
+font-size:12px;
 }
 
 .dynamicTable table tr {
@@ -582,7 +588,7 @@ font-weight:bold;
   border-collapse: collapse;
   border-radius: 10px;
   table-layout: fixed;
-  font: 13px Verdana;
+font-size:12px;
 }
 
 .dynamicTable-ob table tr {
@@ -719,15 +725,6 @@ font-weight:bold;
 
 
 /* dynamicTable-OS */
-
-
-
-
-
-
-
-
-
 
 
 

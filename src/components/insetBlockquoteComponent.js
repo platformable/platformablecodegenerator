@@ -9,7 +9,7 @@ export default function InsetBlockquoteComponent({
   selectedColor,
 }) {
   const theHtml = `  
-    <div className="rounded-xl shadow-md my-5 px-5 text-white ${selectedColor}">
+    <div class="rounded-xl shadow-md my-5 px-5 text-white ${selectedColor}">
 <strong><i>${content}</i></strong>
 </div>
 
