@@ -1,7 +1,7 @@
 import React from "react"
 import "./layout.css"
 import {OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
-import CallModalBtn from './CallModal'
+import CallModalBtn from './callModal'
 
 
 export default function DynamicTableComponent({

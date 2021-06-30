@@ -4,9 +4,9 @@ module.exports = {
     description: `The Html Platformable need`,
     author: `Platformable.com`,
   },
- // flags: {
- //   DEV_SSR: true
-  //},
+ flags: {
+   DEV_SSR: true
+  },
   plugins: [
     {
       resolve: `gatsby-source-strapi`,
