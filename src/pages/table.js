@@ -10,7 +10,9 @@ export default function Table() {
   const [selectedColor, setSelectedColor] = useState("")
   const [content, setContent] = useState("");
 
-  const [preview,setPreview]=useState(false)
+  const [preview,setPreview]=useState(false);
+
+  const windowGlobal = typeof window !== 'undefined' && window;
 
   const [inputsTitle,setInputsTitle]=useState({
       heading:false,
@@ -126,32 +128,18 @@ export default function Table() {
               </Row>
             </section>
 
-
+            {windowGlobal ?
             <CKEditor
                       fontColor="black"
                     editor={ ClassicEditor }
-                    data="<p>Create your table here!</p>"
-                    /* onReady={ editor => {
-                        // You can store the "editor" and use when it is needed.
-                        console.log( 'Editor is ready to use!', editor );
-                    } } */
+                    data="<p>Create your table here, remember to set first row as Header Row</p>"
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
                         setContent(data)
                         setPreview(false)
-                       /*  console.log( { event, editor, data } ); */
-                       
-                       /* setContent(prevState => {
-                        return [...prevState, data]
-                      }) */
                     } }
-                   /*  onBlur={ ( event, editor ) => {
-                        console.log( 'Blur.', editor );
-                    } }
-                    onFocus={ ( event, editor ) => {
-                        console.log( 'Focus.', editor );
-                    } } */
-                />
+             
+                /> : null}
 
             <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
                 Create Table
