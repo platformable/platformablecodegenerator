@@ -9,10 +9,19 @@ export default function Table() {
   const [fullContent, setFullContent] = useState(false)
   const [selectedColor, setSelectedColor] = useState("")
   const [content, setContent] = useState("");
+  const [globalWindow,setGlobalWindow]=useState(false)
+
+
+  useEffect(()=>{
+    if(typeof window !== "undefined") {
+      setGlobalWindow(true)
+  } 
+  },[])
+
 
   const [preview,setPreview]=useState(false);
 
-  const windowGlobal = typeof window !== 'undefined' && window;
+
 
   const [inputsTitle,setInputsTitle]=useState({
       heading:false,
@@ -128,7 +137,7 @@ export default function Table() {
               </Row>
             </section>
 
-            {windowGlobal ?
+            {globalWindow ?
             <CKEditor
                       fontColor="black"
                     editor={ ClassicEditor }
@@ -139,7 +148,7 @@ export default function Table() {
                         setPreview(false)
                     } }
              
-                /> : null}
+                /> : <p>An error ocurred, please come back later</p>}
 
             <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
                 Create Table
