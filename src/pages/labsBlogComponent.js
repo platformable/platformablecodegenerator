@@ -40,21 +40,12 @@ export default function LabsBlogComponent() {
 
                  <Col md={12}>
 
-                   {globalWindow ? 
-                   <CKEditor
-                   fontColor="black"
-                 editor={ ClassicEditor }
-                 data=""
-     
-                 onChange={ ( event, editor ) => {
-                     const data = editor.getData();
-                     updateContent(data)
-              
-            
-                 } }
-       
-             />
-                   : <p>Something went wrong, try again later</p>}
+                 <Form.Group controlId="">
+                <Form.Label>Quote Content</Form.Label>
+                <Form.Control as="textarea" rows={4}  onChange={(e)=>{
+                    updateContent(e.target.value);
+                }}/>
+              </Form.Group>
                  
                  </Col>
              </Row>
