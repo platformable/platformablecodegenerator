@@ -1,8 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import Layout from '../components/layout'
 import { Container, Row, Form, Button,Col } from 'react-bootstrap'
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 export default function LabsBlogComponent() {
 
