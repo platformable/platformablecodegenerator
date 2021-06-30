@@ -4,7 +4,28 @@ module.exports = {
     description: `The Html Platformable need`,
     author: `Platformable.com`,
   },
+ // flags: {
+ //   DEV_SSR: true
+  //},
   plugins: [
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `https://websiteserver-ds7cf.ondigitalocean.app`,
+        queryLimit: 1000, // Defaults to 100
+        collectionTypes: [
+          {
+            name:'posts',
+            endpoint:'posts'
+          }
+          ,
+          {
+            name:'media',
+            endpoint:'upload/files'
+          }
+        ]
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -13,8 +34,9 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -31,4 +53,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
+  
 }

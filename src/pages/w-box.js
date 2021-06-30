@@ -124,7 +124,6 @@ export default function WBox () {
                 specialNote={wContent.specialNote}
                 whatAbout={wContent.whatAbout}
                 whyImportant={wContent.whyImportant}
-
                 /> : null  
                 }
               

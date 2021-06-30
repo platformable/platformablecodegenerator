@@ -1,6 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
 
 html {
+  padding:0;
+  margin:0;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
@@ -8,6 +10,7 @@ html {
 }
 body {
   margin: 0;
+  padding:0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
@@ -22,6 +25,17 @@ body {
 }
 img {
   max-width:100%;
+}
+
+.padding5 {
+  padding:10px;
+
+}
+.margin5-y {
+  margin:10px 0;
+}
+.padding5-y {
+  padding-top:10px,
 }
 /* COLORS */
 :root {
@@ -495,3 +509,582 @@ font-weight:bold;
 
 
 
+/*DynamicTable*/
+
+.box {
+  border:1px solid #1b014c;
+  padding:20px;
+}
+
+.dynamicTable-general-dark {
+  background-color:var(--russian-violet-dark);
+}
+.dynamicTable-bank-dark {
+  background-color:var(--red-orange-dark);
+}
+.dynamicTable-gov-dark {
+  background-color:#632FAE;
+}
+.dynamicTable-health-dark {
+  background-color:#0956FC;
+}
+.dynamicTable-sustain-dark {
+  background-color:#0CE6A3;
+}
+
+.dynamicTable {
+  margin: 20px auto;
+  border: 2px solid var(--russian-violet-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dynamicTable table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  table-layout: fixed;
+  font: 13px Verdana;
+}
+
+.dynamicTable table tr {
+  border-radius: 10px;
+}
+
+.dynamicTable table th {
+  background-color:var(--russian-violet-dark);
+  text-align:left;
+  padding:20px;
+  color:white;
+}
+
+
+.dynamicTable table td {
+  border: 2px solid var(--russian-violet-dark);
+  padding: 20px;
+  color: black;
+}
+
+
+
+
+/* dynamicTable-OB */
+
+.dynamicTable-ob {
+  margin: 20px auto;
+  border: 2px solid var(--ob-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dynamicTable-ob table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  table-layout: fixed;
+  font: 13px Verdana;
+}
+
+.dynamicTable-ob table tr {
+  border-radius: 10px;
+}
+
+.dynamicTable-ob table th {
+  background-color:var(--ob-dark);
+  text-align:left;
+  padding:20px;
+  color:white;
+}
+
+
+.dynamicTable-ob table td {
+  border: 2px solid var(--ob-dark);
+  padding: 20px;
+  color: black;
+}
+
+
+/* dynamicTable-OB */
+
+/* dynamicTable-OG */
+
+.dynamicTable-og {
+  margin: 20px auto;
+  border: 2px solid var(--og-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dynamicTable-og table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  table-layout: fixed;
+  font: 13px Verdana;
+}
+
+.dynamicTable-og table tr {
+  border-radius: 10px;
+}
+
+.dynamicTable-og table th {
+  background-color:var(--og-dark);
+  text-align:left;
+  padding:20px;
+  color:white;
+}
+
+
+.dynamicTable-og table td {
+  border: 2px solid var(--og-dark);
+  padding: 20px;
+  color: black;
+}
+
+
+/* dynamicTable-Og */
+
+/* dynamicTable-Oh */
+
+.dynamicTable-oh {
+  margin: 20px auto;
+  border: 2px solid var(--oh-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dynamicTable-oh table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  table-layout: fixed;
+  font: 13px Verdana;
+}
+
+.dynamicTable-oh table tr {
+  border-radius: 10px;
+}
+
+.dynamicTable-oh table th {
+  background-color:var(--oh-dark);
+  text-align:left;
+  padding:20px;
+  color:white;
+}
+
+
+.dynamicTable-oh table td {
+  border: 2px solid var(--oh-dark);
+  padding: 20px;
+  color: black;
+}
+
+
+/* dynamicTable-OH */
+
+/* dynamicTable-OS */
+
+.dynamicTable-os {
+  margin: 20px auto;
+  border: 2px solid var(--os-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dynamicTable-os table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  table-layout: fixed;
+  font: 13px Verdana;
+}
+
+.dynamicTable-os table tr {
+  border-radius: 10px;
+}
+
+.dynamicTable-os table th {
+  background-color:var(--os-dark);
+  text-align:left;
+  padding:20px;
+  color:white;
+}
+
+
+.dynamicTable-os table td {
+  border: 2px solid var(--os-dark);
+  padding: 20px;
+  color: black;
+}
+
+
+/* dynamicTable-OS */
+
+
+
+
+
+
+
+
+
+
+
+
+.dynamicTable table tr:first-child td:first-child {
+  border-radius: 10px;
+}
+
+.dynamicTable table tr:first-child td:last-child {
+  border-radius: 0 10px 0 0;
+}
+
+.dynamicTable table tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+
+.dynamicTable table tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}
+
+
+
+.rowTest {
+  background-color:lightgoldenrodyellow;
+  padding:10px;
+  height:80px;
+  width:100%;
+}
+
+/* PERSONAS CARD*/
+
+.small-text {
+  font-size:14px;
+}
+
+.persona-codegen-wrapper, .persona-codegen-wrapper div {
+  height:125px;
+}
+.persona-codegen-wrapper {
+  display:flex;
+  align-items: center;
+}
+
+.persona-codegen-wrapper img {
+max-width:50px;
+text-align: center;
+}
+
+.selectedPersonaCard {
+  border:1px solid var(--russian-violet-dark)
+}
+
+
+
+/* PERSONA CARD */
+
+/* // PERSONAS 2021 // */
+
+.main-personas {
+  margin:20px 0;
+  max-width:800px;
+  margin: 20px auto;  
+}
+
+.personas-top {
+  display:flex;
+  color:white;
+  align-items: center;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  padding:20px 0;
+}
+
+.personas-top img {
+  max-width:80px;
+  height:80px;
+  position:relative;
+  left:-30px;
+  border-radius:60%;
+  padding:10px;
+}
+
+.personas-top h3 {
+  font-weight: bold;
+  position:relative;
+
+}
+
+.personas-subtitle {
+position:relative;
+
+}
+
+.personas-bottom-text {
+  padding:20px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.api-tools-provider .personas-top, .regulator .personas-top ,.api-architects .personas-top{
+  background-color:#FFD23F;
+  color:white;
+
+}
+.api-tools-provider .personas-bottom-text, .api-tools-provider .personas-top img,
+.regulator .personas-bottom-text, .regulator .personas-top img,.api-architects .personas-bottom-text ,.api-architects .personas-top img
+{
+  background-color:#FFE590;
+}
+
+
+
+.fintech-associantions .personas-top,.banks .personas-top,.fintechs .personas-top,.financial-inclusion .personas-top {
+  background-color:#FB5012;
+  color:white;
+}
+
+.fintech-associantions .personas-top img,.banks .personas-top img,.fintechs .personas-top img,.financial-inclusion .personas-top img,
+.fintech-associantions .personas-bottom-text,.banks .personas-bottom-text,.fintechs .personas-bottom-text,.financial-inclusion .personas-bottom-text 
+{
+  background-color:var(--red-orange-light);
+  color:var(--russian-violet-dark)
+}
+
+
+.policy-lead .personas-top,.dg-lead .personas-top,.pm-lead .personas-top {
+  background-color:var(--og-dark);
+  color:white;
+}
+
+.policy-lead .personas-top img,.dg-lead .personas-top img,.pm-lead .personas-top img,
+.policy-lead .personas-bottom-text,.dg-lead .personas-bottom-text,.pm-lead .personas-bottom-text 
+{
+  background-color:var(--og-light);
+  color:var(--russian-violet-dark)
+}
+
+
+/* LABS-HEADER */
+.labs-top-bar-posts-header {
+  display:flex;
+  background-color:#a80075;
+  color:white;
+  padding:30px 10px;
+  gap:10px;
+  align-items:center;
+  border-radius:10px;
+}
+
+.labs-top-bar-posts-header img {
+  flex-grow:1;
+  max-width:95px;
+  background-color:white;
+  border-radius:50%;
+  padding:20px;
+  margin-left:20px;
+  
+}
+
+.labs-top-bar-posts-text {
+  flex-grow:3;
+  margin-left:30px;
+}
+
+@media (max-width:690px) {
+  .labs-top-bar-posts-header {
+  flex-wrap:wrap;
+}
+  
+  .labs-top-bar-posts-header {
+  display:flex;
+    justify-content:center;
+  
+}
+}
+
+
+/* LABS BLOG COMPONENT */
+
+.labs-text-img-component {
+  display:flex;
+  padding:10px 0;
+  gap:10px;
+  align-items: center;
+  border-radius:10px;
+}
+
+.labs-text-img-component img {
+  flex-grow:1;
+  max-width:95px;
+}
+
+.lab-text-img-component {
+  flex-grow:3;
+
+}
+
+.lab-text-img-component-container {
+  border-bottom:2px solid #a80075;
+  padding-bottom:20px;
+}
+
+@media (max-width:690px) {
+  .labs-text-img-component {
+  flex-wrap:wrap;
+}
+  
+  .labs-text-img-component {
+  display:flex;
+    justify-content:center;
+  
+}
+}
+
+/* ROADMAP */
+
+section#timeline {
+  width: 90%;
+  margin: 20px auto;
+  position: relative;
+}
+
+section#timeline article:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: -7px;
+  top: 0;
+  margin: 0 0 0 0px;
+  width: 2px;
+  height: 100%;
+  background: #a80075;
+}
+
+
+section#timeline article:last-child:before {
+  background: none;
+}
+
+section#timeline article {
+  width: 100%;
+  margin: 0 0 0px 0;
+  position: relative;
+}
+
+
+section#timeline article:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+section#timeline article div.inner {
+  width: 90%;
+  float: left;
+  margin: 0 0 0 0;
+  border-radius: 6px;
+}
+
+section#timeline article div.inner span.date {
+  display: block;
+  width: 50px;
+  height: 50px;
+  padding: 12px;
+  position: absolute;
+  top: 0;
+  left: 0%;
+  margin: -3px 0 0 -32px;
+  border-radius: 100%;
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: #fff;
+  color: rgba(0,0,0,0.9);
+  border: 2px solid #a80075;
+ text-align: center;
+}
+
+
+
+section#timeline article div.inner span.date span {
+  display: block;
+text-align: center;
+}
+section#timeline article div.inner span.date span.day {
+  font-size: 10px;
+}
+section#timeline article div.inner span.date span.month {
+  font-size: 14px;
+}
+section#timeline article div.inner span.date span.year {
+  font-size: 10px;
+}
+section#timeline article div.inner h2 {
+  padding: 15px;
+  margin: 0;
+  font-weight:bold;
+  font-size: 20px;
+
+  position: relative;
+}
+
+section#timeline article div.inner p {
+  padding: 15px;
+  margin: 0;
+  font-size: 14px;
+ 
+
+  border-radius: 0 0 6px 6px;
+}
+section#timeline article div.inner {
+margin-left:40px;
+margin-top:-5px
+}
+
+
+
+
+
+.labs-road-text-img-component {
+  display:flex;
+  padding:10px 0;
+  gap:10px;
+  align-items:center;
+  border-radius:10px;
+}
+
+.labs-road-text-img-component img {
+  flex-grow:1;
+  max-width:95px;
+}
+
+.labs-road-top-bar-posts-text h3 {
+position:relative;
+top:15px;
+font-weight:bold;
+
+}
+
+
+@media (max-width:690px) {
+  .labs-road-text-img-component {
+  flex-wrap:wrap;
+}
+  
+  .labs-road-text-img-component {
+  display:flex;
+    justify-content:center;
+  
+}
+}
+
+
+
+/* MEDIA GALLERY  */
+.mediaGalleryThumbnail {
+  max-width:125px;
+  height:125px !important;
+  object-fit: contain;
+  overflow: hidden;
+}

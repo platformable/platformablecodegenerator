@@ -15,6 +15,66 @@ const IndexPage = () => (
           <Card>
             <Card.Img variant="top" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
             <Card.Body>
+              <Card.Title>Roadmap Component</Card.Title>
+              <Card.Text>
+                All options
+              </Card.Text>
+              <Link to="/roadmap"><Button variant="primary" className="">Create</Button></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      <Col md={{ span: 3, offset: 0 }} className="mt-1">
+          <Card>
+            <Card.Img variant="top" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            <Card.Body>
+              <Card.Title>Labs Text Component</Card.Title>
+              <Card.Text>
+                All options
+              </Card.Text>
+              <Link to="/labsBlogComponent"><Button variant="primary" className="">Create</Button></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      <Col md={{ span: 3, offset: 0 }} className="mt-1">
+          <Card>
+            <Card.Img variant="top" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            <Card.Body>
+              <Card.Title>Labs Post Header</Card.Title>
+              <Card.Text>
+                All options
+              </Card.Text>
+              <Link to="/labsHeader"><Button variant="primary" className="">Create</Button></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      <Col md={{ span: 3, offset: 0 }} className="mt-1">
+          <Card>
+            <Card.Img variant="top" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            <Card.Body>
+              <Card.Title>Persona`s Card</Card.Title>
+              <Card.Text>
+                All options
+              </Card.Text>
+              <Link to="/personas"><Button variant="primary" className="">Create</Button></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      <Col md={{ span: 3, offset: 0 }} className="mt-1">
+          <Card>
+            <Card.Img variant="top" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            <Card.Body>
+              <Card.Title>Table</Card.Title>
+              <Card.Text>
+                All options
+              </Card.Text>
+              <Link to="/table"><Button variant="primary" className="">Create</Button></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      <Col md={{ span: 3, offset: 0 }} className="mt-1">
+          <Card>
+            <Card.Img variant="top" src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" />
+            <Card.Body>
               <Card.Title>Small Quote</Card.Title>
               <Card.Text>
                 All options

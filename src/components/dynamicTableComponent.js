@@ -4,25 +4,18 @@ import {OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
 import CallModalBtn from './CallModal'
 
 
-export default function wBoxComponent({
-  specialNote,
+export default function DynamicTableComponent({
+  whoShouldReadThis,
   whatAbout,
   whyImportant,
   selectedColor,
 }) {
   const theHtml = `  
-  <div class="w-box ${selectedColor}">
-  <h4 class="whatIsItAbout font-black">Whats is it about</h4>
-  <p>${whatAbout}</p>
-
-<h4 class="whatIsItAbout font-black">Whats is it about</h4>
-  <p>${whyImportant}</p>
-
-  <h4 class="whatIsItAbout font-black">Whats is it about</h4>
-  <p>${specialNote}</p>
-
-
-</div>
+    <div className="rounded-xl shadow-md my-5 px-5 text-white ${selectedColor}">
+    <strong>Who should read this:</strong> ${whoShouldReadThis} <br><br>
+    <strong>What it’s about:</strong> ${whatAbout}<br><br>
+    <strong>Why it’s important:</strong> ${whyImportant}<br>
+    </div>
 
     `
   return (
@@ -54,7 +47,6 @@ export default function wBoxComponent({
             navigator.clipboard.writeText(theHtml)
           }}
         >
-          {/* Display the code */}
           {theHtml}
         </code>
       </div>
