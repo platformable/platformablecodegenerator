@@ -138,7 +138,10 @@ ${form.map((item, index) => {
                   className="badge badge-warning block"
                   role="button"
                   onClick={() => {
-                    navigator.clipboard.writeText(html)
+                    const allTheHtml = document.getElementById("timeline").outerHTML
+       
+      
+                    navigator.clipboard.writeText(allTheHtml)
                   }}
                 >
                   <img

@@ -52,12 +52,12 @@ export default function Personas() {
         }
         ,{
             name:"Policy Lead",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688299/Policy_Leads_b1fad49ca4.png",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1625052721/Personas_Policy_Lead_265913d654.png",
             color:"policy-lead"
         }
         ,{
             name:"DG Lead",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688299/Policy_Leads_b1fad49ca4.png",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Digital_Gov_Lead_3e539d4909.png",
             color:"dg-lead"
         }
         ,{
@@ -67,7 +67,7 @@ export default function Personas() {
         }
         ,{
             name:"Api Architects and devs",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688299/Policy_Leads_b1fad49ca4.png",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Developer_4903ab395f.png",
             color:"api-architects"
         }
     ]

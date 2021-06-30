@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import Layout from '../components/layout'
 import { Container, Row, Form, Button,Col } from 'react-bootstrap'
 import { CKEditor } from '@ckeditor/ckeditor5-react';
@@ -12,6 +12,13 @@ export default function LabsBlogComponent() {
         updatePreview(true)
     }
 
+    const [globalWindow,setGlobalWindow]=useState(false)
+
+    useEffect(()=>{
+      if(typeof window !== "undefined") {
+        setGlobalWindow(true)
+    } 
+    },[])
 
     const html =`<div class="lab-text-img-component-container">
     <div class=" labs-text-img-component">
@@ -23,6 +30,8 @@ export default function LabsBlogComponent() {
     </div>
         <p>${content}</p>
       </div>`
+
+
     return (
      <Layout>
          <Container>
@@ -30,19 +39,23 @@ export default function LabsBlogComponent() {
                  <h3 className="font-weight-bold mb-5">Labs Blog Text Component</h3>
 
                  <Col md={12}>
-                 <CKEditor
-                      fontColor="black"
-                    editor={ ClassicEditor }
-                    data=""
-        
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        updateContent(data)
+
+                   {globalWindow ? 
+                   <CKEditor
+                   fontColor="black"
+                 editor={ ClassicEditor }
+                 data=""
+     
+                 onChange={ ( event, editor ) => {
+                     const data = editor.getData();
+                     updateContent(data)
+              
+            
+                 } }
+       
+             />
+                   : <p>Something went wrong, try again later</p>}
                  
-               
-                    } }
-          
-                />
                  </Col>
              </Row>
              <Row>
