@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import WBoxComponent from '../components/WBoxComponent';
+import WBoxComponent from '../components/wBoxComponent';
 
 
 export default function WBox () {

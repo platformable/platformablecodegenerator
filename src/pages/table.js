@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import DynamicTableComponent from "../components/DynamicTableComponent"
+import DynamicTableComponent from "../components/dynamicTableComponent"
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
