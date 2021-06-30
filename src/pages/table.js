@@ -16,6 +16,23 @@ export default function Table() {
   const [content, setContent] = useState("");
   const [globalWindow,setGlobalWindow]=useState(false)
 
+  useEffect(() => {
+    addBorder()
+},[])
+
+const addBorder =()=>{
+  const allWrappers = document.querySelectorAll('.colors button');
+  allWrappers.forEach((element)=> {
+      element.addEventListener("click", ()=>{
+          const prevSelected = document.querySelectorAll(".colors button")
+          prevSelected.forEach(selection=> selection.style.border="0")
+          
+          element.style.border="5px solid #fff";
+
+      }, false);
+  })
+}
+
 
   useEffect(()=>{
     if(typeof window !== "undefined") {
@@ -157,7 +174,6 @@ setContent(data)
              
                 /> : <p>An error ocurred, please come back later</p>} */}
 
-    <h2>Using CKEditor 5 build in Gatsby</h2>
     <LoadableComponent handleTest={handleTest}/>
 
             <Button variant="primary" type="submit" onClick={handleClick} className="my-5">

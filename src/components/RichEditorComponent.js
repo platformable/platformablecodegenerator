@@ -12,7 +12,7 @@ export default function RichEditorComponent({handleTest}) {
         <CKEditor
         fontColor="black"
       editor={ ClassicEditor }
-      data="<p>Create your table here, remember to set first row as Header Row</p>"
+      data=""
       onChange={ ( event, editor ) => {
           const data = editor.getData();
           handleTest(data)

@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState,useEffect} from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import SmallQuoteComponent from '../components/smallQuoteComponent';
@@ -16,7 +16,22 @@ export default function SmallQuote () {
     const [errorMessage, setErrorMessage] =useState(false);
     const errorText = 'Some data is missing'
 
-   
+    useEffect(() => {
+        addBorder()
+    },[])
+
+    const addBorder =()=>{
+      const allWrappers = document.querySelectorAll('.colors button');
+      allWrappers.forEach((element)=> {
+          element.addEventListener("click", ()=>{
+              const prevSelected = document.querySelectorAll(".colors button")
+              prevSelected.forEach(selection=> selection.style.border="0")
+              
+              element.style.border="5px solid #fff";
+  
+          }, false);
+      })
+  }
 
     const handleClick=(e)=> {
         e.preventDefault();
@@ -48,7 +63,9 @@ export default function SmallQuote () {
                   <Col md={2} className="colors ">
                       <button className="ob-dark-btn colorBtn"
                       onClick={(e) => {
+                
                         setSelectedColor('smallQuote-ob-bg')
+                        
                     
                       }}
                       ></button></Col>

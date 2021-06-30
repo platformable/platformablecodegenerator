@@ -78,7 +78,7 @@ const addBorder =()=>{
         element.addEventListener("click", ()=>{
             const prevSelected = document.querySelectorAll(".persona-codegen-wrapper")
             prevSelected.forEach(selection=> selection.style.border="0")
-
+            
             element.style.border="3px solid #1b014c";
 
         }, false);

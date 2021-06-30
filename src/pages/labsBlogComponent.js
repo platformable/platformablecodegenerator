@@ -2,6 +2,12 @@ import React, {useState,useEffect} from 'react'
 import Layout from '../components/layout'
 import { Container, Row, Form, Button,Col } from 'react-bootstrap'
 
+import Loadable from 'react-loadable';
+
+const LoadableComponent = Loadable({
+  loader: () => import('../components/RichEditorComponent'),
+  loading: "Loading",
+});
 
 export default function LabsBlogComponent() {
 
@@ -18,6 +24,10 @@ export default function LabsBlogComponent() {
         setGlobalWindow(true)
     } 
     },[])
+
+    const handleTest=(data) => {
+      updateContent(data)
+      }
 
     const html =`<div class="lab-text-img-component-container">
     <div class=" labs-text-img-component">
@@ -39,15 +49,15 @@ export default function LabsBlogComponent() {
 
                  <Col md={12}>
 
-                 <Form.Group controlId="">
-                <Form.Label>Quote Content</Form.Label>
-                <Form.Control as="textarea" rows={4}  onChange={(e)=>{
-                    updateContent(e.target.value);
-                }}/>
-              </Form.Group>
-                 
+                {/*  */}
+              <LoadableComponent handleTest={handleTest}/>
                  </Col>
              </Row>
+
+
+
+
+
              <Row>
                  <Col md="12">
                  <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
