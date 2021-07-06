@@ -1086,7 +1086,26 @@ font-weight:bold;
   overflow: hidden;
 }
 
+.mediaGallerySelectedImg {
+  border:2px solid var(--russian-violet-dark);
+  border-radius:50%;
+}
 
-.selected-btn {
-  border:3px solid red;
+
+
+/* INLINE ICON */
+.inline-icon-container  {
+  margin:30px 0;
+  padding:20px ;
+  border-bottom:2px solid #632faf;
+}
+
+.inline-icon-container img {
+  max-width: 125px;
+}
+
+.inline-icon-top {
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
