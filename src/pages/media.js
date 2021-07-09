@@ -95,6 +95,17 @@ export default function Media({data}) {
   </span>
 </OverlayTrigger>
                   </>}
+                  {preview && <>
+                    <Col md={12} className="code-block">
+                <code
+          onClick={() => {
+            navigator.clipboard.writeText(html)
+          }}
+        >
+          {html}
+        </code>
+                </Col>
+                  </>}
             {preview && <div dangerouslySetInnerHTML={{ __html: html }} />}
           </Col>
                 </Row>
@@ -107,7 +118,7 @@ export default function Media({data}) {
 
 export const query  = graphql `
 query Media {
-    allStrapiMedia {
+    allStrapiMedia(filter: {name: {regex: "/icon/i"}})  {
       edges {
         node {
           name

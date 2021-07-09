@@ -49,13 +49,13 @@ export default function WBox () {
 
     const theHtml = `  
     <div class="w-box ${selectedColor}">
-    <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+    <h4 class="whatIsItAbout font-black">What it’s about</h4>
     <p>${wContent.whatAbout}</p>
   
-  <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+  <h4 class="whatIsItAbout font-black">Why it’s important</h4>
     <p>${wContent.whyImportant}</p>
   
-    <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+    <h4 class="whatIsItAbout font-black">Special Note</h4>
     <p>${wContent.specialNote}</p>
   
   

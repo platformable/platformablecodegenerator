@@ -6,6 +6,7 @@ export default function Roadmap() {
   const [form, setForm] = useState([])
   const [preview, setPreview] = useState(false)
   const [content, setContent] = useState("")
+  const [theHtml,setTheHtml]=useState("")
 
   const html = `
 <section id="timeline">
@@ -22,6 +23,7 @@ ${form.map((item, index) => {
 })}
 </section>
 `
+
 
   const addRow = e => {
     e.preventDefault()
@@ -58,10 +60,10 @@ ${form.map((item, index) => {
   }
 
   const handleClick = async e => {
-    const timeline = document.querySelector("#timeline")
-    console.log(timeline)
+const allthehtml = await document.getElementById("timeline")
+
+
     setPreview(true)
-    console.log(form)
   }
 
   return (
@@ -139,8 +141,6 @@ ${form.map((item, index) => {
                   role="button"
                   onClick={() => {
                     const allTheHtml = document.getElementById("timeline").outerHTML
-       
-      
                     navigator.clipboard.writeText(allTheHtml)
                   }}
                 >
@@ -156,6 +156,17 @@ ${form.map((item, index) => {
 
         <Row>
           <Col md={12}>
+{/* {preview &&    <Col md={12} className="code-block">
+                <code
+          onClick={() => {
+            navigator.clipboard.writeText(theHtml)
+          }}
+        >
+          {theHtml}
+        </code>
+                </Col>} */}
+
+
             {preview ? (
               <>
                 <div class="labs-road-text-img-component-container">
