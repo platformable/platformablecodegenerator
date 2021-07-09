@@ -56,17 +56,17 @@ export default function Personas() {
             color:"policy-lead"
         }
         ,{
-            name:"DG Lead",
+            name:"Digital Government Lead",
             url:"https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Digital_Gov_Lead_3e539d4909.png",
             color:"dg-lead"
         }
         ,{
-            name:"PM Lead",
+            name:"Product Manager Lead",
             url:"https://res.cloudinary.com/platform1/image/upload/v1623688299/Policy_Leads_b1fad49ca4.png",
             color:"pm-lead"
         }
         ,{
-            name:"Api Architects and devs",
+            name:"API architects and developers",
             url:"https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Developer_4903ab395f.png",
             color:"api-architects"
         }
