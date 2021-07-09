@@ -43,6 +43,15 @@ export default function LargeQuote () {
             setErrorMessage(false)
         }
     }
+
+    const theHtml = `  
+    <div class="large-quote ${selectedColor}">
+    <p>${quoteContent.quote}</p>
+    <div class="author"><h3 class="font-black">${quoteContent.author}</h3></div>
+    <div class="second-line">${quoteContent.secondLine}</div>
+  </div>
+      `
+
   return (
     <Layout>
       <Container className="my-5">
@@ -122,7 +131,7 @@ export default function LargeQuote () {
               </Form.Group>
     
 
-              <Button variant="primary" type="submit" onClick={handleClick}>
+              <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
                 Get Code
               </Button>
             </Form>
@@ -144,6 +153,19 @@ export default function LargeQuote () {
               </div>
           </Col>
         </Row>
+
+
+        {fullContent ? (
+          <Row>
+            <Col md={12}>
+              <h6 className="fw-bold">Preview component</h6>
+              <div
+                dangerouslySetInnerHTML={{ __html: theHtml }}
+                className={selectedColor}
+              />
+            </Col>
+          </Row>
+        ) : null}
       </Container>
     </Layout>
   )

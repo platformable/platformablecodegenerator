@@ -45,6 +45,25 @@ export default function WBox () {
             setErrorMessage(false)
         }
     }
+
+
+    const theHtml = `  
+    <div class="w-box ${selectedColor}">
+    <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+    <p>${wContent.whatAbout}</p>
+  
+  <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+    <p>${wContent.whyImportant}</p>
+  
+    <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+    <p>${wContent.specialNote}</p>
+  
+  
+  </div>
+  
+      `
+
+
   return (
     <Layout>
       <Container className="my-5">
@@ -124,7 +143,7 @@ export default function WBox () {
               </Form.Group>
     
 
-              <Button variant="primary" type="submit" onClick={handleClick}>
+              <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
                 Get Code
               </Button>
             </Form>
@@ -145,6 +164,19 @@ export default function WBox () {
               </div>
           </Col>
         </Row>
+
+
+        {fullContent ? (
+          <Row>
+            <Col md={12}>
+              <h6 className="fw-bold">Preview component</h6>
+              <div
+                dangerouslySetInnerHTML={{ __html: theHtml }}
+                className={selectedColor}
+              />
+            </Col>
+          </Row>
+        ) : null}
       </Container>
     </Layout>
   )

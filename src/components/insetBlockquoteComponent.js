@@ -9,7 +9,7 @@ export default function InsetBlockquoteComponent({
   selectedColor,
 }) {
   const theHtml = `  
-    <div class="rounded-xl shadow-md my-5 px-5 text-white ${selectedColor}">
+    <div class="text-white ${selectedColor}">
 <strong><i>${content}</i></strong>
 </div>
 
@@ -17,25 +17,6 @@ export default function InsetBlockquoteComponent({
   return (
     <>
       <div className="code-container">
-      <CallModalBtn theHtml={theHtml} selectedColor={selectedColor}/>
-      <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>}>
-  <span className="d-inline-block">
-    {/* <Button disabled style={{ pointerEvents: 'none' }}>
-      Disabled button
-    </Button> */}
-    <div
-          className="badge badge-warning block"
-          role="button"
-          onClick={() => {
-            navigator.clipboard.writeText(theHtml)
-          }}
-        >
-          <img src="https://img.icons8.com/small/16/000000/copy-2.png" />
-        </div>
-  </span>
-</OverlayTrigger>
-<br></br>
-        
 
         <code
           onClick={() => {
@@ -45,11 +26,7 @@ export default function InsetBlockquoteComponent({
           {theHtml}
         </code>
       </div>
-      {/* <p className="my-2 badge badge-warning">Preview</p>
-      <div
-        dangerouslySetInnerHTML={{ __html: theHtml }}
-        className={`text-white shadow-sm px-3 py-3 rounded ${selectedColor}`}
-      /> */}
+
     </>
   )
 }

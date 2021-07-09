@@ -85,11 +85,24 @@ export default function LabsBlogComponent() {
             </span>
           ) : null}
                  </Col>
+                
+                {preview && 
+                 <Row>
+                   <Col md={12} className="code-block">
+                   <code
+          onClick={() => {
+            navigator.clipboard.writeText(html)
+          }}
+        >
+          {html}
+        </code>
+                   </Col>
+                 </Row> }
 
                  <Row>
                 <Col md={12}>
                
-             {preview && <div dangerouslySetInnerHTML={{ __html: html }}/>}   
+             {preview && <><div dangerouslySetInnerHTML={{ __html: html }}/></>}   
            
                 </Col>
             </Row>

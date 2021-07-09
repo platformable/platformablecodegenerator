@@ -20,7 +20,6 @@ export default function wBoxComponent({
   return (
     <>
       <div className="code-container">
-        <CallModalBtn theHtml={theHtml} />
 
       <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>}>
   <span className="d-inline-block">

@@ -4,6 +4,7 @@ import Layout from '../components/layout'
 import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import MediaModalPreview from '../components/mediaModalPreview'
 import { StaticImage } from "gatsby-plugin-image"
+import {OverlayTrigger, Tooltip} from 'react-bootstrap'
 
 
 
@@ -30,7 +31,7 @@ export default function Media({data}) {
 `
 
     function getData(e){
-      console.log('currentSrc',e)
+ 
       setContent({...content,selectedImg:e.target.currentSrc,name:e.target.alt})
       const allGalleryImg = document.querySelectorAll(".mediaGallerySelectedImg")
       allGalleryImg.forEach(item=> item.classList.remove("mediaGallerySelectedImg"))
@@ -76,6 +77,24 @@ export default function Media({data}) {
 
                 <Row>
                 <Col md={12}>
+                  {preview && <>
+                    <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>}>
+  <span className="d-inline-block">
+    {/* <Button disabled style={{ pointerEvents: 'none' }}>
+      Disabled button
+    </Button> */}
+    <div
+          className="badge badge-warning block"
+          role="button"
+          onClick={() => {
+            navigator.clipboard.writeText(html)
+          }}
+        >
+          <img src="https://img.icons8.com/small/16/000000/copy-2.png" />
+        </div>
+  </span>
+</OverlayTrigger>
+                  </>}
             {preview && <div dangerouslySetInnerHTML={{ __html: html }} />}
           </Col>
                 </Row>

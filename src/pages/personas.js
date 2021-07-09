@@ -179,6 +179,15 @@ if(persona !=="") {
 
 {preview ?
             <Row>
+                <Col md={12} className="code-block">
+                <code
+          onClick={() => {
+            navigator.clipboard.writeText(html)
+          }}
+        >
+          {html}
+        </code>
+                </Col>
                 <Col md={12}>
                
                 <div dangerouslySetInnerHTML={{ __html: html }}/>

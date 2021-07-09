@@ -45,6 +45,15 @@ export default function SummaryQuote () {
             setErrorMessage(false)
         }
     }
+
+    const theHtml = `  
+    <div class="summary-box text-white ${selectedColor}">
+    <h3 class="">Who should read this:</h3> ${blockquoteContent.whoShouldReadThis} <br><br>
+    <h3 class="">What it’s about:</h3> ${blockquoteContent.whatAbout}<br><br>
+    <h3 class="">Why it’s important:</h3> ${blockquoteContent.whyImportant}<br>
+    </div>
+
+    `
   return (
     <Layout>
       <Container className="my-5">
@@ -124,7 +133,7 @@ export default function SummaryQuote () {
               </Form.Group>
     
 
-              <Button variant="primary" type="submit" onClick={handleClick}>
+              <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
                 Get Code
               </Button>
             </Form>
@@ -146,6 +155,19 @@ export default function SummaryQuote () {
               </div>
           </Col>
         </Row>
+
+        {fullContent ? (
+          <Row>
+            <Col md={12}>
+              <h6 className="fw-bold">Preview component</h6>
+              <div
+                dangerouslySetInnerHTML={{ __html: theHtml }}
+                className={selectedColor}
+              />
+            </Col>
+          </Row>
+        ) : null}
+
       </Container>
     </Layout>
   )
