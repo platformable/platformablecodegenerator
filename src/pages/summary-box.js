@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import SummaryBlockquoteComponent from '../components/summaryBlockquoteComponent';
 
+import summaryBoxImg from '../../static/previewThumbnails/summaryBoxThumbnail.png'
 
 export default function SummaryQuote () {
     const [fullContent,setFullContent] = useState(false);
@@ -14,6 +15,8 @@ export default function SummaryQuote () {
 
   
     })
+
+
 
     const [errorMessage, setErrorMessage] =useState(false);
     const errorText = 'Some data is missing'
@@ -57,10 +60,18 @@ export default function SummaryQuote () {
   return (
     <Layout>
       <Container className="my-5">
+      <div className="row">
+        <h3 className="fw-bold">Summar Box</h3>
+          <p>Component Example</p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={summaryBoxImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
         <Row>
           <Col md={6} id="left-side">
               <section id="colorButtons">
-              <h3 className="font-weight-bold">Summary Box</h3>
                   <h4>Select color</h4>
               <Row>
                   <Col md={2} className="colors ">

@@ -2,7 +2,8 @@ import React, {useState,useEffect} from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import WBoxComponent from '../components/wBoxComponent';
-
+import wBoxImg from '../../static/previewThumbnails/wBoxThumbnail.png'
+import { StaticImage } from "gatsby-plugin-image"
 
 export default function WBox () {
     const [fullContent,setFullContent] = useState(false);
@@ -67,10 +68,18 @@ export default function WBox () {
   return (
     <Layout>
       <Container className="my-5">
+      <div className="row">
+        <h3 className="fw-bold">W Box</h3>
+          <p>Example Component </p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={wBoxImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
         <Row>
           <Col md={6} id="left-side">
               <section id="colorButtons">
-              <h3 className="font-weight-bold">W Box</h3>
                   <h4>Select color</h4>
               <Row>
                   <Col md={2} className="colors ">

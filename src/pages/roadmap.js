@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button, FormGroup } from "react-bootstrap"
+import roadmapImg from '../../static/previewThumbnails/roadmapThumbnail.png'
 
 export default function Roadmap() {
   const [form, setForm] = useState([])
@@ -69,9 +70,18 @@ const allthehtml = await document.getElementById("timeline")
   return (
     <Layout>
       <Container>
+      <div className="row">
+        <h3 className="fw-bold">Roadmap Component</h3>
+          <p>Example component</p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={roadmapImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
         <Row>
           <Col md={12}>
-            <h3 className="font-weight-bold">Roadmap</h3>
+           
             <Button
               variant="primary"
               type="submit"

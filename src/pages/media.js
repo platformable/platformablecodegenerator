@@ -5,7 +5,7 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import MediaModalPreview from '../components/mediaModalPreview'
 import { StaticImage } from "gatsby-plugin-image"
 import {OverlayTrigger, Tooltip} from 'react-bootstrap'
-
+import inlineIconImg from '../../static/previewThumbnails/inlineIconThumbnail.png'
 
 
 export default function Media({data}) {
@@ -43,8 +43,16 @@ export default function Media({data}) {
     return (
         <Layout>
             <Container>
-            <h3>Inline Icon</h3>
-            <p>Select Image</p>
+            <div className="row">
+        <h3 className="fw-bold">Roadmap Component</h3>
+          <p>Example component</p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={inlineIconImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
+        <p>Select an image:</p>
             <Button variant="" onClick={() => setShow(true)}>
             <img src="https://img.icons8.com/material-outlined/24/000000/image.png"/>     
             </Button>

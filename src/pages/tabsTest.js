@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import InsetBlockquoteComponent from "../components/insetBlockquoteComponent"
-import NoDataImg from "../images/nodata.svg"
-import {OverlayTrigger, Tooltip} from 'react-bootstrap'
-import insetBoxImg from '../../static/previewThumbnails/insetBoxThumbnail.png'
+
+import { OverlayTrigger, Tooltip } from "react-bootstrap"
+import insetBoxImg from "../../static/previewThumbnails/insetBoxThumbnail.png"
 
 export default function InsetQuote1() {
   const [fullContent, setFullContent] = useState(false)
@@ -57,22 +57,81 @@ export default function InsetQuote1() {
 </div>
 
     `
+
+  const basicCode = `
+  <div class="summary-box text-white ${selectedColor}">
+  <h3 class="">Who should read this:</h3> ${blockquoteContent.whoShouldReadThis} <br><br>
+  <h3 class="">What it’s about:</h3> ${blockquoteContent.whatAbout}<br><br>
+  <h3 class="">Why it’s important:</h3> ${blockquoteContent.whyImportant}<br>
+  </div>
+    `
   return (
     <Layout>
       <Container className="my-5">
         <div className="row">
-        <h3 className="fw-bold">Inset Box</h3>
+          <h3 className="fw-bold">Inset Box</h3>
           <p>Component Example</p>
-          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
-            <div className="component-example-img">
-              <img src={insetBoxImg} alt="" className="img-thumbnail" />
+
+          {/* CHANGE THIS TO A COMPONENT */}
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#home"
+                type="button"
+                role="tab"
+                aria-controls="home"
+                aria-selected="true"
+              >
+                Preview
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#profile"
+                type="button"
+                role="tab"
+                aria-controls="profile"
+                aria-selected="false"
+              >
+                Sample Code
+              </button>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div
+              class="tab-pane fade show active"
+              id="home"
+              role="tabpanel"
+              aria-labelledby="home-tab"
+            >
+              <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+                <div className="component-example-img">
+                  <img src={insetBoxImg} alt="" className="img-thumbnail" />
+                </div>
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="profile"
+              role="tabpanel"
+              aria-labelledby="profile-tab"
+            >
+              <pre>{basicCode}</pre>
             </div>
           </div>
         </div>
+
+        {/* CHANGE THIS TO A COMPONENT */}
+
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
-         
               <h4>Select color</h4>
               <Row>
                 <Col md={2} className="colors ">

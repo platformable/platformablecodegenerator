@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { Container,Row, Col, Form, Button } from 'react-bootstrap'
 import Layout from '../components/layout'
+import PersonaImg from '../../static/previewThumbnails/personaThumbnail.png'
 
 export default function Personas() {
 
@@ -119,7 +120,15 @@ if(persona !=="") {
     return (
         <Layout>
             <Container>
-            <h3 className="my-5">Persona`s Card</h3>
+            <div className="row">
+        <h3 className="fw-bold">Persona`s Card</h3>
+          <p>Example component</p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={PersonaImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
             <h4 className="">Select Persona</h4>
             <Row>
                     {personasList.map((persona,index)=>{

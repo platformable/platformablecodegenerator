@@ -1,8 +1,7 @@
 import React, { useState,useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import DynamicTableComponent from "../components/dynamicTableComponent"
-
+import tableImg from '../../static/previewThumbnails/tableThumbnail.png'
 import Loadable from 'react-loadable';
 
 const LoadableComponent = Loadable({
@@ -68,11 +67,19 @@ setContent(data)
   return (
     <Layout>
       <Container className="my-5">
+      <div className="row">
+        <h3 className="fw-bold">Table Component</h3>
+          <p>Example component</p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={tableImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
         <Row>
           <Col md={12} id="left-side">
             <section id="colorButtons">
-              <h3 className="font-weight-bold">Dynamic Table</h3>
-              <h4>Select color</h4>
+              <p>Select color</p>
               <Row>
                 <Col md={2} className="colors ">
                   <button

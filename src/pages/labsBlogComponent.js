@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import Layout from '../components/layout'
 import { Container, Row, Form, Button,Col } from 'react-bootstrap'
-
+import labsTextImg from '../../static/previewThumbnails/labsTextThumbnail.png'
 import Loadable from 'react-loadable';
 
 const LoadableComponent = Loadable({
@@ -44,8 +44,16 @@ export default function LabsBlogComponent() {
     return (
      <Layout>
          <Container>
+         <div className="row">
+        <h3 className="fw-bold">Labs Blog Text Component</h3>
+          <p>Example component</p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={labsTextImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
              <Row>
-                 <h3 className="font-weight-bold mb-5">Labs Blog Text Component</h3>
 
                  <Col md={12}>
 

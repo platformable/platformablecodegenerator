@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import SmallQuoteComponent from '../components/smallQuoteComponent';
-
+import smallQuoteImg from '../../static/previewThumbnails/smallQuoteThumbnail.png'
 
 export default function SmallQuote () {
     const [fullContent,setFullContent] = useState(false);
@@ -58,11 +58,19 @@ export default function SmallQuote () {
   return (
     <Layout>
       <Container className="my-5">
+      <div className="row">
+        <h3 className="fw-bold">Small Quote</h3>
+          <p>Example component</p>
+          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
+            <div className="component-example-img">
+              <img src={smallQuoteImg} alt="" className="img-thumbnail" />
+            </div>
+          </div>
+        </div>
         <Row>
           <Col md={6} id="left-side">
               <section id="colorButtons">
-              <h3 className="font-weight-bold">Small Quote</h3>
-                  <h4>Select color</h4>
+                  <p>Select color</p>
               <Row>
                   <Col md={2} className="colors ">
                       <button className="dark-purple-btn colorBtn"

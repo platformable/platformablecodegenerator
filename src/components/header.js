@@ -38,7 +38,7 @@ const Header = ({ siteTitle }) => (
   <Navbar.Brand href="#home"><Link to="/"><img src={Logo} alt="platformable logo"/></Link></Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
-    <Nav className="ml-auto">
+    <Nav className="justify-content-end">
       <Nav.Link href="http://www.platformable.com">Homepage</Nav.Link>
     </Nav>
   </Navbar.Collapse>
