@@ -118,7 +118,7 @@ export default function Media({data}) {
 
 export const query  = graphql `
 query Media {
-    allStrapiMedia {
+    allStrapiMedia(filter: {name: {regex: "/ICON /i"}}) {
       edges {
         node {
           name
