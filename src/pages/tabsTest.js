@@ -65,6 +65,38 @@ export default function InsetQuote1() {
   <h3 class="">Why it’s important:</h3> ${blockquoteContent.whyImportant}<br>
   </div>
     `
+
+    const theCss= `
+    /* SUMMARY BOX COMPONENT */
+
+    .summary-box h3 {
+        font-weight: bold;
+      }
+      .summary-box-general-dark {
+        background-color:var(--russian-violet-dark);
+        padding:20px;
+        border-radius: 10px;
+      }
+      .summary-box-bank-dark {
+        background-color:var(--red-orange-dark);
+        padding:20px;
+        border-radius: 10px;
+      }
+      .summary-box-gov-dark {
+        background-color:#632FAE;
+        padding:20px;
+        border-radius: 10px;
+      }
+      .summary-box-health-dark {
+        background-color:#0956FC;
+        padding:20px;
+        border-radius: 10px;
+      }
+      .summary-box-sustain-dark {
+        border-radius: 10px;
+        background-color:#0CE6A3;
+        padding:20px;
+      }`
   return (
     <Layout>
       <Container className="my-5">
@@ -99,7 +131,35 @@ export default function InsetQuote1() {
                 aria-controls="profile"
                 aria-selected="false"
               >
-                Sample Code
+                HTML
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#css"
+                type="button"
+                role="tab"
+                aria-controls="css"
+                aria-selected="false"
+              >
+                CSS
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="profile-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#howto"
+                type="button"
+                role="tab"
+                aria-controls="css"
+                aria-selected="false"
+              >
+                How to
               </button>
             </li>
           </ul>
@@ -116,6 +176,7 @@ export default function InsetQuote1() {
                 </div>
               </div>
             </div>
+
             <div
               class="tab-pane fade"
               id="profile"
@@ -124,6 +185,25 @@ export default function InsetQuote1() {
             >
               <pre>{basicCode}</pre>
             </div>
+            <div
+              class="tab-pane fade"
+              id="css"
+              role="tabpanel"
+              aria-labelledby="css-tab"
+            >
+              <pre>{theCss}</pre>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="howto"
+              role="tabpanel"
+              aria-labelledby="css-tab"
+            >
+                <div className="howTo d-flex justify-content-center align-items-center py-5 bg-light my-5 rounded">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/zd0_S_FPzKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              </div>
+            </div>
+            
           </div>
         </div>
 

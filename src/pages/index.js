@@ -16,13 +16,22 @@ import labsTextImg from '../../static/previewThumbnails/labsTextThumbnail.png'
 import roadmapImg from '../../static/previewThumbnails/roadmapThumbnail.png'
 import inlineIconImg from '../../static/previewThumbnails/inlineIconThumbnail.png'
 import summaryBoxImg from '../../static/previewThumbnails/summaryBoxThumbnail.png'
-
+import BannerImg from '../../static/frontbanner.png'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
+    <section className="py-5 frontbanner">
+      <div className="container">
+        <div className="row">
+          <div className="col-md-12">
+            <img src={BannerImg} />
+          </div>
+        </div>
+      </div>
+    </section>
     <Container>
-      <h6 className="fw-bold mb-5">Select html generator</h6>
+      <h6 className="fw-bold my-5">Select html generator</h6>
       <Row>
       <Col md={{ span: 3, offset: 0 }} className="mt-1">
           <Card>
