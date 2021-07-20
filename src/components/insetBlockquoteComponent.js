@@ -13,11 +13,6 @@ export default function InsetBlockquoteComponent({ content, selectedColor }) {
   `
   return (
     <>
-      <div class="text-white ${selectedColor}">
-        <strong>
-          <i>${content}</i>
-        </strong>
-      </div>
       <div className="">
         <code
           onClick={() => {
