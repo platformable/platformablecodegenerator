@@ -4,7 +4,8 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import WBoxComponent from '../components/wBoxComponent';
 import wBoxImg from '../../static/previewThumbnails/wBoxThumbnail.png'
 import { StaticImage } from "gatsby-plugin-image"
-
+import PreviewCodeComponent from "../components/previewCodeComponent"
+import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 export default function WBox () {
     const [fullContent,setFullContent] = useState(false);
     const [selectedColor,setSelectedColor] = useState('');
@@ -47,21 +48,125 @@ export default function WBox () {
         }
     }
 
-
+    const basicCode = `
+    <div class="w-box">
+      <h4 class="whatIsItAbout font-black">What it’s about</h4>
+      <p></p>
+      <h4 class="whatIsItAbout font-black">Why it’s important</h4>
+      <p></p>
+      <h4 class="whatIsItAbout font-black">Special Note</h4>
+      <p></p>
+    </div>
+    `
     const theHtml = `  
     <div class="w-box ${selectedColor}">
-    <h4 class="whatIsItAbout font-black">What it’s about</h4>
-    <p>${wContent.whatAbout}</p>
-  
-  <h4 class="whatIsItAbout font-black">Why it’s important</h4>
-    <p>${wContent.whyImportant}</p>
-  
-    <h4 class="whatIsItAbout font-black">Special Note</h4>
-    <p>${wContent.specialNote}</p>
-  
-  
-  </div>
-  
+      <h4 class="whatIsItAbout font-black">What it’s about</h4>
+      <p>${wContent.whatAbout}</p>
+      <h4 class="whatIsItAbout font-black">Why it’s important</h4>
+      <p>${wContent.whyImportant}</p>
+      <h4 class="whatIsItAbout font-black">Special Note</h4>
+      <p>${wContent.specialNote}</p>
+    </div>
+      `
+
+      const theCss=`
+/* WBOX */
+
+.w-box {
+padding:30px;
+border-radius: 10px;
+}
+
+.w-box p {
+  margin:20px 0;
+}
+
+
+.w-box-general-dark-btn {
+  background-color:var(--russian-violet-dark);
+
+}
+.w-box-general-dark-bg {
+  color:var(--russian-violet-dark);
+  background-color:var(--russian-violet-light);
+
+}
+.w-box-general-dark-bg h4 {
+  background-color:var(--russian-violet-dark);
+  color:white;
+  display:inline;
+  padding:3px 10px;
+  margin-bottom:10px !important;
+  font-weight: bold;
+}
+
+.w-box-ob-dark-btn {
+  background-color:var(--red-orange-dark);
+}
+.w-box-ob-bg {
+  background-color:var(--red-orange-light);
+  color:var(--russian-violet-dark);
+}
+
+.w-box-ob-bg h4 {
+  background-color:var(--red-orange-dark);
+  color:white;
+  display:inline;
+  padding:3px 10px;
+  margin-bottom:10px !important;
+  font-weight: bold;
+}
+
+.w-box-og-dark-btn {
+  background-color:var(--og-dark);
+}
+.w-box-og-bg {
+  background-color:var(--og-light);
+  color:var(--russian-violet-dark);
+}
+
+.w-box-og-bg h4 {
+  background-color:var(--og-dark);
+  color:white;
+  display:inline;
+  padding:3px 10px;
+  margin-bottom:10px !important;
+  font-weight: bold;
+}
+
+.w-box-oh-dark-btn {
+  background-color:var(--oh-dark);
+}
+.w-box-oh-bg {
+  background-color:var(--oh-light);
+  color:var(--russian-violet-dark);
+}
+
+.w-box-oh-bg h4 {
+  background-color:var(--oh-dark);
+  color:white;
+  display:inline;
+  padding:3px 10px;
+  font-weight: bold;
+  margin-bottom:10px !important;
+}
+
+.w-box-os-dark-btn {
+  background-color:var(--os-dark);
+}
+.w-box-os-bg {
+  background-color:var(--os-light);
+  color:var(--russian-violet-dark);
+}
+
+.w-box-os-bg h4 {
+  background-color:var(--os-dark);
+  color:white;
+  display:inline;
+  padding:3px 10px;
+  font-weight: bold;
+  margin-bottom:10px !important;
+}
       `
 
 
@@ -71,11 +176,7 @@ export default function WBox () {
       <div className="row">
         <h3 className="fw-bold">W Box</h3>
           <p>Example Component </p>
-          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
-            <div className="component-example-img">
-              <img src={wBoxImg} alt="" className="img-thumbnail" />
-            </div>
-          </div>
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={wBoxImg}/>
         </div>
         <Row>
           <Col md={6} id="left-side">
@@ -152,13 +253,17 @@ export default function WBox () {
               </Form.Group>
     
 
-              <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
+              <Button variant="primary" type="submit" onClick={handleClick} className="my-5 btn-mainColor">
                 Get Code
               </Button>
             </Form>
           </Col>
           <Col md={6} id="right-side">
-              <h6 className="">Copy your code:</h6>
+          <div className="d-flex justify-content-between"> 
+            <h6 className="">Copy your code:</h6>
+            <CopyToClipboardBtn theHtml={theHtml} />
+          </div>
+
               <div id="theCode">
                   {errorMessage ? errorText : null}
                   {fullContent ? 

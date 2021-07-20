@@ -103,6 +103,7 @@ export default function InsetQuote1() {
         <div className="row">
           <h3 className="fw-bold">Inset Box</h3>
           <p>Component Example</p>
+       
 
           {/* CHANGE THIS TO A COMPONENT */}
           <ul class="nav nav-tabs" id="myTab" role="tablist">

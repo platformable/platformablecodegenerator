@@ -23,7 +23,8 @@
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
-    "react-loadable": "^5.5.0"
+    "react-loadable": "^5.5.0",
+    "react-toastify": "^7.0.4"
   },
   "devDependencies": {
     "prettier": "2.1.2"

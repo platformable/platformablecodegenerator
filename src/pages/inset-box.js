@@ -5,6 +5,8 @@ import InsetBlockquoteComponent from "../components/insetBlockquoteComponent"
 import NoDataImg from "../images/nodata.svg"
 import {OverlayTrigger, Tooltip} from 'react-bootstrap'
 import insetBoxImg from '../../static/previewThumbnails/insetBoxThumbnail.png'
+import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
+import PreviewCodeComponent from "../components/previewCodeComponent"
 
 export default function InsetQuote1() {
   const [fullContent, setFullContent] = useState(false)
@@ -53,21 +55,71 @@ export default function InsetQuote1() {
 
   const theHtml = `  
     <div class="text-white ${selectedColor}">
-<strong><i>${blockquoteContent.content}</i></strong>
-</div>
+    <strong><i>${blockquoteContent.content}</i></strong>
+    </div>
 
     `
+
+    const basicCode = `
+    <div class="text-white ${selectedColor}">
+    <strong><i>${blockquoteContent.content}</i></strong>
+    </div>
+    `
+
+    const theCss= `
+/* INSET BOX */
+
+.inset-box-general-light {
+  background-color:var(--sunglow-dark);
+  padding:5px 10px;
+  border-radius:10px;
+  margin:10px 0;
+}
+.inset-box-bank-light {
+  background-color:#FBAC8F;
+  padding:5px 10px;
+  border-radius:10px;
+  margin:10px 0;
+}
+.inset-box-gov-light {
+  background-color:#D8C1FB;
+  padding:5px 10px;
+  border-radius:10px;
+  margin:10px 0;
+}
+.inset-box-health-light {
+  background-color:#87ACFC;
+  padding:5px 10px;
+  border-radius:10px;
+  margin:10px 0;
+}
+.inset-box-sustain-light {
+  background-color:#9686AE;
+  padding:5px 10px;
+  border-radius:10px;
+  margin:10px 0;
+}
+
+.code-container  {
+  color:black;
+  font-size:12px;
+  background-color:#f4f4f4;
+  padding:10px;
+  border-radius:10px;
+  }
+  
+  `
+
+
   return (
     <Layout>
       <Container className="my-5">
         <div className="row">
         <h3 className="fw-bold">Inset Box</h3>
           <p>Component Example</p>
-          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
-            <div className="component-example-img">
-              <img src={insetBoxImg} alt="" className="img-thumbnail" />
-            </div>
-          </div>
+
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={insetBoxImg}/>
+          
         </div>
         <Row>
           <Col md={6} id="left-side">
@@ -140,31 +192,18 @@ export default function InsetQuote1() {
                 variant="primary"
                 type="submit"
                 onClick={handleClick}
-                className="my-5"
+                className="my-5 btn-mainColor"
               >
                 Get Code
               </Button>
             </Form>
           </Col>
+
           <Col md={6} id="right-side">
+           <div className="d-flex justify-content-between"> 
             <h6 className="">Copy your code:</h6>
-            <OverlayTrigger
-              overlay={
-                <Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>
-              }
-            >
-              <span className="d-inline-block">
-                <div
-                  className="badge badge-warning block"
-                  role="button"
-                  onClick={() => {
-                    navigator.clipboard.writeText(theHtml)
-                  }}
-                >
-                  <img src="https://img.icons8.com/small/16/000000/copy-2.png" />
-                </div>
-              </span>
-            </OverlayTrigger>
+            <CopyToClipboardBtn theHtml={theHtml} />
+          </div>
 
             <div id="theCode">
               {errorMessage ? errorText : null}

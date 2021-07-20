@@ -2,8 +2,12 @@ import React,{useState,useEffect} from 'react'
 import { Container,Row, Col, Form, Button } from 'react-bootstrap'
 import Layout from '../components/layout'
 import PersonaImg from '../../static/previewThumbnails/personaThumbnail.png'
+import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
+import PreviewCodeComponent from "../components/previewCodeComponent"
+
 
 export default function Personas() {
+
 
     const [persona,setPersona] = useState("")
     const [selectedCard,setSelectedCard]=useState({})
@@ -86,23 +90,119 @@ const addBorder =()=>{
     })
 }
 
-
-const html = `
-<div class="main-personas ${selectedCard.color}">
-<div class="personas-top">
-    <div class="personas-img-left">
-        <img src=${selectedCard.url} alt="" className="align-self-center"/>
+const basicCode = `
+<div class="main-personas">
+    <div class="personas-top">
+        <div class="personas-img-left">
+            <img src="" alt="" className="align-self-center"/>
+        </div>
+    <div class="personas-text-left">
+        <div class="personas-title"><h3></h3></div>
+        <div class="personas-subtitle"></div>
     </div>
+    </div>
+    <div class="personas-bottom-text">
+        <p></p>
+    </div>
+</div>
+`
+
+const theHtml = `
+<div class="main-personas ${selectedCard.color}">
+    <div class="personas-top">
+        <div class="personas-img-left">
+            <img src=${selectedCard.url} alt="" className="align-self-center"/>
+        </div>
     <div class="personas-text-left">
         <div class="personas-title"><h3>${selectedCard.name}</h3></div>
-        <div class="personas-subtitle">${cardContent.subtitle}
-        </div>
+        <div class="personas-subtitle">${cardContent.subtitle}</div>
+    </div>
+    </div>
+    <div class="personas-bottom-text">
+        <p>${cardContent.content}</p>
     </div>
 </div>
-<div class="personas-bottom-text">
-    <p>${cardContent.content}</p>
-</div>
-</div>
+`
+
+const theCss =`
+/* // PERSONA´S CARD // */
+
+.main-personas {
+  margin:20px 0;
+  max-width:800px;
+  margin: 20px auto;  
+}
+
+.personas-top {
+  display:flex;
+  color:white;
+  align-items: center;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  padding:20px 0;
+}
+
+.personas-top img {
+  max-width:80px;
+  height:80px;
+  position:relative;
+  left:-30px;
+  border-radius:60%;
+  padding:10px;
+}
+
+.personas-top h3 {
+  font-weight: bold;
+  position:relative;
+
+}
+
+.personas-subtitle {
+position:relative;
+
+}
+
+.personas-bottom-text {
+  padding:20px;
+  border-bottom-left-radius:10px;
+  border-bottom-right-radius:10px;
+}
+
+.api-tools-provider .personas-top, .regulator .personas-top ,.api-architects .personas-top{
+  background-color:#FFD23F;
+  color:white;
+
+}
+.api-tools-provider .personas-bottom-text, .api-tools-provider .personas-top img,
+.regulator .personas-bottom-text, .regulator .personas-top img,.api-architects .personas-bottom-text ,.api-architects .personas-top img
+{
+  background-color:#FFE590;
+}
+
+.fintech-associantions .personas-top,.banks .personas-top,.fintechs .personas-top,.financial-inclusion .personas-top {
+  background-color:#FB5012;
+  color:white;
+}
+
+.fintech-associantions .personas-top img,.banks .personas-top img,.fintechs .personas-top img,.financial-inclusion .personas-top img,
+.fintech-associantions .personas-bottom-text,.banks .personas-bottom-text,.fintechs .personas-bottom-text,.financial-inclusion .personas-bottom-text 
+{
+  background-color:var(--red-orange-light);
+  color:var(--russian-violet-dark)
+}
+
+
+.policy-lead .personas-top,.dg-lead .personas-top,.pm-lead .personas-top {
+  background-color:var(--og-dark);
+  color:white;
+}
+
+.policy-lead .personas-top img,.dg-lead .personas-top img,.pm-lead .personas-top img,
+.policy-lead .personas-bottom-text,.dg-lead .personas-bottom-text,.pm-lead .personas-bottom-text 
+{
+  background-color:#D8C1FB;
+  color:var(--russian-violet-dark)
+}
 `
 
 const handleClick=(persona)=>{
@@ -119,15 +219,13 @@ if(persona !=="") {
 
     return (
         <Layout>
-            <Container>
+            <Container className="my-5">
             <div className="row">
-        <h3 className="fw-bold">Persona`s Card</h3>
-          <p>Example component</p>
-          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
-            <div className="component-example-img">
-              <img src={PersonaImg} alt="" className="img-thumbnail" />
-            </div>
-          </div>
+            <h3 className="fw-bold">Persona´s Card</h3>
+              <p>Component Example</p>
+
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={PersonaImg}/>
+          
         </div>
             <h4 className="">Select Persona</h4>
             <Row>
@@ -165,41 +263,36 @@ if(persona !=="") {
                 </Col>
             </Row>
 
-            <Row>
-                <Col>
-                <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
+            <Row className="">
+                <Col md={6}>
+                <Button variant="primary" type="submit" onClick={handleClick} className="my-5 btn-mainColor">
                 Create Persona
               </Button>
-              {preview ? <span className="d-inline-block p-2">
-  
-  <div
-        className="badge badge-warning block"
-        role="button"
-        onClick={() => {
-          navigator.clipboard.writeText(html)
-        }}
-      >
-        <img className="btn" src="https://img.icons8.com/small/16/000000/copy-2.png" />
-      </div>
-
-</span>: null}
+             
+                </Col>
+                <Col md={6} className="my-5">
+                <div className="d-flex justify-content-between"> 
+            <h6 className="">Copy your code:</h6>          
+            {preview && <CopyToClipboardBtn theHtml={theHtml} /> }
+          </div>
                 </Col>
             </Row>
 
 {preview ?
             <Row>
-                <Col md={12} className="code-block">
+                <Col md={6} className="">
+                <div dangerouslySetInnerHTML={{ __html: theHtml }}/>
+                </Col>
+                <Col md={6}>
                 <code
           onClick={() => {
-            navigator.clipboard.writeText(html)
+            navigator.clipboard.writeText(theHtml)
           }}
         >
-          {html}
+          <pre>{theHtml}</pre>
         </code>
-                </Col>
-                <Col md={12}>
                
-                <div dangerouslySetInnerHTML={{ __html: html }}/>
+                
            
                 </Col>
             </Row>

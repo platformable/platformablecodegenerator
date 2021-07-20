@@ -168,18 +168,6 @@ setContent(data)
               </Row>
             </section>
 
-            {/* {globalWindow ?
-            <CKEditor
-                      fontColor="black"
-                    editor={ ClassicEditor }
-                    data="<p>Create your table here, remember to set first row as Header Row</p>"
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-                        setContent(data)
-                        setPreview(false)
-                    } }
-             
-                /> : <p>An error ocurred, please come back later</p>} */}
 
     <LoadableComponent handleTest={handleTest}/>
 

@@ -20,29 +20,13 @@ export default function SummaryBlockquoteComponent({
   `
   return (
     <>
-      <div className="code-container">
-      <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>}>
-  <span className="d-inline-block">
-    <div
-          className="badge badge-warning block"
-          role="button"
-          onClick={() => {
-            navigator.clipboard.writeText(theHtml)
-          }}
-        >
-          <img src="https://img.icons8.com/small/16/000000/copy-2.png" />
-        </div>
-  </span>
-</OverlayTrigger>
-<br></br>
-        
-
+      <div className="">
         <code
           onClick={() => {
             navigator.clipboard.writeText(theHtml)
           }}
         >
-          {theHtml}
+          <pre>{theHtml}</pre>
         </code>
       </div>
     </>

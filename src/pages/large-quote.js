@@ -4,6 +4,8 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import LargeQuoteComponent from '../components/LargeQuoteComponent';
 import largeQuoteImg from '../../static/previewThumbnails/largeQuoteThumbnail.png'
 import { StaticImage } from "gatsby-plugin-image"
+import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
+import PreviewCodeComponent from "../components/previewCodeComponent"
 
 export default function LargeQuote () {
     const [fullContent,setFullContent] = useState(false);
@@ -45,13 +47,108 @@ export default function LargeQuote () {
         }
     }
 
+    const basicCode=`
+    <div class="large-quote">
+      <p></p>
+      <div class="author"><h3 class="font-black"></h3></div>
+      <div class="second-line"></div>
+    </div>`
     const theHtml = `  
     <div class="large-quote ${selectedColor}">
-    <p>${quoteContent.quote}</p>
-    <div class="author"><h3 class="font-black">${quoteContent.author}</h3></div>
-    <div class="second-line">${quoteContent.secondLine}</div>
-  </div>
+      <p>${quoteContent.quote}</p>
+      <div class="author"><h3 class="font-black">${quoteContent.author}</h3></div>
+      <div class="second-line">${quoteContent.secondLine}</div>
+    </div>
       `
+
+    const theCss= `
+/* LARGE QUOTE */
+
+.large-quote {
+  margin:20px 0;
+  padding:5px 10px;
+}
+.large-quote p {
+  font-style:italic;
+  margin:10px 0;
+  color:var(--russian-violet-dark);
+}
+
+.large-quote .author,.large-quote .second-line {
+  display:flex;
+  justify-content:flex-end;
+}
+
+.large-quote .author {
+font-weight:bold;
+}
+
+.dark-purple-btn {
+  background-color: var(--russian-violet-dark);
+}
+
+.LargeQuote-general-dark-btn {
+  background-color:var(--russian-violet-dark);
+
+}
+.LargeQuote-general-dark-bg {
+  border-left:2px solid var(--russian-violet-dark);
+  color:var(--russian-violet-dark);
+}
+
+.ob-dark-btn {
+  background-color:var(--ob-dark)
+}
+
+.LargeQuote-ob-bg {
+  border-left:2px solid var(--ob-dark);
+  color:var(--russian-violet-dark);
+}
+.LargeQuote-ob-bg h3 {
+  color:var(--ob-dark);
+  font-weight: bold;
+}
+
+.og-dark-btn {
+  background-color: var(--og-dark);
+}
+
+.LargeQuote-og-bg {
+  border-left:2px solid var(--og-dark);
+  color:var(--russian-violet-dark);
+}
+.LargeQuote-og-bg h3 {
+  color:var(--og-dark);
+  font-weight: bold;
+}
+
+.oh-dark-btn {
+  background-color:var(--oh-dark)
+}
+
+.LargeQuote-oh-bg {
+  border-left:2px solid var(--oh-dark);
+  color:var(--russian-violet-dark);
+}
+.LargeQuote-oh-bg h3 {
+  color:var(--oh-dark);
+  font-weight: bold;
+}
+
+.os-dark-btn {
+  background-color:var(--os-dark);
+}
+
+.LargeQuote-os-bg {
+  border-left:2px solid var(--os-dark);
+  color:var(--russian-violet-dark);
+}
+.LargeQuote-os-bg h3 {
+  color:var(--os-dark);
+  font-weight: bold;
+}
+`
+
 
   return (
     <Layout>
@@ -59,11 +156,7 @@ export default function LargeQuote () {
       <div className="row">
         <h3 className="fw-bold">Large Quote</h3>
           <p>Component Example</p>
-          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
-            <div className="component-example-img">
-              <img src={largeQuoteImg} alt="" className="img-thumbnail" />
-            </div>
-          </div>
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={largeQuoteImg}/>
         </div>
         <Row>
           <Col md={6} id="left-side">
@@ -146,7 +239,10 @@ export default function LargeQuote () {
             </Form>
           </Col>
           <Col md={6} id="right-side">
-              <h6 className="">Copy your code:</h6>
+          <div className="d-flex justify-content-between"> 
+            <h6 className="">Copy your code:</h6>
+            <CopyToClipboardBtn theHtml={theHtml} />
+          </div>
               <div id="theCode">
                   {errorMessage ? errorText : null}
                   {fullContent ? 

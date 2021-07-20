@@ -3,36 +3,45 @@ import PropTypes from "prop-types"
 import React from "react"
 import {Navbar, Nav,NavDropdown , Container} from 'react-bootstrap';
 import Logo from '../images/logo.png'
+import { StaticImage } from "gatsby-plugin-image";
 
-const Header = ({ siteTitle }) => (
-  // <header
-  //   style={{
-  //     background: `rebeccapurple`,
-  //     marginBottom: `1.45rem`,
-  //   }}
-  // >
-  //   <div
-  //     style={{
-  //       margin: `0 auto`,
-  //       maxWidth: 960,
-  //       padding: `1.45rem 1.0875rem`,
-  //     }}
-  //   >
-  //     <h1 style={{ margin: 0 }}>
-  //       <Link
-  //         to="/"
-  //         style={{
-  //           color: `white`,
-  //           textDecoration: `none`,
-  //         }}
-  //       >
-  //         {siteTitle}
-  //       </Link>
-  //     </h1>
-  //   </div>
-  // </header>
+const Header = ({ siteTitle }) => {
+  const logoWidth = 150
   
+  return(
+  <>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="http://www.platformable.com" target="_blank"><StaticImage src="../images/logo.png" width={logoWidth}/></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <Link class="nav-link" aria-current="page" to="/">Home</Link>
+        </li>
+        <li class="nav-item">
+        <Link class="nav-link" aria-current="page" to="/">About</Link>
+        </li>
+        <li class="nav-item">
+        <Link class="nav-link" aria-current="page" to="/">Pricing</Link>
+        </li>
+      </ul>
+      <div className="login">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link btn btn-warning mx-1 text-white" href="/">Login</a></li>
+          <li class="nav-item"><a class="nav-link btn btn-danger mx-1 text-white "  href="/">SignUp</a></li>
+        </ul>
+      </div>
+  
+      
+    </div>
+  </div>
+</nav>
+  
+{/* 
   <Navbar  expand="lg">
     <Container>
   <Navbar.Brand href="#home"><Link to="/"><img src={Logo} alt="platformable logo"/></Link></Navbar.Brand>
@@ -43,8 +52,9 @@ const Header = ({ siteTitle }) => (
     </Nav>
   </Navbar.Collapse>
   </Container>
-</Navbar>
-)
+</Navbar> */}
+</>
+)}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

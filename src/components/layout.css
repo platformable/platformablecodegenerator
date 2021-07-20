@@ -13,7 +13,7 @@ body {
   padding:0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: hsla(0, 0%, 0%, 0.8);
+  color: var(--russian-violet-dark);
   font-family: "Roboto", sans-serif;
   font-weight: normal;
   word-wrap: break-word;
@@ -68,17 +68,18 @@ img {
 
 /* OUR CODE */
 
-.navbar-brand img {
-  width: 140px;
+.navbar img {
+  max-width: 140px;
   margin: -7px 0 0 0;
 }
 
-.navbar {
-  background-color: #ffd23f !important;
-/*   margin-bottom: 30px; */
+.navbar-brand img {
+  max-width: 140px;
+  margin: -7px 0 0 0;
 }
 
-.btn-primary {
+
+/* .btn-primary {
   background-color: #1b014c !important;
   border: none  !important; 
 }
@@ -87,12 +88,32 @@ img {
   background-color: #ffd23f  !important;
   border: none  !important;
   color: #1b014c  !important;
-}
+} */
 
 .colors {
   padding:0 !important;
   margin:0;
   z-index:1;
+}
+
+.btn-login {
+background-color:var(--sunglow-dark);
+display: block;
+}
+
+.btn-mainColor {
+  background-color:#a62274;
+  border-color:#a62274;
+}
+
+.btn-mainColor:hover {
+  background-color:#6e0c49;
+  border-color:#a62274;
+}
+
+.btn-signup {
+  background-color:#a62274;
+  display: block;
 }
 
 .colorBtn {
@@ -116,6 +137,11 @@ border:none;
 #colorButtons {
   margin-bottom:30px;
 }
+
+.main-blog-cards a {
+  text-decoration:none;
+  color:var(--russian-violet-dark);
+  }
 
 .russian-violet-dark {
   background-color:var(--russian-violet-dark)
@@ -373,7 +399,10 @@ border-radius: 10px;
 /* LARGE QUOTE */
 .large-quote {
   margin:20px 0;
-  padding:5px 10px;
+  padding:10px 20px;
+  background-color:#f4f4f4;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
 }
 .large-quote p {
   font-style:italic;
@@ -1177,5 +1206,19 @@ font-weight:bold;
 
    /* FRONTPAGE */
    .frontbanner {
-     background-color:var(--russian-violet-dark)
+     background-color:#fdf2f8;
    }
+
+   .frontbanner-left h3 {
+     color:#a62274;
+     size:36px;
+   }
+
+   .btn-frontbanner-left {
+     background-color:#a62274;
+     color:white;
+   }
+   .btn-frontbanner-left:hover {
+    background-color:#a62274;
+    color:white;
+  }

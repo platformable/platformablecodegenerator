@@ -12,42 +12,18 @@ export default function wBoxComponent({
 }) {
   const theHtml = `  
   <div class="w-box ${selectedColor}">
-  <h4 class="whatIsItAbout font-black">Whats is it about</h4>
-  <p>${whatAbout}</p>
-
-<h4 class="whatIsItAbout font-black">Whats is it about</h4>
-  <p>${whyImportant}</p>
-
-  <h4 class="whatIsItAbout font-black">Whats is it about</h4>
-  <p>${specialNote}</p>
-
-
-</div>
+   <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+   <p>${whatAbout}</p>
+   <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+   <p>${whyImportant}</p>
+   <h4 class="whatIsItAbout font-black">Whats is it about</h4>
+   <p>${specialNote}</p>
+  </div>
 
     `
   return (
-    <>
-      <div className="code-container">
-        <CallModalBtn theHtml={theHtml} selectedColor={selectedColor}/>
-
-      <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>}>
-  <span className="d-inline-block">
-    {/* <Button disabled style={{ pointerEvents: 'none' }}>
-      Disabled button
-    </Button> */}
-    <div
-          className="badge badge-warning block"
-          role="button"
-          onClick={() => {
-            navigator.clipboard.writeText(theHtml)
-          }}
-        >
-          <img src="https://img.icons8.com/small/16/000000/copy-2.png" />
-        </div>
-  </span>
-</OverlayTrigger>
-<br></br>
-        
+    <>  
+      <div className="">
 
         <code
           onClick={() => {
@@ -55,7 +31,7 @@ export default function wBoxComponent({
           }}
         >
           {/* Display the code */}
-          {theHtml}
+          <pre>{theHtml}</pre>
         </code>
       </div>
       {/* <p className="my-2 badge badge-warning">Preview</p>
