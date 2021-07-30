@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import InsetBlockquoteComponent from "../components/insetBlockquoteComponent"
-import NoDataImg from "../images/nodata.svg"
-import {OverlayTrigger, Tooltip} from 'react-bootstrap'
 import insetBoxImg from '../../static/previewThumbnails/insetBoxThumbnail.png'
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
+import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
 
 export default function InsetQuote1() {
-  const [fullContent, setFullContent] = useState(false)
+ /*  const [fullContent, setFullContent] = useState(false) */
   const [selectedColor, setSelectedColor] = useState("")
   const [blockquoteContent, setBlockquoteContent] = useState({
     content: "",
@@ -45,10 +44,10 @@ export default function InsetQuote1() {
     let isContentEmpty = Object.values(blockquoteContent).some(
       items => items === ""
     )
-    if (isContentEmpty) {
+    if (isContentEmpty || selectedColor === "") {
       setErrorMessage(true)
     } else {
-      setFullContent(true)
+      setPreview(true)
       setErrorMessage(false)
     }
   }
@@ -132,6 +131,7 @@ export default function InsetQuote1() {
                     className="inset-box-general-light colorBtn"
                     onClick={e => {
                       setSelectedColor("inset-box-general-light")
+                      setErrorMessage(false)
                     }}
                   ></button>
                 </Col>
@@ -141,6 +141,7 @@ export default function InsetQuote1() {
                     className="inset-box-bank-light colorBtn"
                     onClick={e => {
                       setSelectedColor("inset-box-bank-light")
+                      setErrorMessage(false)
                     }}
                   ></button>
                 </Col>
@@ -150,6 +151,7 @@ export default function InsetQuote1() {
                     className="inset-box-gov-light colorBtn"
                     onClick={e => {
                       setSelectedColor("inset-box-gov-light")
+                      setErrorMessage(false)
                     }}
                   ></button>
                 </Col>
@@ -159,6 +161,7 @@ export default function InsetQuote1() {
                     className="inset-box-health-light colorBtn"
                     onClick={e => {
                       setSelectedColor("inset-box-health-light")
+                      setErrorMessage(false)
                     }}
                   ></button>
                 </Col>
@@ -168,6 +171,7 @@ export default function InsetQuote1() {
                     className="inset-box-sustain-light colorBtn"
                     onClick={e => {
                       setSelectedColor("inset-box-sustain-light")
+                      setErrorMessage(false)
                     }}
                   ></button>
                 </Col>
@@ -180,6 +184,9 @@ export default function InsetQuote1() {
                   as="textarea"
                   rows={4}
                   onChange={e => {
+                    console.log(e.target.value)
+                    setPreview(false)
+                    setErrorMessage(false)
                     setBlockquoteContent({
                       ...blockquoteContent,
                       content: e.target.value,
@@ -200,14 +207,16 @@ export default function InsetQuote1() {
           </Col>
 
           <Col md={6} id="right-side">
+            {preview && 
            <div className="d-flex justify-content-between"> 
             <h6 className="">Copy your code:</h6>
             <CopyToClipboardBtn theHtml={theHtml} />
           </div>
-
+           }
             <div id="theCode">
-              {errorMessage ? errorText : null}
-              {fullContent ? (
+              {errorMessage ? 
+              <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
+              {preview ? (
                 <InsetBlockquoteComponent
                   selectedColor={selectedColor}
                   content={blockquoteContent.content}
@@ -217,7 +226,7 @@ export default function InsetQuote1() {
           </Col>
         </Row>
 
-        {fullContent ? (
+        {preview ? (
           <Row>
             <Col md={12}>
               <h6 className="fw-bold">Preview component</h6>

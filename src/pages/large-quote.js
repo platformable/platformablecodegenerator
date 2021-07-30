@@ -3,19 +3,19 @@ import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import LargeQuoteComponent from '../components/LargeQuoteComponent';
 import largeQuoteImg from '../../static/previewThumbnails/largeQuoteThumbnail.png'
-import { StaticImage } from "gatsby-plugin-image"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
+import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
 
 export default function LargeQuote () {
-    const [fullContent,setFullContent] = useState(false);
+ 
     const [selectedColor,setSelectedColor] = useState('');
     const [quoteContent,setQuoteContent] = useState({
      quote:'',
      author:'',
      secondLine:''
     })
-
+    const [preview, setPreview] = useState(false)
     const [errorMessage, setErrorMessage] =useState(false);
     const errorText = 'Some data is missing'
 
@@ -37,21 +37,21 @@ export default function LargeQuote () {
 }
 
     const handleClick=(e)=> {
-        e.preventDefault();
-        let isContentEmpty = Object.values(quoteContent).some(items => items === '');
-        if(isContentEmpty) {
-            setErrorMessage(true)
-        } else {
-            setFullContent(true)
-            setErrorMessage(false)
-        }
+      e.preventDefault();
+      let isContentEmpty = Object.values(quoteContent).some(items => items === '');
+      if(isContentEmpty || selectedColor === "") {
+          setErrorMessage(true)
+      } else {
+        setPreview(true)
+          setErrorMessage(false)
+      }
     }
 
     const basicCode=`
-    <div class="large-quote">
-      <p></p>
-      <div class="author"><h3 class="font-black"></h3></div>
-      <div class="second-line"></div>
+    <div class="large-quote ${selectedColor}">
+      <p>${quoteContent.quote}</p>
+      <div class="author"><h3 class="font-black">${quoteContent.author}</h3></div>
+      <div class="second-line">${quoteContent.secondLine}</div>
     </div>`
     const theHtml = `  
     <div class="large-quote ${selectedColor}">
@@ -167,6 +167,8 @@ font-weight:bold;
                       <button className="dark-purple-btn colorBtn"
                   onClick={(e) => {
                     setSelectedColor('LargeQuote-general-dark-bg')
+                    setPreview(false)
+                    setErrorMessage(false)
                 
                   }}
                   ></button></Col>
@@ -175,6 +177,8 @@ font-weight:bold;
                       <button className="ob-dark-btn colorBtn"
                       onClick={(e) => {
                         setSelectedColor('LargeQuote-ob-bg')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}
                       ></button></Col>
@@ -183,7 +187,8 @@ font-weight:bold;
                       <button className="og-dark-btn colorBtn"
                       onClick={(e) => {
                         setSelectedColor('LargeQuote-og-bg')
-                    
+                        setPreview(false)
+                        setErrorMessage(false)
                       }}
                   ></button></Col>
 
@@ -199,7 +204,8 @@ font-weight:bold;
                       <button className="os-dark-btn colorBtn"
                       onClick={(e) => {
                         setSelectedColor('LargeQuote-os-bg')
-                    
+                        setPreview(false)
+                        setErrorMessage(false)
                       }}>
                           </button></Col>
       
@@ -213,6 +219,8 @@ font-weight:bold;
                 <Form.Label>Quote:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e)=>{
                     setQuoteContent({...quoteContent,quote:e.target.value});
+                    setPreview(false)
+                    setErrorMessage(false)
                 }}/>
               </Form.Group>
 
@@ -220,6 +228,8 @@ font-weight:bold;
                 <Form.Label>Author:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e)=>{
                     setQuoteContent({...quoteContent,author:e.target.value});
+                    setPreview(false)
+                    setErrorMessage(false)
                 }}/>
               </Form.Group>
 
@@ -227,25 +237,30 @@ font-weight:bold;
                 <Form.Label>Second Line</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e) => {
                           setQuoteContent({...quoteContent,secondLine:e.target.value});
+                          setPreview(false)
+                          setErrorMessage(false)
                       
                         }}
                 />
               </Form.Group>
     
 
-              <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
+              <Button variant="primary" type="submit" onClick={handleClick} className="my-5 btn-mainColor">
                 Get Code
               </Button>
             </Form>
           </Col>
           <Col md={6} id="right-side">
-          <div className="d-flex justify-content-between"> 
+            {preview && 
+            <div className="d-flex justify-content-between"> 
             <h6 className="">Copy your code:</h6>
             <CopyToClipboardBtn theHtml={theHtml} />
           </div>
+          }
+          
               <div id="theCode">
-                  {errorMessage ? errorText : null}
-                  {fullContent ? 
+              {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
+                  {preview ? 
                 <LargeQuoteComponent 
                 selectedColor={selectedColor}
                 quote={quoteContent.quote}
@@ -260,7 +275,7 @@ font-weight:bold;
         </Row>
 
 
-        {fullContent ? (
+        {preview ? (
           <Row>
             <Col md={12}>
               <h6 className="fw-bold">Preview component</h6>

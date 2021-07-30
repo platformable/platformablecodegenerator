@@ -4,15 +4,14 @@ import Layout from '../components/layout'
 import PersonaImg from '../../static/previewThumbnails/personaThumbnail.png'
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
-
+import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
 
 export default function Personas() {
 
 
-    const [persona,setPersona] = useState("")
-    const [selectedCard,setSelectedCard]=useState({})
-    const [error, setError]=useState(false)
-    const [selectedColor,setSelectedColor]=useState("")
+
+    const [selectedCard,setSelectedCard]=useState('')
+    const [errorMessage, setErrorMessage] =useState(false);
     const [cardContent,setCardContent]=useState({
         content:"",
         subtitle:""
@@ -91,18 +90,18 @@ const addBorder =()=>{
 }
 
 const basicCode = `
-<div class="main-personas">
+<div class="main-personas ${selectedCard.color || " "}">
     <div class="personas-top">
         <div class="personas-img-left">
-            <img src="" alt="" className="align-self-center"/>
+            <img src=${selectedCard.url || " "} alt="" className="align-self-center"/>
         </div>
     <div class="personas-text-left">
-        <div class="personas-title"><h3></h3></div>
-        <div class="personas-subtitle"></div>
+        <div class="personas-title"><h3>${selectedCard.name || " "}</h3></div>
+        <div class="personas-subtitle">${cardContent.subtitle}</div>
     </div>
     </div>
     <div class="personas-bottom-text">
-        <p></p>
+        <p>${cardContent.content}</p>
     </div>
 </div>
 `
@@ -205,13 +204,16 @@ position:relative;
 }
 `
 
-const handleClick=(persona)=>{
-if(persona !=="") {
-    setPreview(true)
-}
-{
-    setError(true)
-}
+const handleClick=(e)=>{
+    e.preventDefault();
+  
+    let isCardContentEmpty = Object.values(cardContent).some(items => items === '');
+    if(selectedCard === '' || isCardContentEmpty) {
+        setErrorMessage(true)
+    } else {
+      setPreview(true)
+      setErrorMessage(false)
+    }
 
 }
 
@@ -231,12 +233,19 @@ if(persona !=="") {
             <Row>
                     {personasList.map((persona,index)=>{
                         return (
-                            <Col md={2} className="persona-codegen-wrapper my-3 " onClick={()=>{setSelectedCard(persona)}}>
+                            <Col md={2} className="persona-codegen-wrapper my-3 " onClick={()=>{
+                                setPreview(false)
+                                setErrorMessage(false)
+                                setSelectedCard(persona)}
+                                
+                                }>
                                 <Col md={12} className="rounded bg-light text-center p-2 d-flex flex-column justify-content-center items-center">
-                               <div className=" d-flex  justify-content-center "> <img src={persona.url} alt={persona.name} className="align-self-center"/></div>
-                        <h3 className="small-text my-2 font-weight-bold">{persona.name}</h3>
-                        </Col>
-                        </Col>
+                                        <div className=" d-flex  justify-content-center "> 
+                                            <img src={persona.url} alt={persona.name} className="align-self-center"/>
+                                        </div>
+                                    <h3 className="small-text my-2 font-weight-bold">{persona.name}</h3>
+                                </Col>
+                            </Col>
                         )
                     })}
                 
@@ -271,14 +280,16 @@ if(persona !=="") {
              
                 </Col>
                 <Col md={6} className="my-5">
+                {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
                 <div className="d-flex justify-content-between"> 
-            <h6 className="">Copy your code:</h6>          
-            {preview && <CopyToClipboardBtn theHtml={theHtml} /> }
+                
+                {preview && <>  <h6 className="">Copy your code:</h6>          
+            <CopyToClipboardBtn theHtml={theHtml} /> </>}
           </div>
                 </Col>
             </Row>
 
-{preview ?
+            {preview ?
             <Row>
                 <Col md={6} className="">
                 <div dangerouslySetInnerHTML={{ __html: theHtml }}/>
@@ -288,7 +299,7 @@ if(persona !=="") {
           onClick={() => {
             navigator.clipboard.writeText(theHtml)
           }}
-        >
+          aria-hidden="true">
           <pre>{theHtml}</pre>
         </code>
                

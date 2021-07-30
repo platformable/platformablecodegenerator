@@ -1,13 +1,40 @@
-import React, { useState } from "react"
+import React, { useState,useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button, FormGroup } from "react-bootstrap"
 import roadmapImg from '../../static/previewThumbnails/roadmapThumbnail.png'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import PreviewCodeComponent from "../components/previewCodeComponent"
+import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+
 export default function Roadmap() {
   const [form, setForm] = useState([])
   const [preview, setPreview] = useState(false)
-  const [content, setContent] = useState("")
-  const [theHtml,setTheHtml]=useState("")
+  const [newHtml,setNewHtml]=useState("")
+  const [errorMessage, setErrorMessage] =useState(false);
+  
+
+  const notify = () => {
+    toast.success("Copied to Clipboard !", {
+      position: toast.POSITION.TOP_RIGHT
+    });
+  };
+
+
+
+  const basicCode = `
+<section id="timeline">
+    <article>
+      <div class="inner">
+        <span class="date">{index}</span>
+        <h2 class="month">{index.title}</h2>
+        <p>{index.content}</p>
+      </div>
+    </article>
+</section>
+`
 
   const html = `
 <section id="timeline">
@@ -15,9 +42,9 @@ ${form.map((item, index) => {
   return (
     <article>
       <div class="inner">
-        <span class="date"> {index} </span>
-        <h2 class="month">{index.title}</h2>
-        <p>{index.content}</p>
+        <span class="date">{index || ""}</span>
+        <h2 class="month">{index.title || ""}</h2>
+        <p>{index.content || ""}</p>
       </div>
     </article>
   )
@@ -26,8 +53,147 @@ ${form.map((item, index) => {
 `
 
 
+const theCss = `
+/* ROADMAP */
+
+section#timeline {
+width: 90%;
+margin: 20px auto;
+position: relative;
+}
+
+section#timeline article:before {
+content: '';
+display: block;
+position: absolute;
+left: -7px;
+top: 0;
+margin: 0 0 0 0px;
+width: 2px;
+height: 100%;
+background: #a80075;
+}
+
+
+section#timeline article:last-child:before {
+background: none;
+}
+
+section#timeline article {
+width: 100%;
+margin: 0 0 0px 0;
+position: relative;
+}
+
+
+section#timeline article:after {
+content: '';
+display: block;
+clear: both;
+}
+
+section#timeline article div.inner {
+width: 90%;
+float: left;
+margin: 0 0 0 0;
+border-radius: 6px;
+}
+
+section#timeline article div.inner span.date {
+display: block;
+width: 50px;
+height: 50px;
+padding: 12px;
+position: absolute;
+top: 0;
+left: 0%;
+margin: -3px 0 0 -32px;
+border-radius: 100%;
+font-size: 10px;
+font-weight: 900;
+text-transform: uppercase;
+background: #fff;
+color: rgba(0,0,0,0.9);
+border: 2px solid #a80075;
+text-align: center;
+}
+
+
+
+section#timeline article div.inner span.date span {
+display: block;
+text-align: center;
+}
+section#timeline article div.inner span.date span.day {
+font-size: 10px;
+}
+section#timeline article div.inner span.date span.month {
+font-size: 14px;
+}
+section#timeline article div.inner span.date span.year {
+font-size: 10px;
+}
+section#timeline article div.inner h2 {
+padding: 15px;
+margin: 0;
+font-weight:bold;
+font-size: 20px;
+
+position: relative;
+}
+
+section#timeline article div.inner p {
+padding: 15px;
+margin: 0;
+font-size: 14px;
+
+
+border-radius: 0 0 6px 6px;
+}
+section#timeline article div.inner {
+margin-left:40px;
+margin-top:-5px
+}
+
+
+.labs-road-text-img-component {
+display:flex;
+padding:10px 0;
+gap:10px;
+align-items:center;
+border-radius:10px;
+}
+
+.labs-road-text-img-component img {
+flex-grow:1;
+max-width:95px;
+}
+
+.labs-road-top-bar-posts-text h3 {
+position:relative;
+top:15px;
+font-weight:bold;
+
+}
+
+
+@media (max-width:690px) {
+.labs-road-text-img-component {
+flex-wrap:wrap;
+}
+
+.labs-road-text-img-component {
+display:flex;
+justify-content:center;
+
+}
+}
+`
+
+
   const addRow = e => {
     e.preventDefault()
+    setErrorMessage(false)
     const inputsData = {
       title: "",
       content: "",
@@ -60,24 +226,33 @@ ${form.map((item, index) => {
     setForm(prev => prev.filter(item => item !== prev[index]))
   }
 
-  const handleClick = async e => {
-const allthehtml = await document.getElementById("timeline")
+  const handleClick = () => {
+    if(form.length===0){
+      setErrorMessage(true)
+    }
+    else {
+      setPreview(true)
+    }
 
-
-    setPreview(true)
   }
+
+  useEffect(()=>{
+    if(preview){
+        setNewHtml(document.getElementById("timeline").outerHTML)
+    }
+},[preview])
 
   return (
     <Layout>
-      <Container>
+      <Container className="my-5">
       <div className="row">
-        <h3 className="fw-bold">Roadmap Component</h3>
-          <p>Example component</p>
-          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
-            <div className="component-example-img">
-              <img src={roadmapImg} alt="" className="img-thumbnail" />
-            </div>
-          </div>
+          <div className="row">
+            <h3 className="fw-bold">Roadmap</h3>
+              <p>Component Example</p>
+
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={roadmapImg}/>
+          
+        </div>
         </div>
         <Row>
           <Col md={12}>
@@ -86,28 +261,27 @@ const allthehtml = await document.getElementById("timeline")
               variant="primary"
               type="submit"
               onClick={addRow}
-              className="my-5"
+              className="my-5 btn-mainColor"
             >
               Add Row
             </Button>
           </Col>
         </Row>
 
-        <Row className="row-container my-5">
+        <Row className="row-container ">
           {form.map((item, index) => (
-            <Col md={6}>
+            <Col md={6} className="my-2">
               <div className="d-flex justify-content-between">
                 <h3 className="font-weight-bold">{`Road ${index + 1}`}</h3>
-
                 <button
-                  className="btn btn-warning justify-content-between"
+                  className="btn btn-mainColor text-white justify-content-between"
                   onClick={e => handleRemoveField(e, index)}
                 >
                   X
                 </button>
               </div>
 
-              <Col md={12}>
+              <Col md={12} className="my-2">
                 <Form.Group controlId="">
                   <Form.Label>Title</Form.Label>
                   <Form.Control
@@ -118,7 +292,7 @@ const allthehtml = await document.getElementById("timeline")
                   />
                 </Form.Group>
               </Col>
-              <Col md={12}>
+              <Col md={12} className="my-2">
                 <Form.Group controlId="">
                   <Form.Label>Content</Form.Label>
                   <Form.Control
@@ -140,16 +314,27 @@ const allthehtml = await document.getElementById("timeline")
               variant="primary"
               type="submit"
               onClick={handleClick}
-              className="my-5"
+              className="my-2 btn-mainColor"
             >
               Create Roadmap
             </Button>
-            {preview ? (
-              <span className="d-inline-block p-2">
-                <div
-                  className="badge badge-warning block"
+       
+          </Col>
+        </Row>
+
+
+
+        <div className="row">
+       <div className="d-flex justify-content-between"> 
+       {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
+                 
+            {preview && <>
+              <h6 className="">Copy your code:</h6>    
+            <div
+                  className="badge badge-warning block btn-light rounded"
                   role="button"
                   onClick={() => {
+                    notify()
                     const allTheHtml = document.getElementById("timeline").outerHTML
                     navigator.clipboard.writeText(allTheHtml)
                   }}
@@ -158,26 +343,10 @@ const allthehtml = await document.getElementById("timeline")
                     className="btn"
                     src="https://img.icons8.com/small/16/000000/copy-2.png"
                   />
-                </div>
-              </span>
-            ) : null}
-          </Col>
-        </Row>
-
-        <Row>
-          <Col md={12}>
-{/* {preview &&    <Col md={12} className="code-block">
-                <code
-          onClick={() => {
-            navigator.clipboard.writeText(theHtml)
-          }}
-        >
-          {theHtml}
-        </code>
-                </Col>} */}
-
-
-            {preview ? (
+                </div> </>}
+          </div>
+          <div className="col-md-6 road-component-view">
+          {preview ? (
               <>
                 <div class="labs-road-text-img-component-container">
                   <div class="labs-road-top-bar-posts-header labs-road-text-img-component">
@@ -211,8 +380,13 @@ const allthehtml = await document.getElementById("timeline")
                 </section>
               </>
             ) : null}
-          </Col>
-        </Row>
+          </div>
+          <div className="col-md-6">
+                {preview && <pre>{newHtml}</pre>}
+          </div>
+        </div>
+
+        <ToastContainer />
       </Container>
     </Layout>
   )

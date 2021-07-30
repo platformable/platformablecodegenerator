@@ -4,6 +4,7 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import SummaryBlockquoteComponent from '../components/summaryBlockquoteComponent';
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import summaryBoxImg from '../../static/previewThumbnails/summaryBoxThumbnail.png'
+import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
 
 export default function SummaryQuote () {
     const [fullContent,setFullContent] = useState(false);
@@ -16,7 +17,7 @@ export default function SummaryQuote () {
   
     })
 
-
+    const [preview, setPreview] = useState(false)
 
     const [errorMessage, setErrorMessage] =useState(false);
     const errorText = 'Some data is missing'
@@ -41,10 +42,10 @@ export default function SummaryQuote () {
     const handleClick=(e)=> {
         e.preventDefault();
         let isContentEmpty = Object.values(blockquoteContent).some(items => items === '');
-        if(isContentEmpty) {
+        if(isContentEmpty || selectedColor === "") {
             setErrorMessage(true)
         } else {
-            setFullContent(true)
+          setPreview(true)
             setErrorMessage(false)
         }
     }
@@ -58,10 +59,10 @@ export default function SummaryQuote () {
     `
 
     const basicCode = `  
-    <div class="summary-box text-white">
-    <h3>Who should read this:</h3><br><br>
-    <h3>What it’s about:</h3><br><br>
-    <h3>Why it’s important:</h3><br>
+    <div class="summary-box text-white ${selectedColor}">
+    <h3>Who should read this:</h3> ${blockquoteContent.whoShouldReadThis} <br><br>
+    <h3>What it’s about:</h3> ${blockquoteContent.whatAbout}<br><br>
+    <h3>Why it’s important:</h3> ${blockquoteContent.whyImportant}<br>
     </div>
     `
 
@@ -218,6 +219,8 @@ export default function SummaryQuote () {
                       <button className="summary-box-general-dark colorBtn"
                   onClick={(e) => {
                     setSelectedColor('summary-box-general-dark')
+                    setPreview(false)
+                    setErrorMessage(false)
                 
                   }}
                   ></button></Col>
@@ -226,6 +229,8 @@ export default function SummaryQuote () {
                       <button className="summary-box-bank-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('summary-box-bank-dark')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}
                       ></button></Col>
@@ -234,6 +239,8 @@ export default function SummaryQuote () {
                       <button className="summary-box-gov-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('summary-box-gov-dark')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}
                   ></button></Col>
@@ -242,6 +249,8 @@ export default function SummaryQuote () {
                       <button className="summary-box-health-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('summary-box-health-dark')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}>
                           </button></Col>
@@ -250,6 +259,8 @@ export default function SummaryQuote () {
                       <button className="summary-box-sustain-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('summary-box-sustain-dark')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}>
                           </button></Col>
@@ -264,7 +275,8 @@ export default function SummaryQuote () {
                 <Form.Label>Who should read this:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e) => {
                           setBlockquoteContent({...blockquoteContent,whoShouldReadThis:e.target.value});
-                      
+                          setPreview(false)
+                          setErrorMessage(false)
                         }}
                 />
               </Form.Group>
@@ -273,6 +285,8 @@ export default function SummaryQuote () {
                 <Form.Label>What it’s about:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e)=>{
                     setBlockquoteContent({...blockquoteContent,whatAbout:e.target.value});
+                    setPreview(false)
+                    setErrorMessage(false)
                 }}/>
               </Form.Group>
 
@@ -280,6 +294,8 @@ export default function SummaryQuote () {
                 <Form.Label>Why it’s important:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e)=>{
                     setBlockquoteContent({...blockquoteContent,whyImportant:e.target.value});
+                    setPreview(false)
+                    setErrorMessage(false)
                 }}/>
               </Form.Group>
     
@@ -291,13 +307,14 @@ export default function SummaryQuote () {
           </Col>
 
           <Col md={6} id="right-side">
-              <div className="d-flex justify-content-between"> 
+            {preview && <div className="d-flex justify-content-between"> 
             <h6 className="">Copy your code:</h6>
             <CopyToClipboardBtn theHtml={theHtml} />
-          </div>
+          </div>}
+              
               <div id="theCode">
-                  {errorMessage ? errorText : null}
-                  {fullContent ? 
+                  {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
+                  {preview ? 
                 <SummaryBlockquoteComponent 
                 selectedColor={selectedColor}
                 whoShouldReadThis={blockquoteContent.whoShouldReadThis}
@@ -311,7 +328,7 @@ export default function SummaryQuote () {
           </Col>
         </Row>
 
-        {fullContent ? (
+        {preview ? (
           <Row>
             <Col md={12}>
               <h6 className="fw-bold">Preview component</h6>

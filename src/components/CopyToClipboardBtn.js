@@ -1,7 +1,7 @@
 import React from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { StaticImage } from "gatsby-plugin-image"
 
 export default function CopyToClipboardBtn({theHtml}) {
 
@@ -12,8 +12,9 @@ export default function CopyToClipboardBtn({theHtml}) {
   };
 
 function handleCopy (){
-  notify()
+  
   navigator.clipboard.writeText(theHtml)
+  notify()
 }
 
     return (
@@ -25,7 +26,7 @@ function handleCopy (){
                   role="button"
                   onClick={handleCopy}
                 >
-                  <img src="https://img.icons8.com/small/16/000000/copy-2.png" />
+                  <StaticImage src="https://img.icons8.com/small/16/000000/copy-2.png" alt="platformable codegenerator" />
                 </div>
                 <ToastContainer />
               </span>

@@ -2,7 +2,7 @@ import React, {useState,useEffect} from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import PricingTable1Compopnent from '../components/pricingTable1Component';
-import NoDataImg from '../images/nodata.svg';
+
 
 export default function PricingTable1() {
     const [fullContent,setFullContent] = useState(false);
@@ -70,26 +70,26 @@ export default function PricingTable1() {
                   <h4>Select heading color</h4>
               <Row>
                   <Col md={2} className="colors ">
-                      <button className="russian-violet-dark colorBtn"
+                  <button className="russian-violet-dark colorBtn"
                   onClick={(e) => {
                     setSelectedColor('--russian-violet-dark')
                 
                   }}
-                  ></button></Col>
+                  aria-label="button"></button></Col>
                   <Col md={2} className="colors ">
                       <button className="russian-violet-light colorBtn"
                        onClick={(e) => {
                         setSelectedColor('--russian-violet-light')
                     
                       }}
-                      ></button></Col>
+                      aria-label="button"></button></Col>
                   <Col md={2} className="colors ">
                       <button className="sunglow-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('-sunglow-dark')
                     
                       }}
-                      ></button></Col>
+                      aria-label="button"></button></Col>
                   <Col md={2} className="colors ">
                       <button className="sunglow-light colorBtn"
                       onClick={(e) => {
@@ -97,14 +97,14 @@ export default function PricingTable1() {
                     
                       }}
                   
-                  ></button></Col>
+                      aria-label="button"></button></Col>
                   <Col md={2} className="colors ">
                       <button className="red-orange-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('-red-orange-dark')
                     
                       }}
-                  ></button></Col>
+                      aria-label="button"></button></Col>
                   <Col md={2} className="colors ">
                       <button className="red-orange-light colorBtn"
                       onClick={(e) => {
@@ -112,27 +112,27 @@ export default function PricingTable1() {
                     
                       }}
                       
-                      ></button></Col>
+                      aria-label="button"></button></Col>
                   <Col md={2} className="colors ">
                       <button className="fluorecent-blue-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('-fluorecent-blue-dark')
                     
-                      }}>
+                      }} aria-label="button">
                           </button></Col>
                   <Col md={2} className="colors ">
                       <button className="fluorecent-blue-light colorBtn"
                       onClick={(e) => {
                         setSelectedColor('-fluorecent-blue-light')
                     
-                      }}>
+                      }} aria-label="button">
                           </button></Col>
                   <Col md={2} className="colors ">
                       <button className="lavender-blue-dark colorBtn"
                       onClick={(e) => {
                         setSelectedColor('-lavender-blue-dark')
                     
-                      }}>
+                      }} aria-label="button">
                           </button></Col>
                   <Col md={2} className="colors ">
                       <button className="lavender-blue-light colorBtn"

@@ -3,11 +3,14 @@ import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import WBoxComponent from '../components/wBoxComponent';
 import wBoxImg from '../../static/previewThumbnails/wBoxThumbnail.png'
-import { StaticImage } from "gatsby-plugin-image"
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
+import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+
+
+
 export default function WBox () {
-    const [fullContent,setFullContent] = useState(false);
+
     const [selectedColor,setSelectedColor] = useState('');
     const [wContent,setwContent] = useState({
      specialNote:'',
@@ -16,9 +19,9 @@ export default function WBox () {
 
   
     })
-
+    const [preview, setPreview] = useState(false)
     const [errorMessage, setErrorMessage] =useState(false);
-    const errorText = 'Some data is missing'
+
 
     useEffect(() => {
       addBorder()
@@ -30,7 +33,6 @@ export default function WBox () {
         element.addEventListener("click", ()=>{
             const prevSelected = document.querySelectorAll(".colors button")
             prevSelected.forEach(selection=> selection.style.border="0")
-            
             element.style.border="5px solid #fff";
 
         }, false);
@@ -38,24 +40,24 @@ export default function WBox () {
 }
 
     const handleClick=(e)=> {
-        e.preventDefault();
-        let isContentEmpty = Object.values(wContent).some(items => items === '');
-        if(isContentEmpty) {
-            setErrorMessage(true)
-        } else {
-            setFullContent(true)
-            setErrorMessage(false)
-        }
+      e.preventDefault();
+      let isContentEmpty = Object.values(wContent).some(items => items === '');
+      if(isContentEmpty || selectedColor === "") {
+          setErrorMessage(true)
+      } else {
+        setPreview(true)
+          setErrorMessage(false)
+      }
     }
 
     const basicCode = `
-    <div class="w-box">
+    <div class="w-box ${selectedColor}">
       <h4 class="whatIsItAbout font-black">What it’s about</h4>
-      <p></p>
+      <p>${wContent.whatAbout}</p>
       <h4 class="whatIsItAbout font-black">Why it’s important</h4>
-      <p></p>
+      <p>${wContent.whyImportant}</p>
       <h4 class="whatIsItAbout font-black">Special Note</h4>
-      <p></p>
+      <p>${wContent.specialNote}</p>
     </div>
     `
     const theHtml = `  
@@ -187,6 +189,8 @@ border-radius: 10px;
                       <button className="w-box-general-dark-btn colorBtn"
                   onClick={(e) => {
                     setSelectedColor('w-box-general-dark-bg')
+                    setPreview(false)
+                        setErrorMessage(false)
                 
                   }}
                   ></button></Col>
@@ -195,6 +199,8 @@ border-radius: 10px;
                       <button className="w-box-ob-dark-btn colorBtn"
                       onClick={(e) => {
                         setSelectedColor('w-box-ob-bg')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}
                       ></button></Col>
@@ -203,7 +209,8 @@ border-radius: 10px;
                       <button className="w-box-og-dark-btn colorBtn"
                       onClick={(e) => {
                         setSelectedColor('w-box-og-bg')
-                    
+                        setPreview(false)
+                        setErrorMessage(false)
                       }}
                   ></button></Col>
 
@@ -211,6 +218,8 @@ border-radius: 10px;
                       <button className="w-box-oh-dark-btn colorBtn"
                       onClick={(e) => {
                         setSelectedColor('w-box-oh-bg')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}>
                           </button></Col>
@@ -219,6 +228,8 @@ border-radius: 10px;
                       <button className="w-box-os-dark-btn colorBtn"
                       onClick={(e) => {
                         setSelectedColor('w-box-os-bg')
+                        setPreview(false)
+                        setErrorMessage(false)
                     
                       }}>
                           </button></Col>
@@ -233,6 +244,8 @@ border-radius: 10px;
                 <Form.Label>What it’s about:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e)=>{
                     setwContent({...wContent,whatAbout:e.target.value});
+                    setPreview(false)
+                    setErrorMessage(false)
                 }}/>
               </Form.Group>
 
@@ -240,6 +253,8 @@ border-radius: 10px;
                 <Form.Label>Why it’s important:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e)=>{
                     setwContent({...wContent,whyImportant:e.target.value});
+                    setPreview(false)
+                    setErrorMessage(false)
                 }}/>
               </Form.Group>
 
@@ -247,7 +262,8 @@ border-radius: 10px;
                 <Form.Label>Special Note:</Form.Label>
                 <Form.Control as="textarea" rows={4}  onChange={(e) => {
                           setwContent({...wContent,specialNote:e.target.value});
-                      
+                          setPreview(false)
+                          setErrorMessage(false)
                         }}
                 />
               </Form.Group>
@@ -259,14 +275,14 @@ border-radius: 10px;
             </Form>
           </Col>
           <Col md={6} id="right-side">
-          <div className="d-flex justify-content-between"> 
+       {preview && <div className="d-flex justify-content-between"> 
             <h6 className="">Copy your code:</h6>
             <CopyToClipboardBtn theHtml={theHtml} />
-          </div>
+          </div> }  
 
               <div id="theCode">
-                  {errorMessage ? errorText : null}
-                  {fullContent ? 
+                  {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
+                  {preview ? 
                 <WBoxComponent 
                 selectedColor={selectedColor}
                 specialNote={wContent.specialNote}
@@ -280,7 +296,7 @@ border-radius: 10px;
         </Row>
 
 
-        {fullContent ? (
+        {preview ? (
           <Row>
             <Col md={12}>
               <h6 className="fw-bold">Preview component</h6>

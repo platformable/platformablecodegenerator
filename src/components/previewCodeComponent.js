@@ -71,7 +71,7 @@ export default function previewCodeComponent({basicCode,theCss,img}) {
             >
               <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
                 <div className="component-example-img">
-                  <img src={img} alt="" className="img-thumbnail" />
+                  <img src={img} alt="platformable code generator" className="img-thumbnail" />
                 </div>
               </div>
             </div>

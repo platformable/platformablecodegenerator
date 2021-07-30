@@ -6,10 +6,14 @@ import MediaModalPreview from '../components/mediaModalPreview'
 import { StaticImage } from "gatsby-plugin-image"
 import {OverlayTrigger, Tooltip} from 'react-bootstrap'
 import inlineIconImg from '../../static/previewThumbnails/inlineIconThumbnail.png'
+import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
+import PreviewCodeComponent from "../components/previewCodeComponent"
+import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
 
 
 export default function Media({data}) {
   const [show, setShow] = useState(false);
+  const [errorMessage, setErrorMessage] =useState(false);
   const [content,setContent]=useState({
     selectedImg:"",
     title:"",
@@ -18,7 +22,20 @@ export default function Media({data}) {
   })
   const [preview,setPreview]=useState(false)
 
-  const html = `
+  const basicCode = `
+<div class="inline-icon-container">
+  <div class="inline-icon-top">
+    <img src="${content.selectedImg}" alt="platformable">
+    <h3 class="fw-bold">${content.title}</h3>
+  </div>
+  <div class="inline-icon-bottom my-5">
+    <p>${content.textContent}</p>
+  </div>
+</div> 
+`
+ 
+ 
+  const theHtml = `
 <div class="inline-icon-container">
   <div class="inline-icon-top">
     <img src="${content.selectedImg}" alt="platformable">
@@ -30,6 +47,25 @@ export default function Media({data}) {
 </div> 
 `
 
+const theCss = `
+/* INLINE ICON */
+.inline-icon-container  {
+margin:30px 0;
+padding:20px ;
+border-bottom:2px solid #632faf;
+}
+
+.inline-icon-container img {
+max-width: 125px;
+}
+
+.inline-icon-top {
+display:flex;
+align-items:center;
+gap:10px;
+}
+`
+
     function getData(e){
  
       setContent({...content,selectedImg:e.target.currentSrc,name:e.target.alt})
@@ -37,28 +73,35 @@ export default function Media({data}) {
       allGalleryImg.forEach(item=> item.classList.remove("mediaGallerySelectedImg"))
       e.target.classList.add("mediaGallerySelectedImg")
     }
-  const handleClick = () => {
-    setPreview(true)
-  }
+    const handleClick=(e)=> {
+      e.preventDefault();
+      let isContentEmpty = Object.values(content).some(items => items === '');
+      if(isContentEmpty ) {
+          setErrorMessage(true)
+      } else {
+        setPreview(true)
+          setErrorMessage(false)
+      }
+    }
     return (
         <Layout>
-            <Container>
+            <Container className="my-5">
             <div className="row">
-        <h3 className="fw-bold">Roadmap Component</h3>
+        <h3 className="fw-bold">Inline image</h3>
           <p>Example component</p>
-          <div className="component-example mt-2 mb-5 d-flex justify-center align-center">
-            <div className="component-example-img">
-              <img src={inlineIconImg} alt="" className="img-thumbnail" />
-            </div>
-          </div>
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={inlineIconImg}/>
         </div>
-        <p>Select an image:</p>
-            <Button variant="" onClick={() => setShow(true)}>
+
+        {/* START HERE */}
+        <div className="row">
+          <div className="col-md-6">
+          <p>Select an image:</p>
+            <button className="btn bg-light rounded mb-3" onClick={() => setShow(true)}>
             <img src="https://img.icons8.com/material-outlined/24/000000/image.png"/>     
-            </Button>
+            </button>
             {content.selectedImg && (<p>Name: {content.name}</p>)}
 
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group controlId="formBasicEmail" className="my-2">
                 <Form.Label>Title</Form.Label>
                 <Form.Control type="text"  onChange={(e) => {
                           setContent({...content,title:e.target.value});
@@ -67,56 +110,55 @@ export default function Media({data}) {
                 />
               </Form.Group>
 
-              <Form.Group controlId="">
+              <Form.Group controlId="" className="my-2">
                 <Form.Label>Content</Form.Label>
                 <Form.Control as="textarea" rows={4} onChange={(e)=>{
                    setContent({...content,textContent:e.target.value});
                 }}/>
               </Form.Group>
 
-              <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
+              <button  type="submit" onClick={handleClick} className="my-5 btn btn-mainColor text-white">
                 Get Code
-              </Button>
+              </button>
+          </div>
+          <div className="col-md-6">
+          {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
+          {preview && <>
+                  <div className="d-flex justify-content-between"> 
+                  <h6 className="">Copy your code:</h6>
+                  <CopyToClipboardBtn theHtml={theHtml} />
+                  </div> 
+                  </>}
+          {preview && <>
+            
+            <pre
+          onClick={() => {
+          navigator.clipboard.writeText(theHtml)
+          }}
+          >
+          {theHtml}
+          </pre>
+
+              </>}
+          </div>
+        </div>
+        
           
 
-            
+          {/* ENDS HERE  */}
+
+          {/* DISPLAY gallery Img */}  
           {show && <MediaModalPreview show={show} onHide={() => setShow(false)} data={data} getData={getData} className="mediaImg"/>}
 
 
-                <Row>
-                <Col md={12}>
-                  {preview && <>
-                    <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Copy to Clipboard</Tooltip>}>
-  <span className="d-inline-block">
-    {/* <Button disabled style={{ pointerEvents: 'none' }}>
-      Disabled button
-    </Button> */}
-    <div
-          className="badge badge-warning block"
-          role="button"
-          onClick={() => {
-            navigator.clipboard.writeText(html)
-          }}
-        >
-          <img src="https://img.icons8.com/small/16/000000/copy-2.png" />
-        </div>
-  </span>
-</OverlayTrigger>
-                  </>}
-                  {preview && <>
-                    <Col md={12} className="code-block">
-                <code
-          onClick={() => {
-            navigator.clipboard.writeText(html)
-          }}
-        >
-          {html}
-        </code>
-                </Col>
-                  </>}
-            {preview && <div dangerouslySetInnerHTML={{ __html: html }} />}
-          </Col>
-                </Row>
+ 
+               {/* THE PREVIEW */}
+                <div className="row">
+                  <div className="col-md-12">
+                  {preview && <div dangerouslySetInnerHTML={{ __html: theHtml }} />}
+                  </div>
+            
+                </div>
 
             </Container>
         </Layout>
