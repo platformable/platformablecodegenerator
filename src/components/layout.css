@@ -1222,3 +1222,97 @@ font-weight:bold;
     background-color:#a62274;
     color:white;
   }
+
+
+  /* INSET BOX  2 COMPONENT */
+.insetBox2 {
+  margin:20px 0;
+}
+  .insetBox2Top {
+    padding:20px;
+  }
+  
+  .insetBox2Bottom {
+    padding:20px;
+  }
+  .insetBox2Top h3 {
+font-weight: 800;
+  }
+
+.insetBox2-box h3 {
+  font-weight: bold;
+}
+
+.insetBox2-general-dark-btn  {
+  background-color:var(--russian-violet-dark);
+}
+.insetBox2-general-dark .insetBox2Top {
+  background-color:var(--russian-violet-dark);
+  color:white;
+  border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+.insetBox2-general-dark .insetBox2Bottom {
+  background-color:var(--russian-violet-light);
+  color:var(--russian-violet-dark);
+
+}
+
+.insetBox2-bank-dark-btn{
+  background-color:var(--red-orange-dark);
+}
+
+.insetBox2-bank-dark .insetBox2Top{
+  background-color:var(--red-orange-dark);
+    border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+
+.insetBox2-bank-dark .insetBox2Bottom{
+  background-color:var(--red-orange-light);
+ 
+}
+
+.insetBox2-gov-dark-btn {
+  background-color:#632FAE;
+}
+
+.insetBox2-gov-dark .insetBox2Top{
+  background-color:#632FAE;
+   border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  color:white;
+}
+
+.insetBox2-gov-dark .insetBox2Bottom{
+background-color:var(--og-light)
+}
+
+
+.insetBox2-health-dark-btn {
+  background-color:var(--oh-dark);
+}
+.insetBox2-health-dark .insetBox2Top{
+  background-color:#0956FC;
+     border-top-left-radius:10px;
+  border-top-right-radius:10px;
+  color:white;
+}
+
+.insetBox2-health-dark .insetBox2Bottom{
+background-color:var(--oh-light)
+}
+
+.insetBox2-sustain-dark-btn {
+  background-color:var(--os-dark);
+}
+.insetBox2-sustain-dark .insetBox2Top {
+background-color:var(--os-dark);
+     border-top-left-radius:10px;
+  border-top-right-radius:10px;
+}
+.insetBox2-sustain-dark .insetBox2Bottom {
+background-color:var(--os-light);
+
+}

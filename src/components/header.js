@@ -22,19 +22,19 @@ const Header = ({ siteTitle }) => {
         <li className="nav-item">
           <Link className="nav-link" aria-current="page" to="/">Home</Link>
         </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
         <Link className="nav-link" aria-current="page" to="/">About</Link>
         </li>
         <li className="nav-item">
         <Link className="nav-link" aria-current="page" to="/">Pricing</Link>
-        </li>
+        </li> */}
       </ul>
-      <div className="login">
+    {/*   <div className="login">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item"><a className="nav-link btn btn-warning mx-1 text-white" href="/">Login</a></li>
           <li className="nav-item"><a className="nav-link btn btn-danger mx-1 text-white "  href="/">SignUp</a></li>
         </ul>
-      </div>
+      </div> */}
   
       
     </div>

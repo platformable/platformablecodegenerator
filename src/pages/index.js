@@ -33,6 +33,14 @@ const IndexPage = () => (
       <Row className="main-blog-cards">
       <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
            <Card className="shadow">
+          <Link to="/insetBox2"> <StaticImage src="../../static/previewThumbnails/insetBox2Thumbnail.png" alt="platformable codegenerator" /></Link>
+            <Card.Body>
+            <Link to="/insetBox2"> <h6 className="fw-bold">Inset Box 2</h6></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+      <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+           <Card className="shadow">
           <Link to="/media"> <StaticImage src="../../static/previewThumbnails/inlineIconThumbnail.png" alt="platformable codegenerator" /></Link>
             <Card.Body>
             <Link to="/media"> <h6 className="fw-bold">Inline Icon</h6></Link>
@@ -115,7 +123,7 @@ const IndexPage = () => (
         </Col>
         <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
            <Card className="shadow">
-          <Link to="/inset-box"><StaticImage src="../../static/previewThumbnails/summaryBoxThumbnail.png" alt="platformable codegenerator" /></Link>
+          <Link to="/inset-box"><StaticImage src="../../static/previewThumbnails/insetBoxThumbnail.png" alt="platformable codegenerator" /></Link>
             <Card.Body>
             <Link to="/inset-box"><h6 className="fw-bold">Inset Box</h6></Link>
             </Card.Body>
