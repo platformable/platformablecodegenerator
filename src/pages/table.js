@@ -53,10 +53,12 @@ const addBorder =()=>{
   const [errorMessage, setErrorMessage] = useState(false)
   const errorText = "Some data is missing"
 
-const handleTest=(data) => {
-setContent(data)
-}
 
+const handleLabsBlogContent=(data) => {
+  setErrorMessage(false)
+  setPreview(false)
+  setContent(data)
+  }
 
   const handleClick = e => {
     e.preventDefault()
@@ -171,7 +173,7 @@ setContent(data)
             </section>
 
 
-    <LoadableComponent handleTest={handleTest}/>
+            <LoadableComponent handleLabsBlogContent={handleLabsBlogContent} setPreview={setPreview}/>
 
             <Button variant="primary" type="submit" onClick={handleClick} className="my-5">
                 Create Table
