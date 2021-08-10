@@ -34,7 +34,8 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Support
 ---
-If you need help configuring your project feel free to write to info@platformable.com or find on us twitter @platformable.com
+If you need help configuring your project feel free to write to alexei@platformable.com
+
 ## License
 ---
 This project is licensed under the terms of the [MIT](https://choosealicense.com/licenses/mit/) license.
