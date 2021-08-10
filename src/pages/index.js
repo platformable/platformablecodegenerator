@@ -18,7 +18,7 @@ const IndexPage = () => (
           <div className="col-md-6 frontbanner-left">
             <h3 className="fs-1 fw-bold text-sm-start text-center">Blog Component Generator for Headless CMS</h3>
             <div className="bt-container flex justify-content-center text-sm-start text-center">
-            <button className="btn btn-frontbanner-left mb-5 my-sm-2">Learn more</button>
+            <Link to="https://github.com/platformable/platformablecodegenerator"><button className="btn btn-frontbanner-left mb-5 my-sm-2">Learn more</button></Link>
             </div>
           </div>
           <div className="col-md-6 frontbanner-right flex justify-content-end">
@@ -28,9 +28,26 @@ const IndexPage = () => (
       </div>
     </section>
     <Container>
-      <h6 className="fw-bold mb-1 mt-5">Select html generator</h6>
+      <h6 className="fw-bold mb-1 mt-5">Select blog component</h6>
       <hr />
       <Row className="main-blog-cards">
+      <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+           <Card className="shadow">
+          <Link to="/summary-box"><StaticImage src="../../static/previewThumbnails/summaryBoxThumbnail.png" alt="platformable codegenerator" /></Link>
+            <Card.Body>
+            <Link to="/summary-box"> <h6 className="fw-bold">Summary Box</h6></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+
+        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+           <Card className="shadow">
+          <Link to="/inset-box"><StaticImage src="../../static/previewThumbnails/insetBoxThumbnail.png" alt="platformable codegenerator" /></Link>
+            <Card.Body>
+            <Link to="/inset-box"><h6 className="fw-bold">Inset Box 1</h6></Link>
+            </Card.Body>
+          </Card>
+        </Col> 
       <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
            <Card className="shadow">
           <Link to="/insetBox2"> <StaticImage src="../../static/previewThumbnails/insetBox2Thumbnail.png" alt="platformable codegenerator" /></Link>
@@ -47,11 +64,12 @@ const IndexPage = () => (
             </Card.Body>
           </Card>
         </Col>
-      <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
            <Card className="shadow">
-          <Link to="/roadmap"> <StaticImage src="../../static/previewThumbnails/roadmapThumbnail.png" alt="platformable codegenerator" /></Link>
+          <Link to="/labsHeader"><StaticImage src="../../static/previewThumbnails/labsPostThumbnail.png" alt="platformable codegenerator" /></Link>
+
             <Card.Body>
-            <Link to="/roadmap"><h6 className="fw-bold">Roadmap Component</h6></Link>
+            <Link to="/labsHeader"><h6 className="fw-bold">Labs Post Header</h6></Link>
             </Card.Body>
           </Card>
         </Col>
@@ -63,12 +81,12 @@ const IndexPage = () => (
             </Card.Body>
           </Card>
         </Col>
-      <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+     
+        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
            <Card className="shadow">
-          <Link to="/labsHeader"><StaticImage src="../../static/previewThumbnails/labsPostThumbnail.png" alt="platformable codegenerator" /></Link>
-
+          <Link to="/roadmap"> <StaticImage src="../../static/previewThumbnails/roadmapThumbnail.png" alt="platformable codegenerator" /></Link>
             <Card.Body>
-            <Link to="/labsHeader"><h6 className="fw-bold">Labs Post Header</h6></Link>
+            <Link to="/roadmap"><h6 className="fw-bold">Roadmap</h6></Link>
             </Card.Body>
           </Card>
         </Col>
@@ -77,7 +95,7 @@ const IndexPage = () => (
           <Link to="/personas"><StaticImage src="../../static/previewThumbnails/personaThumbnail.png" alt="platformable codegenerator" /></Link>
 
             <Card.Body>
-            <Link to="/personas"> <h6 className="fw-bold">Persona`s Card</h6></Link>
+            <Link to="/personas"> <h6 className="fw-bold">Persona</h6></Link>
             </Card.Body>
           </Card>
         </Col>
@@ -105,30 +123,7 @@ const IndexPage = () => (
             </Card.Body>
           </Card>
         </Col>
-      <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
-           <Card className="shadow">
-          <Link to="/w-box"><StaticImage src="../../static/previewThumbnails/wBoxThumbnail.png" alt="platformable codegenerator" /></Link>
-            <Card.Body>
-            <Link to="/w-box"><h6 className="fw-bold">W Box</h6></Link>
-            </Card.Body>
-          </Card>
-        </Col>
-      <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
-           <Card className="shadow">
-          <Link to="/summary-box"><StaticImage src="../../static/previewThumbnails/summaryBoxThumbnail.png" alt="platformable codegenerator" /></Link>
-            <Card.Body>
-            <Link to="/summary-box"> <h6 className="fw-bold">Summary Box</h6></Link>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
-           <Card className="shadow">
-          <Link to="/inset-box"><StaticImage src="../../static/previewThumbnails/insetBoxThumbnail.png" alt="platformable codegenerator" /></Link>
-            <Card.Body>
-            <Link to="/inset-box"><h6 className="fw-bold">Inset Box</h6></Link>
-            </Card.Body>
-          </Card>
-        </Col> 
+    
       </Row>
     </Container>
   </Layout>

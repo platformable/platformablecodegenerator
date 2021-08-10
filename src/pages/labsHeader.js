@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form } from "react-bootstrap"
+import SEO from "../components/seo"
 
 const LabsHeader = () => {
   const [preview, UpdatePreview] = useState(true)
@@ -16,9 +17,10 @@ const LabsHeader = () => {
     `
   return (
     <Layout>
+      <SEO title="Labs Header"/>
       <Container>
         <Row>
-          <h3 className="text-black mb-5 font-weight-bold">Platformable Labs Post Header</h3>
+          <h3 className="my-5  fw-bold">Platformable Labs Post Header</h3>
 
           <Col md={12}>
             <div dangerouslySetInnerHTML={{ __html: html }} />

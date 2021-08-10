@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import tableImg from '../../static/previewThumbnails/tableThumbnail.png'
 import Loadable from 'react-loadable';
+import SEO from "../components/seo";
 
 const LoadableComponent = Loadable({
   loader: () => import('../components/RichEditorComponent'),
@@ -66,6 +67,7 @@ setContent(data)
  
   return (
     <Layout>
+      <SEO title="Table"/>
       <Container className="my-5">
       <div className="row">
         <h3 className="fw-bold">Table Component</h3>

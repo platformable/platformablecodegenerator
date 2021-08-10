@@ -5,6 +5,7 @@ import SummaryBlockquoteComponent from '../components/summaryBlockquoteComponent
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import summaryBoxImg from '../../static/previewThumbnails/summaryBoxThumbnail.png'
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import SEO from "../components/seo";
 
 export default function SummaryQuote () {
     const [fullContent,setFullContent] = useState(false);
@@ -100,6 +101,7 @@ export default function SummaryQuote () {
     `
   return (
     <Layout>
+      <SEO title="Summary Box"/>
       <Container className="my-5">
       <div className="row">
         <h3 className="fw-bold">Summary Box</h3>
@@ -201,7 +203,7 @@ export default function SummaryQuote () {
               aria-labelledby="css-tab"
             >
                 <div className="howTo d-flex justify-content-center align-items-center py-5 bg-light my-5 rounded">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/zd0_S_FPzKg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h3 className="fs-1 fw-bolder">Coming Soon</h3>
               </div>
             </div>
             

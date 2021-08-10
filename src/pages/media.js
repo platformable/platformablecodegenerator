@@ -9,6 +9,7 @@ import inlineIconImg from '../../static/previewThumbnails/inlineIconThumbnail.pn
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import SEO from '../components/seo'
 
 
 export default function Media({data}) {
@@ -85,9 +86,10 @@ gap:10px;
     }
     return (
         <Layout>
+          <SEO title="Inline icon"/>
             <Container className="my-5">
             <div className="row">
-        <h3 className="fw-bold">Inline image</h3>
+        <h3 className="fw-bold">Inline icon</h3>
           <p>Example component</p>
           <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={inlineIconImg}/>
         </div>

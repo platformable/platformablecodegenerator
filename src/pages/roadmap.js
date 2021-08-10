@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import SEO from "../components/seo";
 
 export default function Roadmap() {
   const [form, setForm] = useState([])
@@ -244,6 +245,7 @@ justify-content:center;
 
   return (
     <Layout>
+      <SEO title="Roadmap"/>
       <Container className="my-5">
       <div className="row">
           <div className="row">

@@ -6,6 +6,7 @@ import insetBoxImg from '../../static/previewThumbnails/insetBoxThumbnail.png'
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import SEO from "../components/seo"
 
 export default function InsetQuote1() {
  /*  const [fullContent, setFullContent] = useState(false) */
@@ -112,6 +113,7 @@ export default function InsetQuote1() {
 
   return (
     <Layout>
+      <SEO title="Inset Box 1"/>
       <Container className="my-5">
         <div className="row">
         <h3 className="fw-bold">Inset Box</h3>

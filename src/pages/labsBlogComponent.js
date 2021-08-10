@@ -8,6 +8,7 @@ import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SEO from '../components/seo';
 
 const LoadableComponent = Loadable({
   loader: () => import('../components/RichEditorComponent'),
@@ -131,6 +132,8 @@ justify-content:center;
 
     return (
       <Layout>
+        
+        <SEO title="Labs blog component"/>
         <Container className="my-5">
           <div className="row">
             <h3 className="fw-bold">Labs Blog Text Component</h3>

@@ -6,6 +6,7 @@ import smallQuoteImg from '../../static/previewThumbnails/smallQuoteThumbnail.pn
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import SEO from "../components/seo";
 
 export default function SmallQuote () {
     const [fullContent,setFullContent] = useState(false);
@@ -161,6 +162,7 @@ font-weight:bold;
 
   return (
     <Layout>
+      <SEO title="Small quote"/>
       <Container className="my-5">
       <div className="row">
         <h3 className="fw-bold">Small Quote</h3>

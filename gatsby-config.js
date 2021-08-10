@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Platormable code generator`,
-    description: `Platormable code generator`,
+    description: `We measure the value of open ecosystems`,
     author: `Platformable.com`,
   },
  flags: {

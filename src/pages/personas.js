@@ -5,6 +5,7 @@ import PersonaImg from '../../static/previewThumbnails/personaThumbnail.png'
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import SEO from '../components/seo'
 
 export default function Personas() {
 
@@ -221,6 +222,7 @@ const handleClick=(e)=>{
 
     return (
         <Layout>
+            <SEO title="Persona"/>
             <Container className="my-5">
             <div className="row">
             <h3 className="fw-bold">Persona´s Card</h3>

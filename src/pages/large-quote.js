@@ -6,6 +6,7 @@ import largeQuoteImg from '../../static/previewThumbnails/largeQuoteThumbnail.pn
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import SEO from "../components/seo";
 
 export default function LargeQuote () {
  
@@ -152,6 +153,7 @@ font-weight:bold;
 
   return (
     <Layout>
+      <SEO title="Large quote"/>
       <Container className="my-5">
       <div className="row">
         <h3 className="fw-bold">Large Quote</h3>
