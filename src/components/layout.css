@@ -56,13 +56,20 @@ img {
   --middle-blue-purple-dark: #7d7abc;
   --middle-blue-purple-light: #edecf5;
   --ob-dark: #fb5012;
-  --ob-light: #fbac8f;
+  --ob-light: #FDECE6;
   --og-dark: #632fae;
-  --og-light: #9686ae;
+  --og-light: #EBE0FD;
   --oh-dark:#0956Fc;
-  --oh-light:#87acfc;
+  --oh-light:#E2EBFD;
   --os-dark:#0ce6A3;
-  --os-light:#8BF3D2;
+  --os-light:#E3F9F2;
+
+  --ob-sub3:#FBDACE;
+  --og-sub3:#D8C1FB;
+  --oh-sub3:#C6D7FC;
+  --os-sub3:#C7F3E5;
+  --labs-dark:#A60073;
+  --labs-sub3:#E6ADD4;
 }
 
 
@@ -1162,7 +1169,7 @@ font-weight:bold;
 .inline-icon-container  {
   margin:30px 0;
   padding:20px ;
-  border-bottom:2px solid #632faf;
+  
 }
 
 .inline-icon-container img {
@@ -1174,6 +1181,69 @@ font-weight:bold;
   align-items:center;
   gap:10px;
 }
+
+.inline-icon-general-dark {
+  border-bottom:4px solid var(--russian-violet-dark);
+}
+
+.inline-icon-general-dark-btn  {
+  background-color:var(--russian-violet-dark);
+}
+
+.inline-icon-general-dark h3{
+  color:var(--russian-violet-dark)
+  }
+
+
+.inline-icon-bank-dark-btn{
+  background-color:var(--red-orange-dark);
+}
+
+.inline-icon-ob-dark{
+  border-bottom:4px solid var(--ob-dark);
+}
+
+.inline-icon-ob-dark h3{
+  color:var(--ob-dark);
+  }
+
+
+
+.inline-icon-gov-dark-btn {
+  background-color:#632FAE;
+}
+.inline-icon-og-dark{
+
+  border-bottom:4px solid var(--og-dark);
+}
+.inline-icon-og-dark h3{
+  color:var(--og-dark);
+  }
+
+.inline-icon-health-dark-btn {
+  background-color:var(--oh-dark);
+}
+.inline-icon-oh-dark{
+
+  border-bottom:4px solid var(--oh-dark);
+}
+.inline-icon-oh-dark h3{
+  color:var(--oh-dark);
+  }
+
+.inline-icon-sustain-dark-btn {
+  background-color:var(--os-dark);
+}
+
+.inline-icon-os-dark{
+
+  border-bottom:4px solid var(--os-dark);
+}
+
+.inline-icon-os-dark h3{
+  color:var(--os-dark);
+  }
+
 
 
 /* CODE BLOCK */
@@ -1316,3 +1386,99 @@ background-color:var(--os-dark);
 background-color:var(--os-light);
 
 }
+
+
+/* SHADED INLINE ICON */
+.shaded-inline-icon-container  {
+  margin:30px 0;
+  padding:20px ;
+
+}
+
+.shaded-inline-icon-container img {
+  max-width: 125px;
+}
+
+.shaded-inline-icon-top {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.shaded-inline-bg-ob {
+  background-color:var(--ob-light);
+    border-bottom:4px solid var(--ob-dark);
+    border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+
+.shaded-inline-bg-ob h3{
+color:var(--ob-dark)
+}
+
+.shaded-inline-bg-og {
+  background-color:var(--og-light);
+    border-bottom:4px solid var(--og-dark);
+    border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+
+.shaded-inline-bg-og h3{
+color:var(--og-dark)
+}
+
+.shaded-inline-bg-oh {
+  background-color:var(--oh-light);
+    border-bottom:4px solid var(--oh-dark);
+    border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+.shaded-inline-bg-oh h3{
+color:var(--oh-dark)
+}
+
+
+
+.shaded-inline-bg-os {
+  background-color:var(--os-light);
+    border-bottom:4px solid var(--os-dark);
+    border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+
+.shaded-inline-bg-os h3{
+color:var(--os-dark)
+}
+
+.shaded-inline-icon-general-dark-btn  {
+  background-color:var(--russian-violet-dark);
+}
+
+.shaded-inline-icon-general-dark {
+  background-color:var(--russian-violet-light);
+    border-bottom:4px solid var(--russian-violet-dark);
+    border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+
+.shaded-inline-icon-bank-dark-btn{
+  background-color:var(--red-orange-dark);
+}
+
+
+
+.shaded-inline-icon-gov-dark-btn {
+  background-color:#632FAE;
+}
+
+
+.shaded-inline-icon-health-dark-btn {
+  background-color:var(--oh-dark);
+}
+
+
+
+.shaded-inline-icon-sustain-dark-btn {
+  background-color:var(--os-dark);
+}
+

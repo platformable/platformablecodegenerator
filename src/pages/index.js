@@ -66,6 +66,14 @@ const IndexPage = () => (
         </Col>
         <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
            <Card className="shadow">
+          <Link to="/shadedInlineIcon"> <StaticImage src="../../static/previewThumbnails/shadedInlineThumbnail.png" alt="platformable codegenerator" /></Link>
+            <Card.Body>
+            <Link to="/shadedInlineIcon"> <h6 className="fw-bold">Shaded Inline Icon</h6></Link>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+           <Card className="shadow">
           <Link to="/labsHeader"><StaticImage src="../../static/previewThumbnails/labsPostThumbnail.png" alt="platformable codegenerator" /></Link>
 
             <Card.Body>

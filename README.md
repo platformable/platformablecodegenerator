@@ -1,4 +1,4 @@
-# Platformable Code Generator 
+# Blog Code Generator for headless CMS 
 ---
 ![Alt Text](https://res.cloudinary.com/platform1/image/upload/v1628008685/codegen_Gif_7fdb8183ca.gif)
 
