@@ -225,7 +225,7 @@ const handleClick=(e)=>{
             <SEO title="Persona"/>
             <Container className="my-5">
             <div className="row">
-            <h3 className="fw-bold">Persona´s Card</h3>
+            <h3 className="fw-bold">Persona Card</h3>
               <p>Component Example</p>
 
           <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={PersonaImg}/>

@@ -5,7 +5,7 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap'
 import MediaModalPreview from '../components/mediaModalPreview'
 import { StaticImage } from "gatsby-plugin-image"
 import {OverlayTrigger, Tooltip} from 'react-bootstrap'
-import inlineIconImg from '../../static/previewThumbnails/inlineIconThumbnail.png'
+import inlineIconImg from '../../static/previewThumbnails/shadedInlineThumbnail.png'
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
