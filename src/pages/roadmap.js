@@ -252,7 +252,7 @@ justify-content:center;
             <h3 className="fw-bold">Roadmap</h3>
               <p>Component Example</p>
 
-          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={roadmapImg}/>
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={roadmapImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"/>
           
         </div>
         </div>

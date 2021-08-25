@@ -228,7 +228,7 @@ const handleClick=(e)=>{
             <h3 className="fw-bold">Persona Card</h3>
               <p>Component Example</p>
 
-          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={PersonaImg}/>
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={PersonaImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"/>
           
         </div>
             <h4 className="">Select Persona</h4>

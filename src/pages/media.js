@@ -116,6 +116,7 @@ gap:10px;
               basicCode={basicCode}
               theCss={theCss}
               img={inlineIconImg}
+              videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/inlineIconHowTo_smwkxl.mov"
             />
           </div>
 

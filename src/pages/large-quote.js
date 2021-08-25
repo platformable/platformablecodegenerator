@@ -158,7 +158,7 @@ font-weight:bold;
       <div className="row">
         <h3 className="fw-bold">Large Quote</h3>
           <p>Component Example</p>
-          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={largeQuoteImg}/>
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={largeQuoteImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"/>
         </div>
         <Row>
           <Col md={6} id="left-side">

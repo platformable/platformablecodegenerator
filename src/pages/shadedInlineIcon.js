@@ -187,6 +187,7 @@ color:var(--os-dark)
               basicCode={basicCode}
               theCss={theCss}
               img={inlineIconImg}
+              videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927292/shadedIconHowTo_exsw1k.mov"
             />
           </div>
 

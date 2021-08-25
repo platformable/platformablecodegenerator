@@ -138,12 +138,12 @@ justify-content:center;
           <div className="row">
             <h3 className="fw-bold">Labs Blog Text Component</h3>
             <p>Example component</p>
-            <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={labsTextImg}/>
+            <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={labsTextImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927274/labsTextHowTo_veytds.mov"/>
           </div>
           <Row>
             <Col md={12}>
               {/*  */}
-              <LoadableComponent handleLabsBlogContent={handleLabsBlogContent} setPreview={setPreview}/>
+              <LoadableComponent handleLabsBlogContent={handleLabsBlogContent} setPreview={setPreview} />
             </Col>
           </Row>
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function previewCodeComponent({basicCode,theCss,img}) {
+export default function previewCodeComponent({basicCode,theCss,img,videoUrl}) {
     return (
         <>
             {/* The ul represent the tabs */}
@@ -99,7 +99,11 @@ export default function previewCodeComponent({basicCode,theCss,img}) {
               aria-labelledby="css-tab"
             >
                 <div className="howTo d-flex justify-content-center align-items-center py-5 bg-light my-5 rounded">
-              <h3 className="fs-1 fw-bolder">Coming Soon</h3>
+                <video width="1280" height="720" controls>
+                <source src={videoUrl} type="video/mov"/>
+                <source src={videoUrl}  type="video/ogg"/>
+                Your browser does not support the video tag.
+              </video>
               </div>
             </div>
             

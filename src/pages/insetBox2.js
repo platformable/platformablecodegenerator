@@ -255,7 +255,11 @@ export default function InsetBox2 () {
               aria-labelledby="css-tab"
             >
                 <div className="howTo d-flex justify-content-center align-items-center py-5 bg-light my-5 rounded">
-                <h3 className="fs-1 fw-bolder">Coming Soon</h3>
+                <video width="1280" height="720" controls>
+                <source src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927283/insetBoxHowTo_cbgmj5.mov" type="video/mov"/>
+                <source src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927283/insetBoxHowTo_cbgmj5.mov" type="video/ogg"/>
+                Your browser does not support the video tag.
+                </video>
               </div>
             </div>
             

@@ -167,7 +167,7 @@ font-weight:bold;
       <div className="row">
         <h3 className="fw-bold">Small Quote</h3>
           <p>Example component</p>
-          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={smallQuoteImg}/>
+          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={smallQuoteImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927291/smallQuoteHowTo_ag2pnc.mov"/>
         </div>
         <Row>
           <Col md={6} id="left-side">
