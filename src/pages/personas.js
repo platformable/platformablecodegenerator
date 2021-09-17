@@ -26,18 +26,18 @@ export default function Personas() {
     const personasList = [
         {
             name:"API tool providers and consultants",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688315/API_tool_providers_e30e05996d.png",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1631892660/Persona_ICON_API_tool_providers_863909b617.png",
             color:"api-tools-provider"
         }
         ,
         {
             name:"Regulators",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688321/Persona_Regulator_5b7ec25523.png",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1631892805/Persona_ICON_Regulator_ec603f6c92.png",
             color:"regulator"
         },
         {
             name:"Fintech Associations",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688323/Persona_Fintech_Association_e47b0d4384.png",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1631892453/Persona_Fintech_Aso_ICON_18125ac8c5.png",
             color:"fintech-associantions"
         },
         {
