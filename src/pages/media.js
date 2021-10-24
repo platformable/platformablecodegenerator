@@ -36,7 +36,6 @@ export default function Media({data}) {
         element.addEventListener("click", ()=>{
             const prevSelected = document.querySelectorAll(".colors button")
             prevSelected.forEach(selection=> selection.style.border="0")
-            
             element.style.border="5px solid #fff";
 
         }, false);

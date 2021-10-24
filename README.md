@@ -2,6 +2,9 @@
 ---
 ![Alt Text](https://res.cloudinary.com/platform1/image/upload/v1628008685/codegen_Gif_7fdb8183ca.gif)
 
+## Visit the code generator [here](http://codegen.platformable.com/)
+---
+
 ## What is this tool for?
 ---
 - Its a tool to create an easy way to insert standardised blog components into any headless CMS or any popular cms.
