@@ -63,6 +63,8 @@ img {
   --oh-light:#E2EBFD;
   --os-dark:#0ce6A3;
   --os-light:#E3F9F2;
+  --oe-dark:#289f94;
+  --oe-light:#85ffed;
 
   --ob-sub3:#FBDACE;
   --og-sub3:#D8C1FB;
@@ -1312,7 +1314,9 @@ font-weight: 800;
 .insetBox2-box h3 {
   font-weight: bold;
 }
-
+.insetBox2-dark-oe  {
+  background-color:var(--oe-dark);
+}
 .insetBox2-general-dark-btn  {
   background-color:var(--russian-violet-dark);
 }
@@ -1481,4 +1485,62 @@ color:var(--os-dark)
 .shaded-inline-icon-sustain-dark-btn {
   background-color:var(--os-dark);
 }
+
+/* PERSONAS CARDS */
+
+.persona-card-bg-dark-purple .personas-top {
+  background-color: var(--russian-violet-dark);
+  color:white;
+}
+
+.persona-card-bg-dark-purple .personas-bottom-text,.persona-card-bg-dark-purple .personas-top img {
+  background-color: var(--russian-violet-light);
+}
+.persona-card-bg-dark-orange .personas-top {
+  background-color: var(--red-orange-dark);
+  color:white;
+}
+
+.persona-card-bg-dark-orange .personas-bottom-text,.persona-card-bg-dark-orange .personas-top img {
+  background-color: var(--red-orange-light);
+}
+
+
+.persona-card-bg-purple .personas-top {
+  background-color: var(--og-dark);
+  color:white;
+}
+
+.persona-card-bg-purple .personas-bottom-text,.persona-card-bg-purple .personas-top img {
+  background-color: var(--og-light);
+}
+
+
+.persona-card-bg-dark-blue .personas-top {
+  background-color: var(--oh-dark);
+  color:white;
+}
+
+.persona-card-bg-dark-blue .personas-bottom-text,.persona-card-bg-dark-blue .personas-top img {
+  background-color: var(--oh-light);
+}
+
+.persona-card-bg-dark-green .personas-top {
+  background-color: var(--os-dark);
+  color:white;
+}
+
+.persona-card-bg-dark-green .personas-bottom-text,.persona-card-bg-dark-green .personas-top img {
+  background-color: var(--os-light);
+}
+
+.persona-card-bg-dark-oe .personas-top {
+  background-color: var(--oe-dark);
+  color:white;
+}
+
+.persona-card-bg-dark-oe .personas-bottom-text,.persona-card-bg-dark-oe .personas-top img {
+  background-color: var(--oe-light);
+}
+
 

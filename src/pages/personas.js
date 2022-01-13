@@ -17,11 +17,13 @@ export default function Personas() {
         content:"",
         subtitle:""
     })
+    const [selectedColor,setSelectedColor] = useState('');
     const [preview,setPreview]=useState(false)
 
     useEffect(() => {
+   
       addBorder()
-    }, [])
+    }, [selectedColor])
 
     const personasList = [
         {
@@ -74,6 +76,56 @@ export default function Personas() {
             name:"API architects and developers",
             url:"https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Developer_4903ab395f.png",
             color:"api-architects"
+        },
+        ,{
+            name:"Greentech founder",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985128/Greentech_Founder_129f9c4118.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Open Banking-Open Finance or Innovation Lead at a Bank",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985128/Open_Banking_Open_Finance_or_Innovation_Lead_at_a_Bank_0dee65d746.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Fintech Platform Provider",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985128/Fintech_Platform_Provider_1b219421e9.png",
+            color:"api-architects"
+        },
+        ,{
+            name:"Financial inclusion advocate",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985124/Financial_inclusion_advocate_baf72b78d5.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Non-Goverment Organizations Persona",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985126/Non_Goverment_Organizations_Persona_5afd032ed0.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Equity Tech Persona",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985122/Equity_Tech_Persona_b6e8ea6139.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Data Governance Lead Persona",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985122/Data_Governance_Lead_Persona_62f7631c46.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Health Policy Lead Persona",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985126/Health_Policy_Lead_Persona_e74af75353.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Incubator Program Manager",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985125/Incubator_Program_Manager_d32de233eb.png",
+            color:"api-architects"
+        }
+        ,{
+            name:"Health Tech Persona",
+            url:"https://res.cloudinary.com/platform1/image/upload/v1641985122/Health_Tech_Persona_35485a3162.png",
+            color:"api-architects"
         }
     ]
 
@@ -91,7 +143,7 @@ const addBorder =()=>{
 }
 
 const basicCode = `
-<div class="main-personas ${selectedCard.color || " "}">
+<div class="main-personas ${selectedColor || " "}">
     <div class="personas-top">
         <div class="personas-img-left">
             <img src=${selectedCard.url || " "} alt="" className="align-self-center"/>
@@ -108,7 +160,7 @@ const basicCode = `
 `
 
 const theHtml = `
-<div class="main-personas ${selectedCard.color}">
+<div class="main-personas ${selectedColor}">
     <div class="personas-top">
         <div class="personas-img-left">
             <img src=${selectedCard.url} alt="" className="align-self-center"/>
@@ -171,8 +223,9 @@ position:relative;
 .api-tools-provider .personas-top, .regulator .personas-top ,.api-architects .personas-top{
   background-color:#FFD23F;
   color:white;
-
 }
+
+
 .api-tools-provider .personas-bottom-text, .api-tools-provider .personas-top img,
 .regulator .personas-bottom-text, .regulator .personas-top img,.api-architects .personas-bottom-text ,.api-architects .personas-top img
 {
@@ -230,6 +283,87 @@ const handleClick=(e)=>{
 
           <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={PersonaImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"/>
           
+        </div>
+
+        <div className="container">
+            <div className="row">
+                <div className="col-md-12">
+                <section id="colorButtons">
+                  <h4 className="px-0 mx-0">Select color</h4>
+              <Row>
+              <Col md={2} className="colors ">
+                      <button className="insetBox2-dark-oe colorBtn"
+                  onClick={(e) => {
+                    setSelectedColor('persona-card-bg-dark-oe')
+                    console.log("selectedColor",selectedColor)
+                    setPreview(false)
+                    setErrorMessage(false)
+                  
+                
+                  }}
+                  ></button></Col>
+                  <Col md={2} className="colors ">
+                      <button className="insetBox2-general-dark-btn colorBtn"
+                  onClick={(e) => {
+                    setSelectedColor('persona-card-bg-dark-purple')
+                    console.log("selectedColor",selectedColor)
+                    setPreview(false)
+                    setErrorMessage(false)
+                  
+                
+                  }}
+                  ></button></Col>
+    
+                  <Col md={2} className="colors ">
+                      <button className="insetBox2-bank-dark-btn colorBtn"
+                      onClick={(e) => {
+                        setSelectedColor('persona-card-bg-dark-orange')
+                        console.log("selectedColor",selectedColor)
+                        setPreview(false)
+                        setErrorMessage(false)
+                       
+                      }}
+                      ></button></Col>
+          
+                  <Col md={2} className="colors ">
+                      <button className="insetBox2-gov-dark-btn colorBtn"
+                      onClick={(e) => {
+                        setSelectedColor('persona-card-bg-purple')
+                        console.log("selectedColor",selectedColor)
+                        setPreview(false)
+                        setErrorMessage(false)
+                      
+                      }}
+                  ></button></Col>
+
+                  <Col md={2} className="colors ">
+                      <button className="insetBox2-health-dark-btn colorBtn"
+                      onClick={(e) => {
+                        setSelectedColor('persona-card-bg-dark-blue')
+                        console.log("selectedColor",selectedColor)
+                        setPreview(false)
+                        setErrorMessage(false)
+                    
+                      }}>
+                    </button></Col>
+  
+                  <Col md={2} className="colors ">
+                      <button className="insetBox2-sustain-dark-btn colorBtn"
+                      onClick={(e) => {
+                        setSelectedColor('persona-card-bg-dark-green')
+                        console.log("selectedColor",selectedColor)
+                        setPreview(false)
+                        setErrorMessage(false)
+                    
+                      }}>
+                          </button></Col>
+      
+                  
+               
+              </Row>
+              </section>
+                </div>
+            </div>
         </div>
             <h4 className="">Select Persona</h4>
             <Row>
