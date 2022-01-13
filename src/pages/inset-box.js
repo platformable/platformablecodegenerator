@@ -2,21 +2,20 @@ import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import InsetBlockquoteComponent from "../components/insetBlockquoteComponent"
-import insetBoxImg from '../../static/previewThumbnails/insetBoxThumbnail.png'
+import insetBoxImg from "../../static/previewThumbnails/insetBoxThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
-import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
+import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import SEO from "../components/seo"
 
 export default function InsetQuote1() {
- /*  const [fullContent, setFullContent] = useState(false) */
+  /*  const [fullContent, setFullContent] = useState(false) */
   const [selectedColor, setSelectedColor] = useState("")
   const [blockquoteContent, setBlockquoteContent] = useState({
     content: "",
   })
 
   const [preview, setPreview] = useState(false)
-
   const [errorMessage, setErrorMessage] = useState(false)
   const errorText = "Some data is missing"
 
@@ -55,18 +54,21 @@ export default function InsetQuote1() {
 
   const theHtml = `  
     <div class="text-white ${selectedColor}">
-    <strong><i>${blockquoteContent.content}</i></strong>
+      <strong>
+        <i>${blockquoteContent.content}</i>
+      </strong>
     </div>
 
     `
-
-    const basicCode = `
+  const basicCode = `
     <div class="text-white ${selectedColor}">
-    <strong><i>${blockquoteContent.content}</i></strong>
+      <strong>
+        <i>${blockquoteContent.content}</i>
+      </strong>
     </div>
     `
 
-    const theCss= `
+  const theCss = `
 /* INSET BOX */
 
 .inset-box-general-light {
@@ -94,7 +96,7 @@ export default function InsetQuote1() {
   margin:10px 0;
 }
 .inset-box-sustain-light {
-  background-color:#9686AE;
+  background-color:#e3f9f2;
   padding:5px 10px;
   border-radius:10px;
   margin:10px 0;
@@ -110,24 +112,40 @@ export default function InsetQuote1() {
   
   `
 
-
   return (
     <Layout>
-      <SEO title="Inset Box 1"/>
+      <SEO title="Inset Box 1" />
       <Container className="my-5">
-        <div className="row">
-        <h3 className="fw-bold">Inset Box</h3>
-          <p>Component Example</p>
-
-          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={insetBoxImg}/>
-          
+        <div>
+          <h3 className="fw-bold">Inset Box</h3>
         </div>
+        <Row className="mb-5">
+          <Col md={6}>
+            <h4 className="py-3">Component preview</h4>
+            <img src={insetBoxImg}></img>
+          </Col>
+          <Col md={6}>
+            <div>
+              <h4 className="py-3">How to use the component</h4>
+              <video className="w-100" width="720" controls>
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
+                  type="video/mov"
+                />
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
+                  type="video/ogg"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </Col>
+        </Row>
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
-         
               <h4>Select color</h4>
-              <Row>
+              <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
                     className="inset-box-general-light colorBtn"
@@ -177,7 +195,7 @@ export default function InsetQuote1() {
                     }}
                   ></button>
                 </Col>
-              </Row>
+              </div>
             </section>
             <Form>
               <Form.Group controlId="formBasicEmail">
@@ -209,15 +227,17 @@ export default function InsetQuote1() {
           </Col>
 
           <Col md={6} id="right-side">
-            {preview && 
-           <div className="d-flex justify-content-between"> 
-            <h6 className="">Copy your code:</h6>
-            <CopyToClipboardBtn theHtml={theHtml} />
-          </div>
-           }
+            <h4>Your code & preview </h4>
+            {preview && (
+              <div className="d-flex justify-content-between">
+                <h6 className="">Copy your code:</h6>
+                <CopyToClipboardBtn theHtml={theHtml} />
+              </div>
+            )}
             <div id="theCode">
-              {errorMessage ? 
-              <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
+              {errorMessage ? (
+                <BlogComponentsErrorMessage message="Please complete all the fields" />
+              ) : null}
               {preview ? (
                 <InsetBlockquoteComponent
                   selectedColor={selectedColor}
@@ -225,20 +245,18 @@ export default function InsetQuote1() {
                 />
               ) : null}
             </div>
+            {preview ? (
+              <>
+                {" "}
+                <h6 className="fw-bold">Preview component</h6>
+                <div
+                  dangerouslySetInnerHTML={{ __html: theHtml }}
+                  className={selectedColor}
+                />
+              </>
+            ) : null}
           </Col>
         </Row>
-
-        {preview ? (
-          <Row>
-            <Col md={12}>
-              <h6 className="fw-bold">Preview component</h6>
-              <div
-                dangerouslySetInnerHTML={{ __html: theHtml }}
-                className={selectedColor}
-              />
-            </Col>
-          </Row>
-        ) : null}
       </Container>
     </Layout>
   )

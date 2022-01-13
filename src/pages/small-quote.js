@@ -1,55 +1,58 @@
-import React, {useState,useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import SmallQuoteComponent from '../components/smallQuoteComponent';
-import smallQuoteImg from '../../static/previewThumbnails/smallQuoteThumbnail.png'
+import SmallQuoteComponent from "../components/smallQuoteComponent"
+import smallQuoteImg from "../../static/previewThumbnails/smallQuoteThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
-import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
-import SEO from "../components/seo";
+import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
+import SEO from "../components/seo"
 
-export default function SmallQuote () {
-    const [fullContent,setFullContent] = useState(false);
-    const [selectedColor,setSelectedColor] = useState('');
-    const [quoteContent,setQuoteContent] = useState({
-     quote:'',
-     author:'',
-     secondLine:''
+export default function SmallQuote() {
+  const [fullContent, setFullContent] = useState(false)
+  const [selectedColor, setSelectedColor] = useState("")
+  const [quoteContent, setQuoteContent] = useState({
+    quote: "",
+    author: "",
+    secondLine: "",
+  })
+
+  const [errorMessage, setErrorMessage] = useState(false)
+  const errorText = "Some data is missing"
+  const [preview, setPreview] = useState(false)
+
+  useEffect(() => {
+    addBorder()
+  }, [])
+
+  const addBorder = () => {
+    const allWrappers = document.querySelectorAll(".colors button")
+    allWrappers.forEach(element => {
+      element.addEventListener(
+        "click",
+        () => {
+          const prevSelected = document.querySelectorAll(".colors button")
+          prevSelected.forEach(selection => (selection.style.border = "0"))
+
+          element.style.border = "5px solid #fff"
+        },
+        false
+      )
     })
-
-    const [errorMessage, setErrorMessage] =useState(false);
-    const errorText = 'Some data is missing'
-    const [preview, setPreview] = useState(false)
-
-    useEffect(() => {
-        addBorder()
-    },[])
-
-    const addBorder =()=>{
-      const allWrappers = document.querySelectorAll('.colors button');
-      allWrappers.forEach((element)=> {
-          element.addEventListener("click", ()=>{
-              const prevSelected = document.querySelectorAll(".colors button")
-              prevSelected.forEach(selection=> selection.style.border="0")
-              
-              element.style.border="5px solid #fff";
-  
-          }, false);
-      })
   }
 
-    const handleClick=(e)=> {
-      e.preventDefault();
-      let isContentEmpty = Object.values(quoteContent).some(items => items === '');
-      if(isContentEmpty || selectedColor === "") {
-          setErrorMessage(true)
-      } else {
-        setPreview(true)
-          setErrorMessage(false)
-      }
+  const handleClick = e => {
+    e.preventDefault()
+    let isContentEmpty = Object.values(quoteContent).some(items => items === "")
+    if (isContentEmpty || selectedColor === "") {
+      setErrorMessage(true)
+    } else {
+      setPreview(true)
+      setErrorMessage(false)
     }
+  }
 
-    const basicCode=`
+  const basicCode = `
     <div class="smallQuote ${selectedColor}">
       <div class="centered-border" style="margin-bottom:30px;"></div>
       <p className="my-3">${quoteContent.quote}</p>
@@ -59,7 +62,7 @@ export default function SmallQuote () {
     </div>
     `
 
-    const theHtml = `  
+  const theHtml = `  
     <div class="smallQuote ${selectedColor}">
       <div class="centered-border" style="margin-bottom:30px;"></div>
       <p className="my-3">${quoteContent.quote}</p>
@@ -69,7 +72,7 @@ export default function SmallQuote () {
     </div>
       `
 
-      const theCss=`
+  const theCss = `
 /* SMALLQUOTE */
 
 .smallQuote {
@@ -162,140 +165,180 @@ font-weight:bold;
 
   return (
     <Layout>
-      <SEO title="Small quote"/>
+      <SEO title="Small quote" />
       <Container className="my-5">
-      <div className="row">
-        <h3 className="fw-bold">Small Quote</h3>
-          <p>Example component</p>
-          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={smallQuoteImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927291/smallQuoteHowTo_ag2pnc.mov"/>
+        <div className="row">
+          <h3 className="fw-bold">Small Quote</h3>
+
+          <Row className="mb-5">
+            <Col md={6}>
+              <h4 className="py-3">Component preview</h4>
+              <img src={smallQuoteImg}></img>
+            </Col>
+            <Col md={6}>
+              <div>
+                <h4 className="py-3">How to use the component</h4>
+                <video className="w-100" width="720" controls>
+                  <source
+                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927291/smallQuoteHowTo_ag2pnc.mov"
+                    type="video/mov"
+                  />
+                  <source
+                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927291/smallQuoteHowTo_ag2pnc.mov"
+                    type="video/ogg"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </Col>
+          </Row>
         </div>
         <Row>
           <Col md={6} id="left-side">
-              <section id="colorButtons">
-                  <p>Select color</p>
-              <Row>
-                  <Col md={2} className="colors ">
-                      <button className="dark-purple-btn colorBtn"
-                  onClick={(e) => {
-                    setSelectedColor('smallQuote-general-dark-bg')
-                    setPreview(false)
-                    setErrorMessage(false)
-                
-                  }}
-                  ></button></Col>
-    
-                  <Col md={2} className="colors ">
-                      <button className="ob-dark-btn colorBtn"
-                      onClick={(e) => {
-                
-                        setSelectedColor('smallQuote-ob-bg')
-                        setPreview(false)
-                        setErrorMessage(false)
-                    
-                      }}
-                      ></button></Col>
-          
-                  <Col md={2} className="colors ">
-                      <button className="og-dark-btn colorBtn"
-                      onClick={(e) => {
-                        setSelectedColor('smallQuote-og-bg')
-                        setPreview(false)
-                        setErrorMessage(false)
-                      }}
-                  ></button></Col>
+            <section id="colorButtons">
+              <h4 className="my-3">Select color</h4>
+              <div className="d-flex flex-column flex-md-row">
+                <Col md={2} className="colors ">
+                  <button
+                    className="dark-purple-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("smallQuote-general-dark-bg")
+                      setPreview(false)
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
 
-                  <Col md={2} className="colors ">
-                      <button className="oh-dark-btn colorBtn"
-                      onClick={(e) => {
-                        setSelectedColor('smallQuote-oh-bg')
-                        setPreview(false)
-                        setErrorMessage(false)
-                      }}>
-                          </button></Col>
-  
-                  <Col md={2} className="colors ">
-                      <button className="os-dark-btn colorBtn"
-                      onClick={(e) => {
-                        setSelectedColor('smallQuote-os-bg')
-                        setPreview(false)
-                        setErrorMessage(false)
-                      }}>
-                          </button></Col>
-      
-                  
-               
-              </Row>
-              </section>
+                <Col md={2} className="colors ">
+                  <button
+                    className="ob-dark-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("smallQuote-ob-bg")
+                      setPreview(false)
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+
+                <Col md={2} className="colors ">
+                  <button
+                    className="og-dark-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("smallQuote-og-bg")
+                      setPreview(false)
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+
+                <Col md={2} className="colors ">
+                  <button
+                    className="oh-dark-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("smallQuote-oh-bg")
+                      setPreview(false)
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+
+                <Col md={2} className="colors ">
+                  <button
+                    className="os-dark-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("smallQuote-os-bg")
+                      setPreview(false)
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+              </div>
+            </section>
             <Form>
-
               <Form.Group controlId="">
                 <Form.Label>Quote:</Form.Label>
-                <Form.Control as="textarea" rows={4}  onChange={(e)=>{
-                    setQuoteContent({...quoteContent,quote:e.target.value});
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  onChange={e => {
+                    setQuoteContent({ ...quoteContent, quote: e.target.value })
                     setPreview(false)
                     setErrorMessage(false)
-                }}/>
+                  }}
+                />
               </Form.Group>
 
               <Form.Group controlId="">
                 <Form.Label>Author:</Form.Label>
-                <Form.Control as="textarea" rows={4}  onChange={(e)=>{
-                    setQuoteContent({...quoteContent,author:e.target.value});
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  onChange={e => {
+                    setQuoteContent({ ...quoteContent, author: e.target.value })
                     setPreview(false)
                     setErrorMessage(false)
-                }}/>
+                  }}
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Second Line</Form.Label>
-                <Form.Control as="textarea" rows={4}  onChange={(e) => {
-                          setQuoteContent({...quoteContent,secondLine:e.target.value});
-                          setPreview(false)
-                          setErrorMessage(false)
-                        }}
+                <Form.Control
+                  as="textarea"
+                  rows={4}
+                  onChange={e => {
+                    setQuoteContent({
+                      ...quoteContent,
+                      secondLine: e.target.value,
+                    })
+                    setPreview(false)
+                    setErrorMessage(false)
+                  }}
                 />
               </Form.Group>
-    
 
-              <Button variant="primary" type="submit" onClick={handleClick} className="my-5 btn-mainColor">
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={handleClick}
+                className="my-5 btn-mainColor"
+              >
                 Get Code
               </Button>
             </Form>
           </Col>
           <Col md={6} id="right-side">
-          {preview && <div className="d-flex justify-content-between"> 
-            <h6 className="">Copy your code:</h6>
-            <CopyToClipboardBtn theHtml={theHtml} />
-          </div>
-          }
-              <div id="theCode">
-              {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
-                  {preview ? 
-                <SmallQuoteComponent 
-                selectedColor={selectedColor}
-                quote={quoteContent.quote}
-                author={quoteContent.author}
-                secondLine={quoteContent.secondLine}
-
-                /> : null  
-                }
-              
+            <h4 className="my-3">Your code & preview </h4>
+            {preview && (
+              <div className="d-flex justify-content-between">
+                <h6 className="">Copy your code:</h6>
+                <CopyToClipboardBtn theHtml={theHtml} />
               </div>
+            )}
+            <div id="theCode">
+              {errorMessage ? (
+                <BlogComponentsErrorMessage message="Please complete all the fields" />
+              ) : null}
+              {preview ? (
+                <SmallQuoteComponent
+                  selectedColor={selectedColor}
+                  quote={quoteContent.quote}
+                  author={quoteContent.author}
+                  secondLine={quoteContent.secondLine}
+                />
+              ) : null}
+            </div>
+            {preview ? (
+              <>
+                <h6 className="fw-bold">Preview component</h6>
+                <div
+                  dangerouslySetInnerHTML={{ __html: theHtml }}
+                  className={selectedColor}
+                />
+              </>
+            ) : null}
           </Col>
-        </Row>  
-
-        {preview ? (
-          <Row>
-            <Col md={12}>
-              <h6 className="fw-bold">Preview component</h6>
-              <div
-                dangerouslySetInnerHTML={{ __html: theHtml }}
-                className={selectedColor}
-              />
-            </Col>
-          </Row>
-        ) : null}
-
+        </Row>
       </Container>
     </Layout>
   )

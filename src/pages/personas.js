@@ -1,100 +1,175 @@
-import React,{useState,useEffect} from 'react'
-import { Container,Row, Col, Form, Button } from 'react-bootstrap'
-import Layout from '../components/layout'
-import PersonaImg from '../../static/previewThumbnails/personaThumbnail.png'
+import React, { useState, useEffect } from "react"
+import { Container, Row, Col, Form, Button } from "react-bootstrap"
+import Layout from "../components/layout"
+import PersonaImg from "../../static/previewThumbnails/personaThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
-import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
-import SEO from '../components/seo'
+import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
+import SEO from "../components/seo"
 
 export default function Personas() {
+  const [selectedCard, setSelectedCard] = useState("")
+  const [errorMessage, setErrorMessage] = useState(false)
+  const [selectedColor, setSelectedColor] = useState("")
 
+  const [cardContent, setCardContent] = useState({
+    content: "",
+    subtitle: "",
+  })
+  const [preview, setPreview] = useState(false)
 
+  useEffect(() => {
+    addBorder()
+  }, [])
 
-    const [selectedCard,setSelectedCard]=useState('')
-    const [errorMessage, setErrorMessage] =useState(false);
-    const [cardContent,setCardContent]=useState({
-        content:"",
-        subtitle:""
-    })
-    const [preview,setPreview]=useState(false)
+  useEffect(() => {
+    addBordertoColor()
+  }, [])
 
-    useEffect(() => {
-      addBorder()
-    }, [])
+  const addBordertoColor = () => {
+    const allWrappers = document.querySelectorAll(".colors button")
+    allWrappers.forEach(element => {
+      element.addEventListener(
+        "click",
+        () => {
+          const prevSelected = document.querySelectorAll(".colors button")
+          prevSelected.forEach(selection => (selection.style.border = "0"))
 
-    const personasList = [
-        {
-            name:"API tool providers and consultants",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1631892660/Persona_ICON_API_tool_providers_863909b617.png",
-            color:"api-tools-provider"
-        }
-        ,
-        {
-            name:"Regulators",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1631892805/Persona_ICON_Regulator_ec603f6c92.png",
-            color:"regulator"
+          element.style.border = "5px solid #fff"
         },
-        {
-            name:"Fintech Associations",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1631892453/Persona_Fintech_Aso_ICON_18125ac8c5.png",
-            color:"fintech-associantions"
-        },
-        {
-            name:"Banks",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688309/banks_5677bc5a64.png",
-            color:"banks"
-        }
-        ,{
-            name:"Fintech",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688314/fintechs_537b5f845c.png",
-            color:"fintechs"
-        }
-        ,{
-            name:"Financial inclusion advocates",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688309/Financial_Inclusion_39af4b9b50.png",
-            color:"financial-inclusion"
-        }
-        ,{
-            name:"Policy Lead",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1625052721/Personas_Policy_Lead_265913d654.png",
-            color:"policy-lead"
-        }
-        ,{
-            name:"Digital Government Lead",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Digital_Gov_Lead_3e539d4909.png",
-            color:"dg-lead"
-        }
-        ,{
-            name:"Product Manager Lead",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1623688299/Policy_Leads_b1fad49ca4.png",
-            color:"pm-lead"
-        }
-        ,{
-            name:"API architects and developers",
-            url:"https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Developer_4903ab395f.png",
-            color:"api-architects"
-        }
-    ]
-
-const addBorder =()=>{
-    const allWrappers = document.querySelectorAll('.persona-codegen-wrapper');
-    allWrappers.forEach((element)=> {
-        element.addEventListener("click", ()=>{
-            const prevSelected = document.querySelectorAll(".persona-codegen-wrapper")
-            prevSelected.forEach(selection=> selection.style.border="0")
-            
-            element.style.border="3px solid #1b014c";
-
-        }, false);
+        false
+      )
     })
-}
+  }
 
-const basicCode = `
-<div class="main-personas ${selectedCard.color || " "}">
+  const addBorder = () => {
+    const allWrappers = document.querySelectorAll(".persona-codegen-wrapper")
+    allWrappers.forEach(element => {
+      element.addEventListener(
+        "click",
+        () => {
+          const prevSelected = document.querySelectorAll(
+            ".persona-codegen-wrapper"
+          )
+          prevSelected.forEach(selection => (selection.style.border = "0"))
+
+          element.style.border = "3px solid #1b014c"
+        },
+        false
+      )
+    })
+  }
+
+  const personasList = [
+    {
+      name: "API tool providers and consultants",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1631892660/Persona_ICON_API_tool_providers_863909b617.png",
+      color: "api-tools-provider",
+    },
+    {
+      name: "Regulators",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1631892805/Persona_ICON_Regulator_ec603f6c92.png",
+      color: "regulator",
+    },
+    {
+      name: "Fintech Associations",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1631892453/Persona_Fintech_Aso_ICON_18125ac8c5.png",
+      color: "fintech-associantions",
+    },
+    {
+      name: "Banks",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1623688309/banks_5677bc5a64.png",
+      color: "banks",
+    },
+    {
+      name: "Fintech",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1623688314/fintechs_537b5f845c.png",
+      color: "fintechs",
+    },
+    {
+      name: "Financial inclusion advocates",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1623688309/Financial_Inclusion_39af4b9b50.png",
+      color: "financial-inclusion",
+    },
+    {
+      name: "Policy Lead",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1625052721/Personas_Policy_Lead_265913d654.png",
+      color: "policy-lead",
+    },
+    {
+      name: "Digital Government Lead",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Digital_Gov_Lead_3e539d4909.png",
+      color: "dg-lead",
+    },
+    {
+      name: "Product Manager Lead",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1623688299/Policy_Leads_b1fad49ca4.png",
+      color: "pm-lead",
+    },
+    {
+      name: "API architects and developers",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Developer_4903ab395f.png",
+      color: "api-architects",
+    },
+
+    {
+      name: "Health Policy Lead",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1635607468/Health_Policy_Lead_Persona_7fad005c5e.png",
+      color: "",
+    },
+    {
+      name: "Health Tech",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1635607466/Health_Tech_Persona_d3db004b18.png",
+      color: "",
+    },
+    {
+      name: "Non-Government Organisation",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1635607468/Non_Goverment_Organizations_Persona_bd771a2043.png",
+      color: "",
+    },
+    {
+      name: "Equity Tech",
+      url:
+        "https://res.cloudinary.com/platform1/image/upload/v1635607468/Equity_Tech_Persona_c628043860.png",
+      color: "",
+    },
+    {
+      name: "Fintech Platform provider",
+      url: "",
+      color: "",
+    },
+    {
+      name: "Incubator Program Manager",
+      url: "",
+      color: "",
+    },
+    {
+      name: "Greentech Founder",
+      url: "",
+      color: "",
+    },
+  ]
+
+  const basicCode = `
+<div class="main-personas personas-${selectedColor || " "}">
     <div class="personas-top">
         <div class="personas-img-left">
-            <img src=${selectedCard.url || " "} alt="" className="align-self-center"/>
+            <img src=${
+              selectedCard.url || " "
+            } alt="" className="align-self-center"/>
         </div>
     <div class="personas-text-left">
         <div class="personas-title"><h3>${selectedCard.name || " "}</h3></div>
@@ -107,8 +182,8 @@ const basicCode = `
 </div>
 `
 
-const theHtml = `
-<div class="main-personas ${selectedCard.color}">
+  const theHtml = `
+<div class="main-personas personas-${selectedColor}">
     <div class="personas-top">
         <div class="personas-img-left">
             <img src=${selectedCard.url} alt="" className="align-self-center"/>
@@ -124,7 +199,7 @@ const theHtml = `
 </div>
 `
 
-const theCss =`
+  const theCss = `
 /* // PERSONA´S CARD // */
 
 .main-personas {
@@ -205,114 +280,231 @@ position:relative;
 }
 `
 
-const handleClick=(e)=>{
-    e.preventDefault();
-  
-    let isCardContentEmpty = Object.values(cardContent).some(items => items === '');
-    if(selectedCard === '' || isCardContentEmpty) {
-        setErrorMessage(true)
+  const handleClick = e => {
+    e.preventDefault()
+
+    let isCardContentEmpty = Object.values(cardContent).some(
+      items => items === ""
+    )
+    if (selectedCard === "" || isCardContentEmpty || selectedColor === "") {
+      setErrorMessage(true)
     } else {
       setPreview(true)
       setErrorMessage(false)
     }
+  }
 
-}
-
-
-
-    return (
-        <Layout>
-            <SEO title="Persona"/>
-            <Container className="my-5">
-            <div className="row">
-            <h3 className="fw-bold">Persona Card</h3>
-              <p>Component Example</p>
-
-          <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={PersonaImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"/>
-          
+  return (
+    <Layout>
+      <SEO title="Persona" />
+      <Container className="my-5">
+        <div className="row">
+          <h3 className="fw-bold">Persona Card</h3>
+          <p>Component Example</p>
+          <Row className="mb-5">
+            <Col md={6}>
+              <h4 className="py-3">Component preview</h4>
+              <img src={PersonaImg}></img>
+            </Col>
+            <Col md={6}>
+              <div>
+                <h4 className="py-3">How to use the component</h4>
+                <video className="w-100" width="720" controls>
+                  <source
+                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
+                    type="video/mov"
+                  />
+                  <source
+                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
+                    type="video/ogg"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </Col>
+          </Row>
         </div>
-            <h4 className="">Select Persona</h4>
-            <Row>
-                    {personasList.map((persona,index)=>{
-                        return (
-                            <Col md={2} className="persona-codegen-wrapper my-3 " onClick={()=>{
-                                setPreview(false)
-                                setErrorMessage(false)
-                                setSelectedCard(persona)}
-                                
-                                }>
-                                <Col md={12} className="rounded bg-light text-center p-2 d-flex flex-column justify-content-center items-center">
-                                        <div className=" d-flex  justify-content-center "> 
-                                            <img src={persona.url} alt={persona.name} className="align-self-center"/>
-                                        </div>
-                                    <h3 className="small-text my-2 font-weight-bold">{persona.name}</h3>
-                                </Col>
-                            </Col>
-                        )
-                    })}
-                
-            </Row>
+        <h4 className="">Select Persona</h4>
+        <Row>
+          {personasList.map((persona, index) => {
+            return (
+              <Col
+                md={2}
+                className={
+                  persona.url.length > 0
+                    ? "persona-codegen-wrapper my-3"
+                    : "my-3"
+                }
+                onClick={() => {
+                  setPreview(false)
+                  setErrorMessage(false)
+                  setSelectedCard(persona)
+                }}
+              >
+                <Col
+                  md={12}
+                  className="rounded bg-light text-center p-2 d-flex flex-column justify-content-center items-center"
+                >
+                  <div className=" d-flex  justify-content-center ">
+                    {persona.url.length > 0 ? (
+                      <img
+                        src={persona.url}
+                        alt={persona.name}
+                        className="align-self-center"
+                      />
+                    ) : (
+                      <p>The icon is not available yet</p>
+                    )}
+                  </div>
+                  <h3 className="small-text my-2 font-weight-bold">
+                    {persona.name}
+                  </h3>
+                </Col>
+              </Col>
+            )
+          })}
+        </Row>
 
-            <Row>
+        <Row>
+          <Col md={6}>
+            <section>
+              <h4 className="my-3">Select color</h4>
+              <div className="d-flex flex-column flex-md-row">
+                <Col md={2} className="colors ">
+                  <button
+                    className="summary-box-general-dark colorBtn"
+                    onClick={e => {
+                      setSelectedColor("summary-box-general-dark")
+                      setPreview(false)
+                      setErrorMessage(false)
+                      console.log(selectedColor)
+                    }}
+                  ></button>
+                </Col>
+
+                <Col md={2} className="colors ">
+                  <button
+                    className="summary-box-bank-dark colorBtn"
+                    onClick={e => {
+                      setSelectedColor("summary-box-bank-dark")
+                      setPreview(false)
+                      setErrorMessage(false)
+                      console.log(selectedColor)
+                    }}
+                  ></button>
+                </Col>
+
+                <Col md={2} className="colors ">
+                  <button
+                    className="summary-box-gov-dark colorBtn"
+                    onClick={e => {
+                      setSelectedColor("summary-box-gov-dark")
+                      setPreview(false)
+                      setErrorMessage(false)
+                      console.log(selectedColor)
+                    }}
+                  ></button>
+                </Col>
+
+                <Col md={2} className="colors ">
+                  <button
+                    className="summary-box-health-dark colorBtn"
+                    onClick={e => {
+                      setSelectedColor("summary-box-health-dark")
+                      setPreview(false)
+                      setErrorMessage(false)
+                      console.log(selectedColor)
+                    }}
+                  ></button>
+                </Col>
+
+                <Col md={2} className="colors ">
+                  <button
+                    className="summary-box-sustain-dark colorBtn"
+                    onClick={e => {
+                      setSelectedColor("summary-box-sustain-dark")
+                      setPreview(false)
+                      setErrorMessage(false)
+                      console.log(selectedColor)
+                    }}
+                  ></button>
+                </Col>
+              </div>
+            </section>
             <Col md={12}>
-                <Form.Group controlId="">
+              <Form.Group controlId="" className="my-3">
                 <Form.Label>Subtitle text</Form.Label>
-                <Form.Control type="text" onChange={(e)=>{
-                     setPreview(false)
-                    setCardContent({...cardContent,subtitle:e.target.value});
-                }}/>
-              </Form.Group>
-                </Col>
-                <Col md={12}>
-                <Form.Group controlId="">
-                <Form.Label>Quote Content</Form.Label>
-                <Form.Control as="textarea" rows={12}  onChange={(e)=>{
+                <Form.Control
+                  type="text"
+                  onChange={e => {
                     setPreview(false)
-                    setCardContent({...cardContent,content:e.target.value});
-                }}/>
+                    setCardContent({ ...cardContent, subtitle: e.target.value })
+                  }}
+                />
               </Form.Group>
-                </Col>
-            </Row>
-
-            <Row className="">
-                <Col md={6}>
-                <Button variant="primary" type="submit" onClick={handleClick} className="my-5 btn-mainColor">
+            </Col>
+            <Col md={12}>
+              <Form.Group controlId="">
+                <Form.Label>Quote Content</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={12}
+                  onChange={e => {
+                    setPreview(false)
+                    setCardContent({ ...cardContent, content: e.target.value })
+                  }}
+                />
+              </Form.Group>
+              <Button
+                variant="primary"
+                type="submit"
+                onClick={handleClick}
+                className="my-5 btn-mainColor"
+              >
                 Create Persona
               </Button>
-             
-                </Col>
-                <Col md={6} className="my-5">
-                {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
-                <div className="d-flex justify-content-between"> 
-                
-                {preview && <>  <h6 className="">Copy your code:</h6>          
-            <CopyToClipboardBtn theHtml={theHtml} /> </>}
-          </div>
-                </Col>
-            </Row>
+            </Col>
+          </Col>
+          <Col md={6}>
+            <section>
+              <h4 className="my-3">Your code & preview </h4>
+              {errorMessage ? (
+                <BlogComponentsErrorMessage message="Please complete all the fields" />
+              ) : null}
 
-            {preview ?
-            <Row>
-                <Col md={6} className="">
-                <div dangerouslySetInnerHTML={{ __html: theHtml }}/>
-                </Col>
-                <Col md={6}>
-                <code
-          onClick={() => {
-            navigator.clipboard.writeText(theHtml)
-          }}
-          aria-hidden="true">
-          <pre>{theHtml}</pre>
-        </code>
-               
-                
-           
-                </Col>
-            </Row>
+              <div className="d-flex justify-content-between">
+                {preview && (
+                  <>
+                    {" "}
+                    <h6 className="">Copy your code:</h6>
+                    <CopyToClipboardBtn theHtml={theHtml} />{" "}
+                  </>
+                )}
+              </div>
 
-:null}
+              {preview ? (
+                <Row>
+                  <Col md={12}>
+                    <code
+                      onClick={() => {
+                        navigator.clipboard.writeText(theHtml)
+                      }}
+                      aria-hidden="true"
+                    >
+                      <pre>{theHtml}</pre>
+                    </code>
+                  </Col>
+                  <Col md={12} className="">
+                    <h6 className="fw-bold">Preview component</h6>
 
-            </Container>
-        </Layout>
-    )
+                    <div dangerouslySetInnerHTML={{ __html: theHtml }} />
+                  </Col>
+                </Row>
+              ) : null}
+            </section>
+          </Col>
+        </Row>
+      </Container>
+    </Layout>
+  )
 }

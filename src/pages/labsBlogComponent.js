@@ -1,62 +1,60 @@
-import React, {useState,useEffect} from 'react'
-import Layout from '../components/layout'
-import { Container, Row, Form, Button,Col } from 'react-bootstrap'
-import labsTextImg from '../../static/previewThumbnails/labsTextThumbnail.png'
-import Loadable from 'react-loadable';
+import React, { useState, useEffect } from "react"
+import Layout from "../components/layout"
+import { Container, Row, Form, Button, Col } from "react-bootstrap"
+import labsTextImg from "../../static/previewThumbnails/labsTextThumbnail.png"
+import Loadable from "react-loadable"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import PreviewCodeComponent from "../components/previewCodeComponent"
-import BlogComponentsErrorMessage from '../components/blogComponentsErrorMessage'
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import SEO from '../components/seo';
+import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
+import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+import SEO from "../components/seo"
 
 const LoadableComponent = Loadable({
-  loader: () => import('../components/RichEditorComponent'),
+  loader: () => import("../components/RichEditorComponent"),
   loading: "Loading",
-});
+})
 
 export default function LabsBlogComponent() {
-  const [errorMessage, setErrorMessage] =useState(false);
-    const [preview, setPreview] = useState(false);
-    const [content, updateContent] = useState("")
+  const [errorMessage, setErrorMessage] = useState(false)
+  const [preview, setPreview] = useState(false)
+  const [content, updateContent] = useState("")
 
-
-    const handleClick = ()=> {
-      console.log("content",content)
-    if(content === ""){
+  const handleClick = () => {
+    console.log("content", content)
+    if (content === "") {
       setErrorMessage(true)
-    } else{ 
+    } else {
       setPreview(true)
     }
+  }
+
+  const [globalWindow, setGlobalWindow] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setGlobalWindow(true)
     }
+  }, [])
 
-    const [globalWindow,setGlobalWindow]=useState(false)
+  const handleLabsBlogContent = data => {
+    setErrorMessage(false)
+    setPreview(false)
+    updateContent(data)
+  }
 
-    useEffect(()=>{
-      if(typeof window !== "undefined") {
-        setGlobalWindow(true)
-    } 
-    },[])
+  const notify = () => {
+    toast.success("Copied to Clipboard !", {
+      position: toast.POSITION.TOP_RIGHT,
+    })
+  }
 
-    const handleLabsBlogContent=(data) => {
-      setErrorMessage(false)
-      setPreview(false)
-      updateContent(data)
-      }
+  function handleCopy() {
+    notify()
+    navigator.clipboard.writeText(theHtml)
+  }
 
-      const notify = () => {
-        toast.success("Copied to Clipboard !", {
-          position: toast.POSITION.TOP_RIGHT
-        });
-      };
-
-      function handleCopy (){
-        notify()
-        navigator.clipboard.writeText(theHtml)
-
-      }
-
-      const basicCode =`
+  const basicCode = `
       <div class="lab-text-img-component-container">
               <div class=" labs-text-img-component">
                 <div class="labs-text-img-component">
@@ -72,8 +70,8 @@ export default function LabsBlogComponent() {
               <p>${content}</p>
         </div>
       `
-    
-      const theHtml =`
+
+  const theHtml = `
     <div class="lab-text-img-component-container">
             <div class=" labs-text-img-component">
               <div class="labs-text-img-component">
@@ -89,7 +87,7 @@ export default function LabsBlogComponent() {
             <p>${content}</p>
       </div>
     `
-    const theCss = `
+  const theCss = `
 /* LABS BLOG COMPONENT */
 
 .labs-text-img-component {
@@ -128,51 +126,69 @@ justify-content:center;
 }
     `
 
-
-
-    return (
-      <Layout>
-        
-        <SEO title="Labs blog component"/>
-        <Container className="my-5">
-          <div className="row">
-            <h3 className="fw-bold">Labs Blog Text Component</h3>
-            <p>Example component</p>
-            <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={labsTextImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927274/labsTextHowTo_veytds.mov"/>
-          </div>
-          <Row>
-            <Col md={12}>
-              {/*  */}
-              <LoadableComponent handleLabsBlogContent={handleLabsBlogContent} setPreview={setPreview} />
-            </Col>
-          </Row>
-
-          
-
-          <Row>
-            <Col md="12">
-              <Button
-                variant="primary"
-                type="submit"
-                onClick={handleClick}
-                className="my-5 btn-mainColor"
-              >
-                Create
-              </Button>
-            </Col>
-          </Row>
-
-          <Row>
-            <Col md={12}>
-            {errorMessage ? <BlogComponentsErrorMessage message="Please complete all the fields"/> : null}
-              {preview ? (
-                  <div className="d-flex justify-content-between"> 
-
-    
-                  <h6 className="">Copy your code:</h6>          
-                  {preview &&    <div>
-                  <div type="button" className="btn btn-light rounded " data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-                    <span className="d-inline-block">
+  return (
+    <Layout>
+      <SEO title="Labs blog component" />
+      <Container className="my-5">
+        <div className="row">
+          <h3 className="fw-bold">Labs Blog Text Component</h3>
+        </div>
+        <Row className="mb-5">
+          <Col md={6}>
+            <h4 className="py-3">Component preview</h4>
+            <img src={labsTextImg}></img>
+          </Col>
+          <Col md={6}>
+            <div>
+              <h4 className="py-3">How to use the component</h4>
+              <video className="w-100" controls>
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927274/labsTextHowTo_veytds.mov"
+                  type="video/mov"
+                />
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927274/labsTextHowTo_veytds.mov"
+                  type="video/ogg"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={6}>
+            <h4>Enter the content </h4>
+            <LoadableComponent
+              handleLabsBlogContent={handleLabsBlogContent}
+              setPreview={setPreview}
+            />
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={handleClick}
+              className="my-5 btn-mainColor"
+            >
+              Create
+            </Button>
+          </Col>
+          <Col md={6}>
+            <h4>Your code & preview </h4>
+            {errorMessage ? (
+              <BlogComponentsErrorMessage message="Please complete all the fields" />
+            ) : null}
+            {preview ? (
+              <div className="d-flex justify-content-between">
+                <h6 className="">Copy your code:</h6>
+                {preview && (
+                  <div>
+                    <div
+                      type="button"
+                      className="btn btn-light rounded "
+                      data-bs-toggle="tooltip"
+                      data-bs-placement="top"
+                      title="Tooltip on top"
+                    >
+                      <span className="d-inline-block">
                         <div
                           className="badge badge-warning block"
                           role="button"
@@ -183,33 +199,31 @@ justify-content:center;
                         <ToastContainer />
                       </span>
                     </div>
-                   </div> }
-                 </div>
-              ) : null}
-            </Col>
+                  </div>
+                )}
+              </div>
+            ) : null}
 
             {preview && (
               <Row>
-                <Col md={6}>
+                <code
+                  onClick={() => {
+                    navigator.clipboard.writeText(theHtml)
+                  }}
+                >
+                  <pre>{theHtml}</pre>
+                </code>
                 {preview && (
                   <>
+                    <h6 className="fw-bold">Preview component</h6>
                     <div dangerouslySetInnerHTML={{ __html: theHtml }} />
                   </>
                 )}
-              </Col>
-                <Col md={6} className="">
-                  <code
-                    onClick={() => {
-                      navigator.clipboard.writeText(theHtml)
-                    }}
-                  >
-                    <pre>{theHtml}</pre>
-                  </code>
-                </Col>
               </Row>
             )}
-          </Row>
-        </Container>
-      </Layout>
-    )
+          </Col>
+        </Row>
+      </Container>
+    </Layout>
+  )
 }
