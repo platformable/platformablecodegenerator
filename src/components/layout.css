@@ -56,11 +56,13 @@ img {
   --ob-dark: #fb5012;
   --ob-light: #fdece6;
   --og-dark: #632fae;
-  --og-light: #ebe0fd;
-  --oh-dark: #0956fc;
-  --oh-light: #e2ebfd;
-  --os-dark: #0ce6a3;
-  --os-light: #e3f9f2;
+  --og-light: #EBE0FD;
+  --oh-dark:#0956Fc;
+  --oh-light:#E2EBFD;
+  --os-dark:#0ce6A3;
+  --os-light:#E3F9F2;
+  --oe-dark:#289f94;
+  --oe-light:#85ffed;
 
   --ob-sub3: #fbdace;
   --og-sub3: #d8c1fb;
@@ -1252,9 +1254,11 @@ pre {
 .insetBox2-box h3 {
   font-weight: bold;
 }
-
-.insetBox2-general-dark-btn {
-  background-color: var(--russian-violet-dark);
+.insetBox2-dark-oe  {
+  background-color:var(--oe-dark);
+}
+.insetBox2-general-dark-btn  {
+  background-color:var(--russian-violet-dark);
 }
 .insetBox2-general-dark .insetBox2Top {
   background-color: var(--russian-violet-dark);
