@@ -56,13 +56,13 @@ img {
   --ob-dark: #fb5012;
   --ob-light: #fdece6;
   --og-dark: #632fae;
-  --og-light: #EBE0FD;
-  --oh-dark:#0956Fc;
-  --oh-light:#E2EBFD;
-  --os-dark:#0ce6A3;
-  --os-light:#E3F9F2;
-  --oe-dark:#289f94;
-  --oe-light:#85ffed;
+  --og-light: #ebe0fd;
+  --oh-dark: #0956fc;
+  --oh-light: #e2ebfd;
+  --os-dark: #0ce6a3;
+  --os-light: #e3f9f2;
+  --oe-dark: #289f94;
+  --oe-light: #85ffed;
 
   --ob-sub3: #fbdace;
   --og-sub3: #d8c1fb;
@@ -125,10 +125,10 @@ img {
   width: 100%;
   border: none;
   height: 50px;
+  border-radius: 10px;
   margin: 0 !important;
   padding: 0 !important;
   display: block;
-  border-radius: 10px;
 }
 
 .colorBtn:focus,
@@ -252,6 +252,11 @@ img {
   background-color: #0ce6a3;
   padding: 20px;
 }
+.summary-box-oe-dark {
+  background-color: var(--oe-dark);
+  padding: 20px;
+  border-radius: 10px;
+}
 
 /* INSET BOX */
 
@@ -280,7 +285,13 @@ img {
   margin: 10px 0;
 }
 .inset-box-sustain-light {
-  background-color: #e3f9f2;
+  background-color: #9686ae;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+}
+.inset-box-oe-light {
+  background-color: var(--oe-light);
   padding: 5px 10px;
   border-radius: 10px;
   margin: 10px 0;
@@ -475,6 +486,18 @@ img {
   color: var(--os-dark);
   font-weight: bold;
 }
+.oe-dark-btn {
+  background-color: var(--oe-dark);
+}
+
+.LargeQuote-oe-bg {
+  border-left: 2px solid var(--oe-dark);
+  color: var(--russian-violet-dark);
+}
+.LargeQuote-oe-bg h3 {
+  color: var(--oe-dark);
+  font-weight: bold;
+}
 
 /* SMALLQUOTE */
 
@@ -566,7 +589,18 @@ img {
   font-weight: bold;
   /* font-size:18px; */
 }
+.smallQuote-oe-bg {
+  color: var(--russian-violet-dark);
+}
 
+.smallQuote-oe-bg .centered-border {
+  border: 2px solid var(--oe-dark);
+}
+
+.smallQuote-oe-bg h3 {
+  color: var(--oe-dark);
+  font-weight: bold;
+}
 /*DynamicTable*/
 
 .box {
@@ -588,6 +622,9 @@ img {
 }
 .dynamicTable-sustain-dark {
   background-color: #0ce6a3;
+}
+.dynamicTable-oe-dark {
+  background-color: var(--oe-dark);
 }
 
 .dynamicTable {
@@ -766,6 +803,42 @@ img {
 
 /* dynamicTable-OS */
 
+/* dynamicTable-OE */
+
+.dynamicTable-oe {
+  margin: 20px auto;
+  border: 2px solid var(--oe-dark);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dynamicTable-oe table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  table-layout: fixed;
+  font: 13px Verdana;
+}
+
+.dynamicTable-oe table tr {
+  border-radius: 10px;
+}
+
+.dynamicTable-oe table th {
+  background-color: var(--oe-dark);
+  text-align: left;
+  padding: 20px;
+  color: white;
+}
+
+.dynamicTable-oe table td {
+  border: 2px solid var(--oe-dark);
+  padding: 20px;
+  color: black;
+}
+
+/* dynamicTable-OE */
+
 .dynamicTable table tr:first-child td:first-child {
   border-radius: 10px;
 }
@@ -798,7 +871,9 @@ img {
 .persona-codegen-wrapper,
 .persona-codegen-wrapper div {
   height: 125px;
+  min-width: 150px;
 }
+
 .persona-codegen-wrapper {
   display: flex;
   align-items: center;
@@ -984,7 +1059,6 @@ img {
 section#timeline {
   width: 90%;
   margin: 20px auto;
-  padding-left: 50px;
   position: relative;
 }
 
@@ -1136,13 +1210,21 @@ section#timeline article div.inner {
 }
 
 .inline-icon-general-dark {
-  border-top: 4px solid var(--russian-violet-dark);
+  border-bottom: 4px solid var(--russian-violet-dark);
 }
 
 .inline-icon-general-dark-btn {
   background-color: var(--russian-violet-dark);
 }
-
+.inline-icon-oe-dark-btn {
+  background-color: var(--oe-dark);
+}
+.inline-icon-oe-dark {
+  border-bottom: 4px solid var(--oe-dark);
+}
+.inline-icon-oe-dark h3 {
+  color: var(--oe-dark);
+}
 .inline-icon-general-dark h3 {
   color: var(--russian-violet-dark);
 }
@@ -1152,7 +1234,7 @@ section#timeline article div.inner {
 }
 
 .inline-icon-ob-dark {
-  border-top: 4px solid var(--ob-dark);
+  border-bottom: 4px solid var(--ob-dark);
 }
 
 .inline-icon-ob-dark h3 {
@@ -1163,7 +1245,7 @@ section#timeline article div.inner {
   background-color: #632fae;
 }
 .inline-icon-og-dark {
-  border-top: 4px solid var(--og-dark);
+  border-bottom: 4px solid var(--og-dark);
 }
 .inline-icon-og-dark h3 {
   color: var(--og-dark);
@@ -1173,7 +1255,7 @@ section#timeline article div.inner {
   background-color: var(--oh-dark);
 }
 .inline-icon-oh-dark {
-  border-top: 4px solid var(--oh-dark);
+  border-bottom: 4px solid var(--oh-dark);
 }
 .inline-icon-oh-dark h3 {
   color: var(--oh-dark);
@@ -1184,7 +1266,7 @@ section#timeline article div.inner {
 }
 
 .inline-icon-os-dark {
-  border-top: 4px solid var(--os-dark);
+  border-bottom: 4px solid var(--os-dark);
 }
 
 .inline-icon-os-dark h3 {
@@ -1254,11 +1336,23 @@ pre {
 .insetBox2-box h3 {
   font-weight: bold;
 }
-.insetBox2-dark-oe  {
-  background-color:var(--oe-dark);
+.insetBox2-dark-oe {
+  background-color: var(--oe-dark);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
-.insetBox2-general-dark-btn  {
-  background-color:var(--russian-violet-dark);
+.insetBox2-dark-oe .insetBox2Bottom {
+  background-color: var(--oe-light);
+  color: var(--russian-violet-dark);
+}
+.insetBox2-dark-oe .insetBox2Top {
+  background-color: var(--oe-dark);
+  color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.insetBox2-general-dark-btn {
+  background-color: var(--russian-violet-dark);
 }
 .insetBox2-general-dark .insetBox2Top {
   background-color: var(--russian-violet-dark);
@@ -1353,7 +1447,15 @@ pre {
 .shaded-inline-bg-ob h3 {
   color: var(--ob-dark);
 }
-
+.shaded-inline-bg-oe {
+  background-color: var(--oe-light);
+  border-bottom: 4px solid var(--oe-dark);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.shaded-inline-bg-oe h3 {
+  color: var(--oe-dark);
+}
 .shaded-inline-bg-og {
   background-color: var(--og-light);
   border-bottom: 4px solid var(--og-dark);
@@ -1413,98 +1515,63 @@ pre {
   background-color: var(--os-dark);
 }
 
-/* ELMIRA STYLES */
+/* PERSONAS CARDS */
 
-.personas-summary-box-sustain-dark .personas-top {
-  background-color: var(--os-dark);
-  color: white;
-}
-.personas-summary-box-sustain-dark .personas-top img,
-.personas-summary-box-sustain-dark .personas-bottom-text {
-  background-color: var(--os-light);
-}
-.personas-summary-box-general-dark .personas-top {
+.persona-card-bg-dark-purple .personas-top {
   background-color: var(--russian-violet-dark);
   color: white;
 }
-.personas-summary-box-general-dark .personas-top img,
-.personas-summary-box-general-dark .personas-bottom-text {
-  background-color: var(--russian-violet-light);
-  color: var(--russian-violet-dark);
-}
 
-.personas-summary-box-bank-dark .personas-top {
-  background-color: var(--ob-dark);
+.persona-card-bg-dark-purple .personas-bottom-text,
+.persona-card-bg-dark-purple .personas-top img {
+  background-color: var(--russian-violet-light);
+}
+.persona-card-bg-dark-orange .personas-top {
+  background-color: var(--red-orange-dark);
   color: white;
 }
-.personas-summary-box-bank-dark .personas-top img,
-.personas-summary-box-bank-dark .personas-bottom-text {
-  background-color: var(--ob-light);
+
+.persona-card-bg-dark-orange .personas-bottom-text,
+.persona-card-bg-dark-orange .personas-top img {
+  background-color: var(--red-orange-light);
 }
-.personas-summary-box-gov-dark .personas-top {
+
+.persona-card-bg-purple .personas-top {
   background-color: var(--og-dark);
   color: white;
 }
-.personas-summary-box-gov-dark .personas-top img,
-.personas-summary-box-gov-dark .personas-bottom-text {
+
+.persona-card-bg-purple .personas-bottom-text,
+.persona-card-bg-purple .personas-top img {
   background-color: var(--og-light);
 }
-.personas-summary-box-health-dark .personas-top {
+
+.persona-card-bg-dark-blue .personas-top {
   background-color: var(--oh-dark);
   color: white;
 }
-.personas-summary-box-health-dark .personas-top img,
-.personas-summary-box-health-dark .personas-bottom-text {
+
+.persona-card-bg-dark-blue .personas-bottom-text,
+.persona-card-bg-dark-blue .personas-top img {
   background-color: var(--oh-light);
 }
-.api-tools-provider .personas-top,
-.regulator .personas-top,
-.api-architects .personas-top {
-  background-color: #ffd23f;
-  color: white;
-}
-.api-tools-provider .personas-bottom-text,
-.api-tools-provider .personas-top img,
-.regulator .personas-bottom-text,
-.regulator .personas-top img,
-.api-architects .personas-bottom-text,
-.api-architects .personas-top img {
-  background-color: #ffe590;
-}
 
-.fintech-associantions .personas-top,
-.banks .personas-top,
-.fintechs .personas-top,
-.financial-inclusion .personas-top {
-  background-color: #fb5012;
+.persona-card-bg-dark-green .personas-top {
+  background-color: var(--os-dark);
   color: white;
 }
 
-.fintech-associantions .personas-top img,
-.banks .personas-top img,
-.fintechs .personas-top img,
-.financial-inclusion .personas-top img,
-.fintech-associantions .personas-bottom-text,
-.banks .personas-bottom-text,
-.fintechs .personas-bottom-text,
-.financial-inclusion .personas-bottom-text {
-  background-color: var(--red-orange-light);
-  color: var(--russian-violet-dark);
+.persona-card-bg-dark-green .personas-bottom-text,
+.persona-card-bg-dark-green .personas-top img {
+  background-color: var(--os-light);
 }
 
-.policy-lead .personas-top,
-.dg-lead .personas-top,
-.pm-lead .personas-top {
-  background-color: var(--og-dark);
+.persona-card-bg-dark-oe .personas-top {
+  background-color: var(--oe-dark);
   color: white;
 }
 
-.policy-lead .personas-top img,
-.dg-lead .personas-top img,
-.pm-lead .personas-top img,
-.policy-lead .personas-bottom-text,
-.dg-lead .personas-bottom-text,
-.pm-lead .personas-bottom-text {
-  background-color: #d8c1fb;
-  color: var(--russian-violet-dark);
+.persona-card-bg-dark-oe .personas-bottom-text,
+.persona-card-bg-dark-oe .personas-top img {
+  background-color: var(--oe-light);
 }

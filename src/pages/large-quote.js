@@ -22,7 +22,15 @@ export default function LargeQuote() {
   useEffect(() => {
     addBorder()
   }, [])
-
+  useEffect(() => {
+    if (
+      !quoteContent.quote &&
+      !quoteContent.author &&
+      !quoteContent.secondLine
+    ) {
+      setPreview(false)
+    }
+  }, [quoteContent])
   const addBorder = () => {
     const allWrappers = document.querySelectorAll(".colors button")
     allWrappers.forEach(element => {
@@ -158,30 +166,30 @@ font-weight:bold;
       <Container className="my-5">
         <div className="row">
           <h3 className="fw-bold">Large Quote</h3>
-          <Row className="mb-5">
-            <Col md={6}>
-              <h4 className="py-3">Component preview</h4>
-              <img src={largeQuoteImg}></img>
-            </Col>
-            <Col md={6}>
-              <div>
-                <h4 className="py-3">How to use the component</h4>
-                <video className="w-100" width="720" controls>
-                  <source
-                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"
-                    type="video/mov"
-                  />
-                  <source
-                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"
-                    type="video/ogg"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </Col>
-          </Row>
-          {/* <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={largeQuoteImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"/> */}
         </div>
+        <Row className="mb-5">
+          <Col md={6}>
+            <h4 className="py-3">Component preview</h4>
+            <img src={largeQuoteImg}></img>
+          </Col>
+          <Col md={6}>
+            <div>
+              <h4 className="py-3">How to use the component</h4>
+              <video className="w-100" width="720" controls>
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"
+                  type="video/mov"
+                />
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"
+                  type="video/ogg"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </Col>
+        </Row>
+        {/* <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={largeQuoteImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"/> */}
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
@@ -189,10 +197,18 @@ font-weight:bold;
               <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
+                    className="oe-dark-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("LargeQuote-oe-bg")
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
                     className="dark-purple-btn colorBtn"
                     onClick={e => {
-                      setSelectedColor("LargeQuote-general-dark-bg")
-                      setPreview(false)
+                      setSelectedColor("LargeQuote-og-bg")
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -203,7 +219,6 @@ font-weight:bold;
                     className="ob-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("LargeQuote-ob-bg")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -214,7 +229,6 @@ font-weight:bold;
                     className="og-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("LargeQuote-og-bg")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -234,7 +248,6 @@ font-weight:bold;
                     className="os-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("LargeQuote-os-bg")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -249,7 +262,6 @@ font-weight:bold;
                   rows={4}
                   onChange={e => {
                     setQuoteContent({ ...quoteContent, quote: e.target.value })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                 />
@@ -262,7 +274,6 @@ font-weight:bold;
                   rows={4}
                   onChange={e => {
                     setQuoteContent({ ...quoteContent, author: e.target.value })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                 />
@@ -278,7 +289,6 @@ font-weight:bold;
                       ...quoteContent,
                       secondLine: e.target.value,
                     })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                 />

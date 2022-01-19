@@ -148,10 +148,18 @@ gap:10px;
               <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
+                    className="inline-icon-oe-dark-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("inline-icon-oe-dark")
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
                     className="inline-icon-general-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("inline-icon-general-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -162,7 +170,6 @@ gap:10px;
                     className="inline-icon-bank-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("inline-icon-ob-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -173,7 +180,6 @@ gap:10px;
                     className="inline-icon-gov-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("inline-icon-og-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -184,7 +190,6 @@ gap:10px;
                     className="inline-icon-health-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("inline-icon-oh-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -195,7 +200,6 @@ gap:10px;
                     className="inline-icon-sustain-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("inline-icon-os-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>

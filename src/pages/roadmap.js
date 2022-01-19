@@ -22,7 +22,11 @@ export default function Roadmap() {
       position: toast.POSITION.TOP_RIGHT,
     })
   }
-
+  useEffect(() => {
+    if (form.length === 0) {
+      setPreview(false)
+    }
+  }, [form])
   const basicCode = `
 <section id="timeline">
     <article>
@@ -201,7 +205,7 @@ justify-content:center;
   const onChange = (index, event) => {
     event.preventDefault()
     event.persist()
-    setPreview(false)
+    // setPreview(false)
 
     setForm(prev => {
       return prev.map((item, i) => {
@@ -220,7 +224,6 @@ justify-content:center;
 
   const handleRemoveField = (e, index) => {
     e.preventDefault()
-    setPreview(false)
     setForm(prev => prev.filter(item => item !== prev[index]))
   }
 
@@ -243,166 +246,160 @@ justify-content:center;
       <SEO title="Roadmap" />
       <Container className="my-5">
         <div className="row">
-          <div className="row">
-            <h3 className="fw-bold">Roadmap</h3>
-            <Row className="mb-5">
-              <Col md={6}>
-                <h4 className="py-3">Component preview</h4>
-                <img src={roadmapImg}></img>
-              </Col>
-              <Col md={6}>
-                <div>
-                  <h4 className="py-3">How to use the component</h4>
-                  <video className="w-100" controls>
-                    <source
-                      src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"
-                      type="video/mov"
-                    />
-                    <source
-                      src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"
-                      type="video/ogg"
-                    />
-                    Your browser does not support the video tag.
-                  </video>
+          <h3 className="fw-bold">Roadmap</h3>
+        </div>
+        <Row className="mb-5">
+          <Col md={6}>
+            <h4 className="py-3">Component preview</h4>
+            <img src={roadmapImg}></img>
+          </Col>
+          <Col md={6}>
+            <div>
+              <h4 className="py-3">How to use the component</h4>
+              <video className="w-100" controls>
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"
+                  type="video/mov"
+                />
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"
+                  type="video/ogg"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </Col>
+        </Row>
+
+        {/* <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={roadmapImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"/> */}
+
+        <Row>
+          <Col md={6}>
+            <Button
+              variant="primary"
+              type="submit"
+              onClick={addRow}
+              className="mb-5 btn-mainColor"
+            >
+              Add Row
+            </Button>
+            {form.map((item, index) => (
+              <>
+                <div className="d-flex justify-content-between my-3">
+                  <h3 className="font-weight-bold">{`Road ${index + 1}`}</h3>
+                  <button
+                    className="btn btn-mainColor text-white justify-content-between"
+                    onClick={e => handleRemoveField(e, index)}
+                  >
+                    X
+                  </button>
                 </div>
-              </Col>
-            </Row>
 
-            {/* <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={roadmapImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"/> */}
+                <Form.Group controlId="">
+                  <Form.Label>Title</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="title"
+                    value={item.title}
+                    onChange={e => onChange(index, e)}
+                  />
+                </Form.Group>
+                <Form.Group controlId="">
+                  <Form.Label>Content</Form.Label>
+                  <Form.Control
+                    as="textarea"
+                    rows={6}
+                    value={item.content}
+                    name="content"
+                    onChange={e => onChange(index, e)}
+                  />
+                </Form.Group>
+              </>
+            ))}
 
-            <Row>
-              <Col md={6}>
+            <Row className="my-5">
+              <Col>
                 <Button
                   variant="primary"
                   type="submit"
-                  onClick={addRow}
-                  className="mb-5 btn-mainColor"
+                  onClick={handleClick}
+                  className="my-2 btn-mainColor"
                 >
-                  Add Row
+                  Create Roadmap
                 </Button>
-                {form.map((item, index) => (
-                  <>
-                    <div className="d-flex justify-content-between my-3">
-                      <h3 className="font-weight-bold">{`Road ${
-                        index + 1
-                      }`}</h3>
-                      <button
-                        className="btn btn-mainColor text-white justify-content-between"
-                        onClick={e => handleRemoveField(e, index)}
-                      >
-                        X
-                      </button>
-                    </div>
-
-                    <Form.Group controlId="">
-                      <Form.Label>Title</Form.Label>
-                      <Form.Control
-                        type="text"
-                        name="title"
-                        value={item.title}
-                        onChange={e => onChange(index, e)}
-                      />
-                    </Form.Group>
-                    <Form.Group controlId="">
-                      <Form.Label>Content</Form.Label>
-                      <Form.Control
-                        as="textarea"
-                        rows={6}
-                        value={item.content}
-                        name="content"
-                        onChange={e => onChange(index, e)}
-                      />
-                    </Form.Group>
-                  </>
-                ))}
-
-                <Row className="my-5">
-                  <Col>
-                    <Button
-                      variant="primary"
-                      type="submit"
-                      onClick={handleClick}
-                      className="my-2 btn-mainColor"
-                    >
-                      Create Roadmap
-                    </Button>
-                  </Col>
-                </Row>
-              </Col>
-              <Col md={6}>
-                <h4 className="mb-5">Your code & preview </h4>
-                <div className="row">
-                  <div className="d-flex justify-content-between">
-                    {errorMessage ? (
-                      <BlogComponentsErrorMessage message="Please complete all the fields" />
-                    ) : null}
-
-                    {preview && (
-                      <>
-                        <h6 className="">Copy your code:</h6>
-                        <div
-                          className="badge badge-warning block btn-light rounded"
-                          role="button"
-                          onClick={() => {
-                            notify()
-                            const allTheHtml = document.getElementById(
-                              "timeline"
-                            ).outerHTML
-                            navigator.clipboard.writeText(allTheHtml)
-                          }}
-                        >
-                          <img
-                            className="btn"
-                            src="https://img.icons8.com/small/16/000000/copy-2.png"
-                          />
-                        </div>
-                      </>
-                    )}
-                  </div>
-                  <div className="">{preview && <pre>{newHtml}</pre>}</div>
-
-                  <div className="road-component-view">
-                    {preview ? (
-                      <>
-                        <h6 className="fw-bold">Preview component</h6>
-
-                        <div class="labs-road-text-img-component-container">
-                          <div class="labs-road-top-bar-posts-header labs-road-text-img-component">
-                            <div class="labs-road-top-bar-posts-header-img labs-road-text-img-component">
-                              <img
-                                src="https://res.cloudinary.com/platform1/image/upload/v1623947770/Labs_c8c4b81e63.png"
-                                alt=""
-                              />
-                            </div>
-                            <div class="labs-road-top-bar-posts-text">
-                              <h3>Roadmap</h3>{" "}
-                            </div>
-                          </div>
-                        </div>
-                        <section id="timeline">
-                          {form.map((item, index) => {
-                            return (
-                              <article>
-                                <div class="inner">
-                                  <span class="date">
-                                    <span class="month">{index + 1}</span>
-                                  </span>
-                                  <h2>{item.title}</h2>
-                                  <p>{item.content}</p>
-                                </div>
-                              </article>
-                            )
-                          })}
-                        </section>
-                      </>
-                    ) : null}
-                  </div>
-                </div>
               </Col>
             </Row>
-          </div>
-        </div>
+          </Col>
+          <Col md={6}>
+            <h4 className="mb-5">Your code & preview </h4>
+            <div className="row">
+              <div className="d-flex justify-content-between">
+                {errorMessage ? (
+                  <BlogComponentsErrorMessage message="Please complete all the fields" />
+                ) : null}
 
+                {preview && (
+                  <>
+                    <h6 className="">Copy your code:</h6>
+                    <div
+                      className="badge badge-warning block btn-light rounded"
+                      role="button"
+                      onClick={() => {
+                        notify()
+                        const allTheHtml = document.getElementById("timeline")
+                          .outerHTML
+                        navigator.clipboard.writeText(allTheHtml)
+                      }}
+                    >
+                      <img
+                        className="btn"
+                        src="https://img.icons8.com/small/16/000000/copy-2.png"
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
+              <div className="">{preview && <pre>{newHtml}</pre>}</div>
+
+              <div className="road-component-view">
+                {preview ? (
+                  <>
+                    <h6 className="fw-bold">Preview component</h6>
+
+                    <div class="labs-road-text-img-component-container">
+                      <div class="labs-road-top-bar-posts-header labs-road-text-img-component">
+                        <div class="labs-road-top-bar-posts-header-img labs-road-text-img-component">
+                          <img
+                            src="https://res.cloudinary.com/platform1/image/upload/v1623947770/Labs_c8c4b81e63.png"
+                            alt=""
+                          />
+                        </div>
+                        <div class="labs-road-top-bar-posts-text">
+                          <h3>Roadmap</h3>{" "}
+                        </div>
+                      </div>
+                    </div>
+                    <section id="timeline">
+                      {form.map((item, index) => {
+                        return (
+                          <article>
+                            <div class="inner">
+                              <span class="date">
+                                <span class="month">{index + 1}</span>
+                              </span>
+                              <h2>{item.title}</h2>
+                              <p>{item.content}</p>
+                            </div>
+                          </article>
+                        )
+                      })}
+                    </section>
+                  </>
+                ) : null}
+              </div>
+            </div>
+          </Col>
+        </Row>
         <ToastContainer />
       </Container>
     </Layout>

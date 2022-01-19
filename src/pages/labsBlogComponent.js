@@ -14,14 +14,16 @@ const LoadableComponent = Loadable({
   loader: () => import("../components/RichEditorComponent"),
   loading: "Loading",
 })
-
 export default function LabsBlogComponent() {
   const [errorMessage, setErrorMessage] = useState(false)
   const [preview, setPreview] = useState(false)
   const [content, updateContent] = useState("")
-
+  useEffect(() => {
+    if (content === "") {
+      setPreview(false)
+    }
+  }, [content])
   const handleClick = () => {
-    console.log("content", content)
     if (content === "") {
       setErrorMessage(true)
     } else {
@@ -39,7 +41,6 @@ export default function LabsBlogComponent() {
 
   const handleLabsBlogContent = data => {
     setErrorMessage(false)
-    setPreview(false)
     updateContent(data)
   }
 

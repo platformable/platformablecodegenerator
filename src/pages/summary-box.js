@@ -139,10 +139,18 @@ export default function SummaryQuote() {
               <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
+                    className="summary-box-oe-dark colorBtn"
+                    onClick={e => {
+                      setSelectedColor("summary-box-oe-dark")
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
                     className="summary-box-general-dark colorBtn"
                     onClick={e => {
                       setSelectedColor("summary-box-general-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -153,7 +161,6 @@ export default function SummaryQuote() {
                     className="summary-box-bank-dark colorBtn"
                     onClick={e => {
                       setSelectedColor("summary-box-bank-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -164,7 +171,6 @@ export default function SummaryQuote() {
                     className="summary-box-gov-dark colorBtn"
                     onClick={e => {
                       setSelectedColor("summary-box-gov-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -175,7 +181,6 @@ export default function SummaryQuote() {
                     className="summary-box-health-dark colorBtn"
                     onClick={e => {
                       setSelectedColor("summary-box-health-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -186,7 +191,6 @@ export default function SummaryQuote() {
                     className="summary-box-sustain-dark colorBtn"
                     onClick={e => {
                       setSelectedColor("summary-box-sustain-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -204,7 +208,6 @@ export default function SummaryQuote() {
                       ...blockquoteContent,
                       whoShouldReadThis: e.target.value,
                     })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                 />
@@ -220,7 +223,6 @@ export default function SummaryQuote() {
                       ...blockquoteContent,
                       whatAbout: e.target.value,
                     })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                 />
@@ -236,7 +238,6 @@ export default function SummaryQuote() {
                       ...blockquoteContent,
                       whyImportant: e.target.value,
                     })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                 />

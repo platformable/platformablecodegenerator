@@ -23,7 +23,15 @@ export default function InsetBox2() {
   useEffect(() => {
     addBorder()
   }, [])
-
+  useEffect(() => {
+    if (
+      insetBoxContent.content === "" &&
+      insetBoxContent.title === "" &&
+      insetBoxContent.subtitle === ""
+    ) {
+      setPreview(false)
+    }
+  }, [insetBoxContent])
   const addBorder = () => {
     const allWrappers = document.querySelectorAll(".colors button")
     allWrappers.forEach(element => {
@@ -47,6 +55,7 @@ export default function InsetBox2() {
     )
     if (isContentEmpty || selectedColor === "") {
       setErrorMessage(true)
+      setPreview(false)
     } else {
       setPreview(true)
       setErrorMessage(false)
@@ -190,10 +199,18 @@ export default function InsetBox2() {
               <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
+                    className="insetBox2-dark-oe colorBtn"
+                    onClick={e => {
+                      setSelectedColor("insetBox2-dark-oe")
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
                     className="insetBox2-general-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("insetBox2-general-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -204,7 +221,6 @@ export default function InsetBox2() {
                     className="insetBox2-bank-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("insetBox2-bank-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -215,7 +231,6 @@ export default function InsetBox2() {
                     className="insetBox2-gov-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("insetBox2-gov-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -226,7 +241,6 @@ export default function InsetBox2() {
                     className="insetBox2-health-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("insetBox2-health-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -237,7 +251,6 @@ export default function InsetBox2() {
                     className="insetBox2-sustain-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("insetBox2-sustain-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -250,11 +263,16 @@ export default function InsetBox2() {
                 <Form.Control
                   type="text"
                   onChange={e => {
+                    let isContentEmpty = Object.values(insetBoxContent).every(
+                      items => items === ""
+                    )
+                    if (isContentEmpty) {
+                      setPreview(false)
+                    }
                     setInsetBoxContent({
                       ...insetBoxContent,
                       title: e.target.value,
                     })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                   className="mb-2"
@@ -270,7 +288,6 @@ export default function InsetBox2() {
                       ...insetBoxContent,
                       subtitle: e.target.value,
                     })
-                    setPreview(false)
                     setErrorMessage(false)
                   }}
                   className="mb-2"
@@ -287,7 +304,7 @@ export default function InsetBox2() {
                       ...insetBoxContent,
                       content: e.target.value,
                     })
-                    setPreview(false)
+
                     setErrorMessage(false)
                   }}
                   className="mb-2"

@@ -21,6 +21,11 @@ export default function Table() {
   useEffect(() => {
     addBorder()
   }, [])
+  useEffect(() => {
+    if (content === "") {
+      setPreview(false)
+    }
+  }, [content])
 
   const addBorder = () => {
     const allWrappers = document.querySelectorAll(".colors button")
@@ -56,18 +61,27 @@ export default function Table() {
 
   const handleLabsBlogContent = data => {
     setErrorMessage(false)
-    setPreview(false)
-    setContent(data)
+    // setPreview(false)
+    setContent(
+      data.replace(
+        `<figure class="table">`,
+        `<figure class="${selectedColor}">`
+      )
+    )
   }
 
   const handleClick = e => {
     e.preventDefault()
-    setPreview(true)
-    const newContent = content.replace(
-      `<figure class="table">`,
-      `<figure class="${selectedColor}">`
-    )
-    setContent(newContent)
+    if (!selectedColor || !content) {
+      setErrorMessage(true)
+    } else {
+      setPreview(true)
+      const newContent = content.replace(
+        `<figure class="table">`,
+        `<figure class="${selectedColor}">`
+      )
+      setContent(newContent)
+    }
   }
 
   return (
@@ -76,29 +90,29 @@ export default function Table() {
       <Container className="my-5">
         <div className="row">
           <h3 className="fw-bold">Table Component</h3>
-          <Row className="mb-5">
-            <Col md={6}>
-              <h4 className="py-3">Component preview</h4>
-              <img src={tableImg}></img>
-            </Col>
-            <Col md={6}>
-              <div>
-                <h4 className="py-3">How to use the component</h4>
-                <video className="w-100" width="720" controls>
-                  <source
-                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                    type="video/mov"
-                  />
-                  <source
-                    src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                    type="video/ogg"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </Col>
-          </Row>
         </div>
+        <Row className="mb-5">
+          <Col md={6}>
+            <h4 className="py-3">Component preview</h4>
+            <img src={tableImg}></img>
+          </Col>
+          <Col md={6}>
+            <div>
+              <h4 className="py-3">How to use the component</h4>
+              <video className="w-100" width="720" controls>
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
+                  type="video/mov"
+                />
+                <source
+                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
+                  type="video/ogg"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </Col>
+        </Row>
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
@@ -106,9 +120,25 @@ export default function Table() {
               <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
+                    className="dynamicTable-oe-dark colorBtn"
+                    onClick={e => {
+                      if (content) {
+                        setSelectedColor("dynamicTable-oe")
+                        const newContent = content.replace(
+                          /".*">/,
+                          `"dynamicTable-oe">`
+                        )
+                        setContent(newContent)
+                      } else {
+                        setSelectedColor("dynamicTable-oe")
+                      }
+                    }}
+                  ></button>
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
                     className="dynamicTable-general-dark colorBtn"
                     onClick={e => {
-                      setPreview(false)
                       if (content) {
                         setSelectedColor("dynamicTable")
                         const newContent = content.replace(
@@ -127,7 +157,6 @@ export default function Table() {
                   <button
                     className="dynamicTable-bank-dark colorBtn"
                     onClick={e => {
-                      setPreview(false)
                       if (content) {
                         setSelectedColor("dynamicTable-ob")
                         const newContent = content.replace(
@@ -146,7 +175,6 @@ export default function Table() {
                   <button
                     className="dynamicTable-gov-dark colorBtn"
                     onClick={e => {
-                      setPreview(false)
                       if (content) {
                         setSelectedColor("dynamicTable-og")
                         const newContent = content.replace(
@@ -165,7 +193,6 @@ export default function Table() {
                   <button
                     className="dynamicTable-health-dark colorBtn"
                     onClick={e => {
-                      setPreview(false)
                       if (content) {
                         setSelectedColor("dynamicTable-oh")
                         const newContent = content.replace(
@@ -184,7 +211,6 @@ export default function Table() {
                   <button
                     className="dynamicTable-sustain-dark colorBtn"
                     onClick={e => {
-                      setPreview(false)
                       if (content) {
                         setSelectedColor("dynamicTable-os")
                         const newContent = content.replace(

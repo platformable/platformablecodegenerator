@@ -219,10 +219,18 @@ color:var(--os-dark)
               <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
+                    className="inline-icon-oe-dark-btn colorBtn"
+                    onClick={e => {
+                      setSelectedColor("shaded-inline-bg-oe")
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
                     className="inline-icon-general-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("shaded-inline-icon-general-dark")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -233,7 +241,6 @@ color:var(--os-dark)
                     className="inline-icon-bank-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("shaded-inline-bg-ob")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -244,7 +251,6 @@ color:var(--os-dark)
                     className="inline-icon-gov-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("shaded-inline-bg-og")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -255,7 +261,6 @@ color:var(--os-dark)
                     className="inline-icon-health-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("shaded-inline-bg-oh")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>
@@ -266,7 +271,6 @@ color:var(--os-dark)
                     className="inline-icon-sustain-dark-btn colorBtn"
                     onClick={e => {
                       setSelectedColor("shaded-inline-bg-os")
-                      setPreview(false)
                       setErrorMessage(false)
                     }}
                   ></button>

@@ -148,6 +148,15 @@ export default function InsetQuote1() {
               <div className="d-flex flex-column flex-md-row">
                 <Col md={2} className="colors ">
                   <button
+                    className="inset-box-oe-light colorBtn"
+                    onClick={e => {
+                      setSelectedColor("inset-box-oe-light")
+                      setErrorMessage(false)
+                    }}
+                  ></button>
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
                     className="inset-box-general-light colorBtn"
                     onClick={e => {
                       setSelectedColor("inset-box-general-light")
@@ -204,8 +213,9 @@ export default function InsetQuote1() {
                   as="textarea"
                   rows={4}
                   onChange={e => {
-                    console.log(e.target.value)
-                    setPreview(false)
+                    if (e.target.value === "") {
+                      setPreview(false)
+                    }
                     setErrorMessage(false)
                     setBlockquoteContent({
                       ...blockquoteContent,
