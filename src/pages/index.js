@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { Container, Row, Col, Card } from "react-bootstrap"
@@ -13,25 +12,18 @@ const IndexPage = () => (
       <div className="container">
         <div className="row d-flex align-items-center ">
           <div className="col-md-6 frontbanner-left">
-            <h3 className="fs-1 fw-bold text-sm-start text-center">
-              Blog Component Generator for Headless CMS
-            </h3>
+            <h3 className="fs-1 fw-bold text-sm-start text-center">Blog Component Generator for Headless CMS</h3>
             <div className="bt-container flex justify-content-center text-sm-start text-center">
               <Link
                 to="https://github.com/platformable/platformablecodegenerator"
                 target="_blank"
               >
-                <button className="btn btn-frontbanner-left mb-5 my-sm-2">
-                  Learn more
-                </button>
+                <button className="btn btn-frontbanner-left mb-5 my-sm-2">Learn more</button>
               </Link>
             </div>
           </div>
           <div className="col-md-6 frontbanner-right flex justify-content-end">
-            <StaticImage
-              src="../../static/homepage-banner.png"
-              alt="platformable codegenerator"
-            />
+            <StaticImage src="../../static/homepage-banner.png" alt="platformable codegenerator"/>
           </div>
         </div>
       </div>
@@ -43,10 +35,7 @@ const IndexPage = () => (
         <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
             <Link to="/summary-box">
-              <StaticImage
-                src="../../static/previewThumbnails/summaryBoxThumbnail.png"
-                alt="platformable codegenerator"
-              />
+              <StaticImage src="../../static/previewThumbnails/summaryBoxThumbnail.png" alt="platformable codegenerator"/>
             </Link>
             <Card.Body>
               <Link to="/summary-box">
