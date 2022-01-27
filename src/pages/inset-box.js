@@ -4,21 +4,21 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import InsetBlockquoteComponent from "../components/insetBlockquoteComponent"
 import insetBoxImg from "../../static/previewThumbnails/insetBoxThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
-import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
+import HeaderComponent from '../components/HeaderComponent'
 import SEO from "../components/seo"
-
+import SingleColorButton from '../components/SingleColorButton'
+import colorFunction from "../components/colorsForComponents.js";
 export default function InsetQuote1() {
-  /*  const [fullContent, setFullContent] = useState(false) */
   const [selectedColor, setSelectedColor] = useState("")
   const [blockquoteContent, setBlockquoteContent] = useState({
     content: "",
   })
-
+  const { insetBoxColors } = colorFunction();
   const [preview, setPreview] = useState(false)
-  const [errorMessage, setErrorMessage] = useState(false)
-  const errorText = "Some data is missing"
+  // const insetBoxColors = ["inset-box-oe-light", "inset-box-general-light", "inset-box-bank-light", "inset-box-gov-light", "inset-box-health-light", "inset-box-sustain-light"]
 
+  const [errorMessage, setErrorMessage] = useState(false)
   useEffect(() => {
     addBorder()
   }, [])
@@ -60,150 +60,20 @@ export default function InsetQuote1() {
     </div>
 
     `
-  const basicCode = `
-    <div class="text-white ${selectedColor}">
-      <strong>
-        <i>${blockquoteContent.content}</i>
-      </strong>
-    </div>
-    `
-
-  const theCss = `
-/* INSET BOX */
-
-.inset-box-general-light {
-  background-color:var(--sunglow-dark);
-  padding:5px 10px;
-  border-radius:10px;
-  margin:10px 0;
-}
-.inset-box-bank-light {
-  background-color:#FBAC8F;
-  padding:5px 10px;
-  border-radius:10px;
-  margin:10px 0;
-}
-.inset-box-gov-light {
-  background-color:#D8C1FB;
-  padding:5px 10px;
-  border-radius:10px;
-  margin:10px 0;
-}
-.inset-box-health-light {
-  background-color:#87ACFC;
-  padding:5px 10px;
-  border-radius:10px;
-  margin:10px 0;
-}
-.inset-box-sustain-light {
-  background-color:#e3f9f2;
-  padding:5px 10px;
-  border-radius:10px;
-  margin:10px 0;
-}
-
-.code-container  {
-  color:black;
-  font-size:12px;
-  background-color:#f4f4f4;
-  padding:10px;
-  border-radius:10px;
-  }
-  
-  `
-
   return (
     <Layout>
       <SEO title="Inset Box 1" />
       <Container className="my-5">
-        <div>
-          <h3 className="fw-bold">Inset Box</h3>
-        </div>
-        <Row className="mb-5">
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={insetBoxImg}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" width="720" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </Row>
+        <HeaderComponent componentName="Inset Box" image={insetBoxImg} video="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov" />
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
               <h4>Select color</h4>
               <div className="d-flex flex-column flex-md-row">
-                <Col md={2} className="colors ">
-                  <button
-                    className="inset-box-oe-light colorBtn"
-                    onClick={e => {
-                      setSelectedColor("inset-box-oe-light")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-                <Col md={2} className="colors ">
-                  <button
-                    className="inset-box-general-light colorBtn"
-                    onClick={e => {
-                      setSelectedColor("inset-box-general-light")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="inset-box-bank-light colorBtn"
-                    onClick={e => {
-                      setSelectedColor("inset-box-bank-light")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="inset-box-gov-light colorBtn"
-                    onClick={e => {
-                      setSelectedColor("inset-box-gov-light")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="inset-box-health-light colorBtn"
-                    onClick={e => {
-                      setSelectedColor("inset-box-health-light")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="inset-box-sustain-light colorBtn"
-                    onClick={e => {
-                      setSelectedColor("inset-box-sustain-light")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
+                {insetBoxColors.map((color, index) => <SingleColorButton key={index} colorClass={color} onSelectColor={() => {
+                  setSelectedColor(color)
+                  setErrorMessage(false)
+                }} />)}
               </div>
             </section>
             <Form>
@@ -224,7 +94,6 @@ export default function InsetQuote1() {
                   }}
                 />
               </Form.Group>
-
               <Button
                 variant="primary"
                 type="submit"

@@ -4,8 +4,10 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import LargeQuoteComponent from "../components/LargeQuoteComponent"
 import largeQuoteImg from "../../static/previewThumbnails/largeQuoteThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
-import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
+import HeaderComponent from '../components/HeaderComponent'
+import SingleColorButton from '../components/SingleColorButton'
+import colorFunction from "../components/colorsForComponents.js";
 import SEO from "../components/seo"
 
 export default function LargeQuote() {
@@ -15,10 +17,10 @@ export default function LargeQuote() {
     author: "",
     secondLine: "",
   })
+  const { largeQuoteColors } = colorFunction();
+
   const [preview, setPreview] = useState(false)
   const [errorMessage, setErrorMessage] = useState(false)
-  const errorText = "Some data is missing"
-
   useEffect(() => {
     addBorder()
   }, [])
@@ -58,12 +60,6 @@ export default function LargeQuote() {
     }
   }
 
-  const basicCode = `
-    <div class="large-quote ${selectedColor}">
-      <p>${quoteContent.quote}</p>
-      <div class="author"><h3 class="font-black">${quoteContent.author}</h3></div>
-      <div class="second-line">${quoteContent.secondLine}</div>
-    </div>`
   const theHtml = `  
     <div class="large-quote ${selectedColor}">
       <p>${quoteContent.quote}</p>
@@ -71,187 +67,20 @@ export default function LargeQuote() {
       <div class="second-line">${quoteContent.secondLine}</div>
     </div>
       `
-
-  const theCss = `
-/* LARGE QUOTE */
-
-.large-quote {
-  margin:20px 0;
-  padding:5px 10px;
-}
-.large-quote p {
-  font-style:italic;
-  margin:10px 0;
-  color:var(--russian-violet-dark);
-}
-
-.large-quote .author,.large-quote .second-line {
-  display:flex;
-  justify-content:flex-end;
-}
-
-.large-quote .author {
-font-weight:bold;
-}
-
-.dark-purple-btn {
-  background-color: var(--russian-violet-dark);
-}
-
-.LargeQuote-general-dark-btn {
-  background-color:var(--russian-violet-dark);
-
-}
-.LargeQuote-general-dark-bg {
-  border-left:2px solid var(--russian-violet-dark);
-  color:var(--russian-violet-dark);
-}
-
-.ob-dark-btn {
-  background-color:var(--ob-dark)
-}
-
-.LargeQuote-ob-bg {
-  border-left:2px solid var(--ob-dark);
-  color:var(--russian-violet-dark);
-}
-.LargeQuote-ob-bg h3 {
-  color:var(--ob-dark);
-  font-weight: bold;
-}
-
-.og-dark-btn {
-  background-color: var(--og-dark);
-}
-
-.LargeQuote-og-bg {
-  border-left:2px solid var(--og-dark);
-  color:var(--russian-violet-dark);
-}
-.LargeQuote-og-bg h3 {
-  color:var(--og-dark);
-  font-weight: bold;
-}
-
-.oh-dark-btn {
-  background-color:var(--oh-dark)
-}
-
-.LargeQuote-oh-bg {
-  border-left:2px solid var(--oh-dark);
-  color:var(--russian-violet-dark);
-}
-.LargeQuote-oh-bg h3 {
-  color:var(--oh-dark);
-  font-weight: bold;
-}
-
-.os-dark-btn {
-  background-color:var(--os-dark);
-}
-
-.LargeQuote-os-bg {
-  border-left:2px solid var(--os-dark);
-  color:var(--russian-violet-dark);
-}
-.LargeQuote-os-bg h3 {
-  color:var(--os-dark);
-  font-weight: bold;
-}
-`
-
   return (
     <Layout>
       <SEO title="Large quote" />
       <Container className="my-5">
-        <div className="row">
-          <h3 className="fw-bold">Large Quote</h3>
-        </div>
-        <Row className="mb-5">
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={largeQuoteImg}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" width="720" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </Row>
-        {/* <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={largeQuoteImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"/> */}
+        <HeaderComponent componentName="Large Quote" image={largeQuoteImg} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927304/LargeQuoteHowTo_il1o7r.mov"} />
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
               <h4>Select color</h4>
               <div className="d-flex flex-column flex-md-row">
-                <Col md={2} className="colors ">
-                  <button
-                    className="oe-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("LargeQuote-oe-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-                <Col md={2} className="colors ">
-                  <button
-                    className="dark-purple-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("LargeQuote-og-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="ob-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("LargeQuote-ob-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="og-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("LargeQuote-og-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="oh-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("LargeQuote-oh-bg")
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="os-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("LargeQuote-os-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
+                {largeQuoteColors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
+                  setSelectedColor(color.color)
+                  setErrorMessage(false)
+                }} />)}
               </div>
             </section>
             <Form>
