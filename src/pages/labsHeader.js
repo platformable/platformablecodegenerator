@@ -4,6 +4,8 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import labsPostHeader from "../../static/previewThumbnails/labsPostThumbnail.png"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
+import HeaderComponent from '../components/HeaderComponent'
+
 import SEO from "../components/seo"
 
 const LabsHeader = () => {
@@ -41,32 +43,7 @@ const LabsHeader = () => {
     <Layout>
       <SEO title="Labs Header" />
       <Container className="my-5">
-        <Row className="my-5">
-          <h3 className="fw-bold">Platformable Labs Post Header</h3>
-        </Row>
-        <Row className="mb-5">
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={labsPostHeader}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" width="720" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </Row>
-
+        <HeaderComponent componentName="Platformable Labs Post Header" image={labsPostHeader} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"}/>
         <Row>
           <Col md={6} id="left-side">
             <Form>

@@ -3,10 +3,11 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import Layout from "../components/layout"
 import PersonaImg from "../../static/previewThumbnails/personaThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
-import PreviewCodeComponent from "../components/previewCodeComponent"
+import SingleColorButton from '../components/SingleColorButton'
+import HeaderComponent from '../components/HeaderComponent'
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import SEO from "../components/seo"
-
+import colorFunction from "../components/colorsForComponents.js";
 export default function Personas() {
   const [selectedCard, setSelectedCard] = useState("")
   const [errorMessage, setErrorMessage] = useState(false)
@@ -14,8 +15,10 @@ export default function Personas() {
     content: "",
     subtitle: "",
   })
+  const { personaColors } = colorFunction();
   const [selectedColor, setSelectedColor] = useState("")
   const [preview, setPreview] = useState(false)
+
 
   useEffect(() => {
     addBorder()
@@ -191,26 +194,6 @@ export default function Personas() {
       )
     })
   }
-
-  const basicCode = `
-<div class="main-personas ${selectedColor || " "}">
-    <div class="personas-top">
-        <div class="personas-img-left">
-            <img src=${
-              selectedCard.url || " "
-            } alt="" className="align-self-center"/>
-        </div>
-    <div class="personas-text-left">
-        <div class="personas-title"><h3>${selectedCard.name || " "}</h3></div>
-        <div class="personas-subtitle">${cardContent.subtitle}</div>
-    </div>
-    </div>
-    <div class="personas-bottom-text">
-        <p>${cardContent.content}</p>
-    </div>
-</div>
-`
-
   const theHtml = `
 <div class="main-personas ${selectedColor}">
     <div class="personas-top">
@@ -227,73 +210,6 @@ export default function Personas() {
     </div>
 </div>
 `
-
-  const theCss = `
-/* // PERSONA´S CARD // */
-.main-personas {
-  margin:20px 0;
-  max-width:800px;
-  margin: 20px auto;  
-}
-.personas-top {
-  display:flex;
-  color:white;
-  align-items: center;
-  border-top-left-radius:10px;
-  border-top-right-radius:10px;
-  padding:20px 0;
-}
-.personas-top img {
-  max-width:80px;
-  height:80px;
-  position:relative;
-  left:-30px;
-  border-radius:60%;
-  padding:10px;
-}
-.personas-top h3 {
-  font-weight: bold;
-  position:relative;
-}
-.personas-subtitle {
-position:relative;
-}
-.personas-bottom-text {
-  padding:20px;
-  border-bottom-left-radius:10px;
-  border-bottom-right-radius:10px;
-}
-.api-tools-provider .personas-top, .regulator .personas-top ,.api-architects .personas-top{
-  background-color:#FFD23F;
-  color:white;
-}
-.api-tools-provider .personas-bottom-text, .api-tools-provider .personas-top img,
-.regulator .personas-bottom-text, .regulator .personas-top img,.api-architects .personas-bottom-text ,.api-architects .personas-top img
-{
-  background-color:#FFE590;
-}
-.fintech-associantions .personas-top,.banks .personas-top,.fintechs .personas-top,.financial-inclusion .personas-top {
-  background-color:#FB5012;
-  color:white;
-}
-.fintech-associantions .personas-top img,.banks .personas-top img,.fintechs .personas-top img,.financial-inclusion .personas-top img,
-.fintech-associantions .personas-bottom-text,.banks .personas-bottom-text,.fintechs .personas-bottom-text,.financial-inclusion .personas-bottom-text 
-{
-  background-color:var(--red-orange-light);
-  color:var(--russian-violet-dark)
-}
-.policy-lead .personas-top,.dg-lead .personas-top,.pm-lead .personas-top {
-  background-color:var(--og-dark);
-  color:white;
-}
-.policy-lead .personas-top img,.dg-lead .personas-top img,.pm-lead .personas-top img,
-.policy-lead .personas-bottom-text,.dg-lead .personas-bottom-text,.pm-lead .personas-bottom-text 
-{
-  background-color:#D8C1FB;
-  color:var(--russian-violet-dark)
-}
-`
-
   const handleClick = e => {
     e.preventDefault()
 
@@ -312,30 +228,7 @@ position:relative;
     <Layout>
       <SEO title="Persona" />
       <Container className="my-5">
-        <div className="row">
-          <h3 className="fw-bold">Persona Card</h3>
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={PersonaImg}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" width="720" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </div>
-
+        <HeaderComponent componentName="Persona Card" image={PersonaImg} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"} />
         <div className="row">
           <div className="col-md-12">
             <h4 className="mt-3">Select Persona</h4>
@@ -377,64 +270,10 @@ position:relative;
                 <section id="colorButtons">
                   <h4 className="px-0 mx-0 my-3">Select color</h4>
                   <div className="d-flex flex-column flex-md-row">
-                    <Col md={2} className="colors ">
-                      <button
-                        className="insetBox2-dark-oe colorBtn"
-                        onClick={e => {
-                          setSelectedColor("persona-card-bg-dark-oe")
-                          setErrorMessage(false)
-                        }}
-                      ></button>
-                    </Col>
-                    <Col md={2} className="colors ">
-                      <button
-                        className="insetBox2-general-dark-btn colorBtn"
-                        onClick={e => {
-                          setSelectedColor("persona-card-bg-dark-purple")
-                          setErrorMessage(false)
-                        }}
-                      ></button>
-                    </Col>
-
-                    <Col md={2} className="colors ">
-                      <button
-                        className="insetBox2-bank-dark-btn colorBtn"
-                        onClick={e => {
-                          setSelectedColor("persona-card-bg-dark-orange")
-                          setErrorMessage(false)
-                        }}
-                      ></button>
-                    </Col>
-
-                    <Col md={2} className="colors ">
-                      <button
-                        className="insetBox2-gov-dark-btn colorBtn"
-                        onClick={e => {
-                          setSelectedColor("persona-card-bg-purple")
-                          setErrorMessage(false)
-                        }}
-                      ></button>
-                    </Col>
-
-                    <Col md={2} className="colors ">
-                      <button
-                        className="insetBox2-health-dark-btn colorBtn"
-                        onClick={e => {
-                          setSelectedColor("persona-card-bg-dark-blue")
-                          setErrorMessage(false)
-                        }}
-                      ></button>
-                    </Col>
-
-                    <Col md={2} className="colors ">
-                      <button
-                        className="insetBox2-sustain-dark-btn colorBtn"
-                        onClick={e => {
-                          setSelectedColor("persona-card-bg-dark-green")
-                          setErrorMessage(false)
-                        }}
-                      ></button>
-                    </Col>
+                    {personaColors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
+                      setSelectedColor(color.color)
+                      setErrorMessage(false)
+                    }} />)}
                   </div>
                 </section>
                 <Col md={12}>

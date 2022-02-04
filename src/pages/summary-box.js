@@ -6,10 +6,10 @@ import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import summaryBoxImg from "../../static/previewThumbnails/summaryBoxThumbnail.png"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import SEO from "../components/seo"
-import ColorsButtons from "../components/colorsButtons"
-
+import HeaderComponent from '../components/HeaderComponent'
+import SingleColorButton from '../components/SingleColorButton'
+import colorsForComponents from '../components/colorsForComponents'
 export default function SummaryQuote() {
-  const [fullContent, setFullContent] = useState(false)
   const [selectedColor, setSelectedColor] = useState("")
   const [blockquoteContent, setBlockquoteContent] = useState({
     whoShouldReadThis: "",
@@ -20,7 +20,7 @@ export default function SummaryQuote() {
   const [preview, setPreview] = useState(false)
 
   const [errorMessage, setErrorMessage] = useState(false)
-  const errorText = "Some data is missing"
+  const { summaryBoxColors } = colorsForComponents()
 
   useEffect(() => {
     addBorder()
@@ -62,139 +62,20 @@ export default function SummaryQuote() {
     <h3>Why it’s important:</h3> ${blockquoteContent.whyImportant}<br>
     </div>
     `
-
-  const basicCode = `  
-    <div class="summary-box text-white ${selectedColor}">
-    <h3>Who should read this:</h3> ${blockquoteContent.whoShouldReadThis} <br><br>
-    <h3>What it’s about:</h3> ${blockquoteContent.whatAbout}<br><br>
-    <h3>Why it’s important:</h3> ${blockquoteContent.whyImportant}<br>
-    </div>
-    `
-
-  const theCss = `
-/* SUMMARY BOX COMPONENT */
-
-.summary-box h3 {
-  font-weight: bold;
-}
-.summary-box-general-dark {
-  background-color:var(--russian-violet-dark);
-  padding:20px;
-  border-radius: 10px;
-}
-.summary-box-bank-dark {
-  background-color:var(--red-orange-dark);
-  padding:20px;
-  border-radius: 10px;
-}
-.summary-box-gov-dark {
-  background-color:#632FAE;
-  padding:20px;
-  border-radius: 10px;
-}
-.summary-box-health-dark {
-  background-color:#0956FC;
-  padding:20px;
-  border-radius: 10px;
-}
-.summary-box-sustain-dark {
-  border-radius: 10px;
-  background-color:#0CE6A3;
-  padding:20px;
-}
-    `
   return (
     <Layout>
       <SEO title="Summary Box" />
       <Container className="my-5">
-        <div>
-          <h3 className="fw-bold">Summary Box</h3>
-        </div>
-        <Row className="mb-5">
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={summaryBoxImg}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" width="720" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </Row>
+        <HeaderComponent componentName="Summary Box" image={summaryBoxImg} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"} />
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
               <h4>Select color</h4>
               <div className="d-flex flex-column flex-md-row">
-                <Col md={2} className="colors ">
-                  <button
-                    className="summary-box-oe-dark colorBtn"
-                    onClick={e => {
-                      setSelectedColor("summary-box-oe-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-                <Col md={2} className="colors ">
-                  <button
-                    className="summary-box-general-dark colorBtn"
-                    onClick={e => {
-                      setSelectedColor("summary-box-general-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="summary-box-bank-dark colorBtn"
-                    onClick={e => {
-                      setSelectedColor("summary-box-bank-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="summary-box-gov-dark colorBtn"
-                    onClick={e => {
-                      setSelectedColor("summary-box-gov-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="summary-box-health-dark colorBtn"
-                    onClick={e => {
-                      setSelectedColor("summary-box-health-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="summary-box-sustain-dark colorBtn"
-                    onClick={e => {
-                      setSelectedColor("summary-box-sustain-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
+                {summaryBoxColors.map((color, index) => <SingleColorButton key={index} colorClass={color} onSelectColor={() => {
+                  setSelectedColor(color)
+                  setErrorMessage(false)
+                }} />)}
               </div>
             </section>
             <Form>
@@ -287,18 +168,6 @@ export default function SummaryQuote() {
             ) : null}
           </Col>
         </Row>
-
-        {/* {preview ? (
-          <Row>
-            <Col md={6}>
-              <h6 className="fw-bold">Preview component</h6>
-              <div
-                dangerouslySetInnerHTML={{ __html: theHtml }}
-                className={selectedColor}
-              />
-            </Col>
-          </Row>
-        ) : null} */}
       </Container>
     </Layout>
   )

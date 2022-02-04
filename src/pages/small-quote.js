@@ -4,21 +4,22 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import SmallQuoteComponent from "../components/smallQuoteComponent"
 import smallQuoteImg from "../../static/previewThumbnails/smallQuoteThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
-import PreviewCodeComponent from "../components/previewCodeComponent"
+import SingleColorButton from '../components/SingleColorButton'
+import HeaderComponent from '../components/HeaderComponent'
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
+import colorFunction from "../components/colorsForComponents.js";
 import SEO from "../components/seo"
 
 export default function SmallQuote() {
-  const [fullContent, setFullContent] = useState(false)
   const [selectedColor, setSelectedColor] = useState("")
   const [quoteContent, setQuoteContent] = useState({
     quote: "",
     author: "",
     secondLine: "",
   })
+  const { smallQuoteColors } = colorFunction();
 
   const [errorMessage, setErrorMessage] = useState(false)
-  const errorText = "Some data is missing"
   const [preview, setPreview] = useState(false)
 
   useEffect(() => {
@@ -79,17 +80,6 @@ export default function SmallQuote() {
       setErrorMessage(false)
     }
   }
-
-  const basicCode = `
-    <div class="smallQuote ${selectedColor}">
-      <div class="centered-border" style="margin-bottom:30px;"></div>
-      <p className="my-3">${quoteContent.quote}</p>
-      <div class="author"><h3 className="font-black">${quoteContent.author}</h3></div>
-      <div class="second-line">${quoteContent.secondLine}</div>
-      <div class="centered-border" style="margin-top:30px;"></div>
-    </div>
-    `
-
   const theHtml = `  
     <div class="smallQuote ${selectedColor}">
       <div class="centered-border" style="margin-bottom:30px;"></div>
@@ -99,191 +89,20 @@ export default function SmallQuote() {
       <div class="centered-border" style="margin-top:30px;"></div>
     </div>
       `
-
-  const theCss = `
-/* SMALLQUOTE */
-
-.smallQuote {
-  padding:5px 40px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-}
-
-
-.smallQuote .author,.smallQuote .second-line {
-  display:flex;
-  justify-content:center;
-  margin:0px 0;
-}
-
-.smallQuote .author {
-font-weight:bold;
-}
-
-.centered-border{
-  width:50%;
-  height:2px;
-}
-
-.smallQuote-general-dark-bg {
-  color:var(--russian-violet-dark);
-}
-
-.smallQuote-general-dark-bg .centered-border {
-  border:2px solid var(--russian-violet-dark);
-}
-
-.smallQuote-ob-bg {
-  color:var(--russian-violet-dark);
-}
-
-.smallQuote-ob-bg .centered-border {
-  border:2px solid var(--ob-dark);
-}
-
-.smallQuote-ob-bg h3 {
- color:var(--ob-dark);
- font-weight: bold;
-}
-
-
-.smallQuote-og-bg {
-  color:var(--russian-violet-dark);
-}
-
-.smallQuote-og-bg .centered-border {
-  border:2px solid var(--og-dark);
-}
-
-.smallQuote-og-bg h3 {
- color:var(--og-dark);
- font-weight: bold;
-}
-
-.smallQuote-oh-bg {
-  color:var(--russian-violet-dark);
-}
-
-.smallQuote-oh-bg .centered-border {
-  border:2px solid var(--oh-dark);
-}
-
-.smallQuote-oh-bg h3 {
- color:var(--oh-dark);
- font-weight: bold;
-
-}
-
-.smallQuote-os-bg {
-  color:var(--russian-violet-dark);
-}
-
-.smallQuote-os-bg .centered-border {
-  border:2px solid var(--os-dark);
-}
-
-.smallQuote-os-bg h3 {
- color:var(--os-dark);
- font-weight: bold;
- /* font-size:18px; */
-}  
-`
-
   return (
     <Layout>
       <SEO title="Small quote" />
       <Container className="my-5">
-        <div className="row">
-          <h3 className="fw-bold">Small Quote</h3>
-        </div>
-        <Row className="mb-5">
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={smallQuoteImg}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" width="720" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927291/smallQuoteHowTo_ag2pnc.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927291/smallQuoteHowTo_ag2pnc.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </Row>
+        <HeaderComponent componentName="Small Quote" image={smallQuoteImg} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927291/smallQuoteHowTo_ag2pnc.mov"} />
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
               <h4 className="my-3">Select color</h4>
               <div className="d-flex flex-column flex-md-row">
-                <Col md={2} className="colors ">
-                  <button
-                    className="oe-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("smallQuote-oe-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="dark-purple-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("smallQuote-general-dark-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="ob-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("smallQuote-ob-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="og-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("smallQuote-og-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="oh-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("smallQuote-oh-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="os-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("smallQuote-os-bg")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
+                {smallQuoteColors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
+                  setSelectedColor(color.color)
+                  setErrorMessage(false)
+                }} />)}
               </div>
             </section>
             <Form>

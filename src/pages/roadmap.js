@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button, FormGroup } from "react-bootstrap"
 import roadmapImg from "../../static/previewThumbnails/roadmapThumbnail.png"
-import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
-
+import HeaderComponent from '../components/HeaderComponent'
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-
-import PreviewCodeComponent from "../components/previewCodeComponent"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import SEO from "../components/seo"
 
@@ -27,170 +24,6 @@ export default function Roadmap() {
       setPreview(false)
     }
   }, [form])
-  const basicCode = `
-<section id="timeline">
-    <article>
-      <div class="inner">
-        <span class="date">{index}</span>
-        <h2 class="month">{index.title}</h2>
-        <p>{index.content}</p>
-      </div>
-    </article>
-</section>
-`
-
-  const html = `
-<section id="timeline">
-${form.map((item, index) => {
-  return (
-    <article>
-      <div class="inner">
-        <span class="date">{index || ""}</span>
-        <h2 class="month">{index.title || ""}</h2>
-        <p>{index.content || ""}</p>
-      </div>
-    </article>
-  )
-})}
-</section>
-`
-
-  const theCss = `
-/* ROADMAP */
-
-section#timeline {
-width: 90%;
-margin: 20px auto;
-position: relative;
-}
-
-section#timeline article:before {
-content: '';
-display: block;
-position: absolute;
-left: -7px;
-top: 0;
-margin: 0 0 0 0px;
-width: 2px;
-height: 100%;
-background: #a80075;
-}
-
-
-section#timeline article:last-child:before {
-background: none;
-}
-
-section#timeline article {
-width: 100%;
-margin: 0 0 0px 0;
-position: relative;
-}
-
-
-section#timeline article:after {
-content: '';
-display: block;
-clear: both;
-}
-
-section#timeline article div.inner {
-width: 90%;
-float: left;
-margin: 0 0 0 0;
-border-radius: 6px;
-}
-
-section#timeline article div.inner span.date {
-display: block;
-width: 50px;
-height: 50px;
-padding: 12px;
-position: absolute;
-top: 0;
-left: 0%;
-margin: -3px 0 0 -32px;
-border-radius: 100%;
-font-size: 10px;
-font-weight: 900;
-text-transform: uppercase;
-background: #fff;
-color: rgba(0,0,0,0.9);
-border: 2px solid #a80075;
-text-align: center;
-}
-
-
-
-section#timeline article div.inner span.date span {
-display: block;
-text-align: center;
-}
-section#timeline article div.inner span.date span.day {
-font-size: 10px;
-}
-section#timeline article div.inner span.date span.month {
-font-size: 14px;
-}
-section#timeline article div.inner span.date span.year {
-font-size: 10px;
-}
-section#timeline article div.inner h2 {
-padding: 15px;
-margin: 0;
-font-weight:bold;
-font-size: 20px;
-
-position: relative;
-}
-
-section#timeline article div.inner p {
-padding: 15px;
-margin: 0;
-font-size: 14px;
-
-
-border-radius: 0 0 6px 6px;
-}
-section#timeline article div.inner {
-margin-left:40px;
-margin-top:-5px
-}
-
-
-.labs-road-text-img-component {
-display:flex;
-padding:10px 0;
-gap:10px;
-align-items:center;
-border-radius:10px;
-}
-
-.labs-road-text-img-component img {
-flex-grow:1;
-max-width:95px;
-}
-
-.labs-road-top-bar-posts-text h3 {
-position:relative;
-top:15px;
-font-weight:bold;
-
-}
-
-
-@media (max-width:690px) {
-.labs-road-text-img-component {
-flex-wrap:wrap;
-}
-
-.labs-road-text-img-component {
-display:flex;
-justify-content:center;
-
-}
-}
-`
 
   const addRow = e => {
     e.preventDefault()
@@ -239,40 +72,13 @@ justify-content:center;
     if (preview) {
       setNewHtml(document.getElementById("timeline").outerHTML)
     }
-  }, [preview])
+  }, [preview, form])
 
   return (
     <Layout>
       <SEO title="Roadmap" />
       <Container className="my-5">
-        <div className="row">
-          <h3 className="fw-bold">Roadmap</h3>
-        </div>
-        <Row className="mb-5">
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={roadmapImg}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </Row>
-
-        {/* <PreviewCodeComponent basicCode={basicCode} theCss={theCss} img={roadmapImg} videoUrl="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"/> */}
-
+        <HeaderComponent componentName="Roadmap" image={roadmapImg} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"} />
         <Row>
           <Col md={6}>
             <Button

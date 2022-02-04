@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import { Container, Row, Col, Form, Button } from "react-bootstrap"
-import SummaryBlockquoteComponent from "../components/summaryBlockquoteComponent"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import insetBox2Img from "../../static/previewThumbnails/insetBox2Thumbnail.png"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
+import HeaderComponent from '../components/HeaderComponent'
 import SEO from "../components/seo"
-
+import SingleColorButton from '../components/SingleColorButton'
+import colorFunction from "../components/colorsForComponents.js";
 export default function InsetBox2() {
-  const [fullContent, setFullContent] = useState(false)
   const [selectedColor, setSelectedColor] = useState("")
   const [insetBoxContent, setInsetBoxContent] = useState({
     title: "",
     subtitle: "",
     content: "",
   })
-
+  const { insetBox2Colors } = colorFunction();
   const [preview, setPreview] = useState(false)
-
   const [errorMessage, setErrorMessage] = useState(false)
 
   useEffect(() => {
@@ -73,188 +72,20 @@ export default function InsetBox2() {
         </div>
     </div>
     `
-
-  const basicCode = `  
-    <div class="insetBox2">
-        <div class="insetBox2Top">
-            <h3></h3>
-            <h4></h4>
-        </div>
-        <div class="insetBox2Bottom">
-        </div>
-    </div>
-    `
-
-  const theCss = `
-    /* INSET BOX  2 COMPONENT */
-
-    .insetBox2Top {
-      padding:20px;
-    }
-    
-    .insetBox2Bottom {
-      padding:20px;
-    }
-    .insetBox2Top h3,.insetBox2Top h4 {
-      margin:none;
-      line-height: 3px;
-    }
-  
-  .insetBox2-box h3 {
-    font-weight: bold;
-  }
-  
-  .insetBox2-general-dark .insetBox2Top {
-    background-color:var(--russian-violet-dark);
-    color:white;
-    border-top-left-radius:10px;
-    border-top-right-radius:10px;
-  }
-  
-  .insetBox2-general-dark .insetBox2Bottom {
-    background-color:var(--russian-violet-light);
-    color:var(--russian-violet-dark);
-  
-  }
-  
-  
-  .insetBox2-bank-dark .insetBox2Top{
-    background-color:var(--red-orange-dark);
-      border-top-left-radius:10px;
-    border-top-right-radius:10px;
-  }
-  
-  .insetBox2-bank-dark .insetBox2Bottom{
-    background-color:var(--red-orange-light);
-   
-  }
-  
-
-  .insetBox2-gov-dark .insetBox2Top{
-    background-color:#632FAE;
-     border-top-left-radius:10px;
-    border-top-right-radius:10px;
-    color:white;
-  }
-  
-  .insetBox2-gov-dark .insetBox2Bottom{
-  background-color:var(--og-light)
-  }
-  
-
-  .insetBox2-health-dark .insetBox2Top{
-    background-color:#0956FC;
-       border-top-left-radius:10px;
-    border-top-right-radius:10px;
-    color:white;
-  }
-  
-  .insetBox2-health-dark .insetBox2Bottom{
-  background-color:var(--oh-light)
-  }
-  
-  .insetBox2-sustain-dark .insetBox2Top {
-  background-color:var(--os-dark);
-       border-top-left-radius:10px;
-    border-top-right-radius:10px;
-  }
-  .insetBox2-sustain-dark .insetBox2Bottom {
-  background-color:var(--os-light);
-  
-  }`
   return (
     <Layout>
       <SEO title="Inset Box 2" />
       <Container className="my-5">
-        <div className="row">
-          <h3 className="fw-bold">Inset Box 2</h3>
-        </div>
-        <Row className="mb-5">
-          <Col md={6}>
-            <h4 className="py-3">Component preview</h4>
-            <img src={insetBox2Img}></img>
-          </Col>
-          <Col md={6}>
-            <div>
-              <h4 className="py-3">How to use the component</h4>
-              <video className="w-100" controls>
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927283/insetBoxHowTo_cbgmj5.mov"
-                  type="video/mov"
-                />
-                <source
-                  src="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927283/insetBoxHowTo_cbgmj5.mov"
-                  type="video/ogg"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </Col>
-        </Row>
-        {/* end of div */}
+        <HeaderComponent componentName="Inset Box 2" image={insetBox2Img} video="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927283/insetBoxHowTo_cbgmj5.mov" />
         <Row>
           <Col md={6} id="left-side">
             <section id="colorButtons">
               <h4>Select color</h4>
               <div className="d-flex flex-column flex-md-row">
-                <Col md={2} className="colors ">
-                  <button
-                    className="insetBox2-dark-oe colorBtn"
-                    onClick={e => {
-                      setSelectedColor("insetBox2-dark-oe")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-                <Col md={2} className="colors ">
-                  <button
-                    className="insetBox2-general-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("insetBox2-general-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="insetBox2-bank-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("insetBox2-bank-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="insetBox2-gov-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("insetBox2-gov-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="insetBox2-health-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("insetBox2-health-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
-
-                <Col md={2} className="colors ">
-                  <button
-                    className="insetBox2-sustain-dark-btn colorBtn"
-                    onClick={e => {
-                      setSelectedColor("insetBox2-sustain-dark")
-                      setErrorMessage(false)
-                    }}
-                  ></button>
-                </Col>
+                {insetBox2Colors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
+                  setSelectedColor(color.color)
+                  setErrorMessage(false)
+                }} />)}
               </div>
             </section>
             <Form>
@@ -278,7 +109,6 @@ export default function InsetBox2() {
                   className="mb-2"
                 />
               </Form.Group>
-
               <Form.Group controlId="">
                 <Form.Label>Subtitle:</Form.Label>
                 <Form.Control
@@ -293,7 +123,6 @@ export default function InsetBox2() {
                   className="mb-2"
                 />
               </Form.Group>
-
               <Form.Group controlId="">
                 <Form.Label>Content</Form.Label>
                 <Form.Control
@@ -310,7 +139,6 @@ export default function InsetBox2() {
                   className="mb-2"
                 />
               </Form.Group>
-
               <Button
                 variant="primary"
                 type="submit"
@@ -330,7 +158,6 @@ export default function InsetBox2() {
                 <CopyToClipboardBtn theHtml={theHtml} />
               </div>
             )}
-
             <div id="theCode">
               {errorMessage ? (
                 <BlogComponentsErrorMessage message="Please complete all the fields" />
