@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "Platformable code generator",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Platformable code generator",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Platformable.com",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^28.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",

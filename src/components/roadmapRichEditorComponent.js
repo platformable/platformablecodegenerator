@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
-export default function RichEditorComponent({ handleLabsBlogContent,index }) {
+export default function RichEditorComponent({ handleRoadmapContent,index }) {
   return (
     <CKEditor
       fontColor="black"
@@ -11,7 +11,7 @@ export default function RichEditorComponent({ handleLabsBlogContent,index }) {
       index={index}
       onChange={ (event, editor) => {
         const data = editor.getData()
-        handleLabsBlogContent(data)
+        handleRoadmapContent(data,index)
       } }
     />
   )

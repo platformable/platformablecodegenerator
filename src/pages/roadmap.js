@@ -7,12 +7,38 @@ import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import SEO from "../components/seo"
+import Loadable from "react-loadable"
+
+const LoadableComponent = Loadable({
+  loader: () => import("../components/roadmapRichEditorComponent"),
+  loading: "Loading",
+})
 
 export default function Roadmap() {
   const [form, setForm] = useState([])
   const [preview, setPreview] = useState(false)
   const [newHtml, setNewHtml] = useState("")
   const [errorMessage, setErrorMessage] = useState(false)
+
+  const handleRoadmapContent = (data,index) => {
+    console.log("data",data)
+
+
+    setForm(prev => {
+      return prev.map((item, i) => {
+        /* return item as it is if index  is different */
+        if (i !== index) {
+          return item
+        }
+        /* if index is the same edit content */
+        return {
+          ...item,
+          content: data,
+        }
+      })
+    })
+
+  }
 
   const notify = () => {
     toast.success("Copied to Clipboard !", {
@@ -23,6 +49,7 @@ export default function Roadmap() {
     if (form.length === 0) {
       setPreview(false)
     }
+
   }, [form])
 
   const addRow = e => {
@@ -35,10 +62,10 @@ export default function Roadmap() {
     setForm(prevState => [...prevState, inputsData])
   }
 
-  const onChange = (index, event) => {
-    event.preventDefault()
-    event.persist()
+  const onDataChange = (index, event,data) => {
+
     // setPreview(false)
+
 
     setForm(prev => {
       return prev.map((item, i) => {
@@ -107,19 +134,19 @@ export default function Roadmap() {
                     type="text"
                     name="title"
                     value={item.title}
-                    onChange={e => onChange(index, e)}
+                    onChange={e => onDataChange(index, e)}
                   />
                 </Form.Group>
-                <Form.Group controlId="">
-                  <Form.Label>Content</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={6}
-                    value={item.content}
-                    name="content"
-                    onChange={e => onChange(index, e)}
-                  />
-                </Form.Group>
+                <div className="my-3">
+                  <p>Content</p>
+                <LoadableComponent
+                handleRoadmapContent={handleRoadmapContent}
+                name="content"
+                setPreview={setPreview}
+                index={index}
+                
+                />
+                </div>
               </>
             ))}
 
@@ -172,7 +199,8 @@ export default function Roadmap() {
                   <>
                     <h6 className="fw-bold">Preview component</h6>
 
-                    <div class="labs-road-text-img-component-container">
+                    <section id="timeline">
+                      <div class="labs-road-text-img-component-container">
                       <div class="labs-road-top-bar-posts-header labs-road-text-img-component">
                         <div class="labs-road-top-bar-posts-header-img labs-road-text-img-component">
                           <img
@@ -185,7 +213,7 @@ export default function Roadmap() {
                         </div>
                       </div>
                     </div>
-                    <section id="timeline">
+                    
                       {form.map((item, index) => {
                         return (
                           <article>
@@ -194,7 +222,9 @@ export default function Roadmap() {
                                 <span class="month">{index + 1}</span>
                               </span>
                               <h2>{item.title}</h2>
-                              <p>{item.content}</p>
+                              <div
+                                dangerouslySetInnerHTML={{ __html: item.content }}
+                              />
                             </div>
                           </article>
                         )

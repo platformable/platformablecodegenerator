@@ -17,11 +17,15 @@ export default function LabsBlogComponent() {
   const [errorMessage, setErrorMessage] = useState(false)
   const [preview, setPreview] = useState(false)
   const [content, updateContent] = useState("")
+
+
   useEffect(() => {
     if (content === "") {
       setPreview(false)
     }
   }, [content])
+
+  
   const handleClick = () => {
     if (content === "") {
       setErrorMessage(true)

@@ -5,8 +5,14 @@ import labsPostHeader from "../../static/previewThumbnails/labsPostThumbnail.png
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
 import HeaderComponent from '../components/HeaderComponent'
-
+import Loadable from "react-loadable"
 import SEO from "../components/seo"
+
+
+const LoadableComponent = Loadable({
+  loader: () => import("../components/RichEditorComponent"),
+  loading: "Loading",
+})
 
 const LabsHeader = () => {
   const [preview, setPreview] = useState(false)
@@ -21,13 +27,13 @@ const LabsHeader = () => {
   }, [content])
   const html = `
     <div class="labs-top-bar-posts-header">
-  <div class="labs-top-bar-posts-header-img">
-    <img src="https://res.cloudinary.com/platform1/image/upload/v1623947770/Labs_c8c4b81e63.png" alt="">
-  </div>
-  <div class="labs-top-bar-posts-text">
-    <h5 className="font-weight-bold text-black text-center flex justify-center bg-primary">${content.content}</h5>
-  </div>
-</div>
+      <div class="labs-top-bar-posts-header-img">
+      <img src="https://res.cloudinary.com/platform1/image/upload/v1623947770/Labs_c8c4b81e63.png" alt="">
+      </div>
+      <div class="labs-top-bar-posts-text">
+        <h5 className="font-weight-bold text-black text-center flex justify-center bg-primary">${content.content}</h5>
+      </div>
+    </div>
     `
   const handleClick = e => {
     e.preventDefault()
@@ -39,6 +45,11 @@ const LabsHeader = () => {
       setErrorMessage(false)
     }
   }
+
+  const handleLabsBlogContent = data => {
+    setErrorMessage(false)
+    setContent({...content,content:data})
+  }
   return (
     <Layout>
       <SEO title="Labs Header" />
@@ -49,7 +60,7 @@ const LabsHeader = () => {
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Content:</Form.Label>
-                <Form.Control
+                {/* <Form.Control
                   as="textarea"
                   rows={4}
                   onChange={e => {
@@ -59,7 +70,11 @@ const LabsHeader = () => {
                       content: e.target.value,
                     })
                   }}
-                />
+                /> */}
+                <LoadableComponent
+              handleLabsBlogContent={handleLabsBlogContent}
+              setPreview={setPreview}
+            />
               </Form.Group>
 
               <Button
