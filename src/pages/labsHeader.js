@@ -31,7 +31,7 @@ const LabsHeader = () => {
       <img src="https://res.cloudinary.com/platform1/image/upload/v1623947770/Labs_c8c4b81e63.png" alt="">
       </div>
       <div class="labs-top-bar-posts-text">
-        <h5 className="font-weight-bold text-black text-center flex justify-center bg-primary">${content.content}</h5>
+        <h5 className="font-weight-bold text-white text-center flex justify-center bg-primary">${content.content}</h5>
       </div>
     </div>
     `
