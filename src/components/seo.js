@@ -27,7 +27,7 @@ function SEO({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-
+  const twitterImg="https://platformable.com/static/7c47fb78f1570b49f81080df8d94a479/87706/5a55d3a28d1ebb1e050cbc6485d27047.png"
   return (
     <Helmet
       htmlAttributes={{
@@ -68,6 +68,10 @@ function SEO({ description, lang, meta, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name:`twitter:image`,
+          content:twitterImg
+        }
       ].concat(meta)}
     />
   )
