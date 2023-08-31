@@ -110,7 +110,7 @@ export default function Table() {
                     }}
                   ></button>
                 </Col>
-                <Col md={2} className="colors ">
+                {/* <Col md={2} className="colors ">
                   <button
                     className="dynamicTable-general-dark colorBtn"
                     onClick={e => {
@@ -126,7 +126,7 @@ export default function Table() {
                       }
                     }}
                   ></button>
-                </Col>
+                </Col> */}
 
                 <Col md={2} className="colors ">
                   <button
@@ -146,7 +146,7 @@ export default function Table() {
                   ></button>
                 </Col>
 
-                <Col md={2} className="colors ">
+                {/* <Col md={2} className="colors ">
                   <button
                     className="dynamicTable-gov-dark colorBtn"
                     onClick={e => {
@@ -162,7 +162,7 @@ export default function Table() {
                       }
                     }}
                   ></button>
-                </Col>
+                </Col> */}
 
                 <Col md={2} className="colors ">
                   <button
@@ -182,7 +182,7 @@ export default function Table() {
                   ></button>
                 </Col>
 
-                <Col md={2} className="colors ">
+                {/* <Col md={2} className="colors ">
                   <button
                     className="dynamicTable-sustain-dark colorBtn"
                     onClick={e => {
@@ -198,7 +198,7 @@ export default function Table() {
                       }
                     }}
                   ></button>
-                </Col>
+                </Col> */}
               </div>
             </section>
             <LoadableComponent
