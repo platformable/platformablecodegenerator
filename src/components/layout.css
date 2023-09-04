@@ -39,10 +39,10 @@ img {
 :root {
   --russian-violet-dark:#3425c9;
   --russian-violet-light:#e5ddf6;
-  --sunglow-dark:#ffc400;
-  --sunglow-light:#ffe200;
-  --red-orange-dark:#f5a423;
-  --red-orange-light:#fff1e4;
+  --sunglow-dark:#22da8f;
+  --sunglow-light:#cfffef;
+  --red-orange-dark:#22da8f;
+  --red-orange-light:#cfffef;
   --fluorecent-blue-dark:#01fdf6;
   --fluorecent-blue-light:#80fefa;
   --lavender-blue-dark:#cbbaed;
@@ -1393,6 +1393,7 @@ pre {
   background-color:var(--red-orange-dark);
   border-top-left-radius:10px;
   border-top-right-radius:10px;
+  color:white;
 }
 
 .insetBox2-bank-dark .insetBox2Bottom {
