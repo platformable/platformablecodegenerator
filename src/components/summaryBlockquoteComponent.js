@@ -12,9 +12,9 @@ export default function SummaryBlockquoteComponent({
 }) {
   const theHtml = `  
   <div class="summary-box text-white ${selectedColor}">
-  <h3 class="">Who should read this:</h3> ${whoShouldReadThis} <br><br>
-  <h3 class="">What it’s about:</h3> ${whatAbout}<br><br>
-  <h3 class="">Why it’s important:</h3> ${whyImportant}<br>
+  <h3 class="">Who should read this:</h3><p> ${whoShouldReadThis}</p>
+  <h3 class="">What it’s about:</h3><p> ${whatAbout}</p>
+  <h3 class="">Why it’s important:</h3><p> ${whyImportant}</p>
   </div>
 
   `
