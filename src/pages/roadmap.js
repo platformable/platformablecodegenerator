@@ -251,7 +251,7 @@ export default function Roadmap() {
                     
                       {form.map((item, index) => {
                         return (
-                          <article>
+                          <article className={`${selectedColor}-roadmapline`}>
                             <div class="inner">
                               <span class={`date ${selectedColor}`}>
                                 <span class={`month `}>{index + 1}</span>

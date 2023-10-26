@@ -1295,7 +1295,7 @@ section#timeline {
   position:relative;
 }
 
-section#timeline article:before {
+/* section#timeline article.roadmapline:before {
   content:"";
   display:block;
   position:absolute;
@@ -1304,8 +1304,8 @@ section#timeline article:before {
   margin:0 0 0 0px;
   width:2px;
   height:100%;
-  background:var(--oe-dark);
-}
+  background:var(--oh-dark);
+} */
 
 section#timeline article:last-child:before {
   background:none;
@@ -1414,7 +1414,82 @@ section#timeline article div.inner {
 }
 
 
+section#timeline article.roadmap-oe-bg-roadmapline:before {
+  content:"";
+  display:block;
+  position:absolute;
+  left:-7px;
+  top:0;
+  margin:0 0 0 0px;
+  width:2px;
+  height:100%;
+  background:var(--oe-dark);
+}
+section#timeline article.roadmap-oe-bg-roadmapline:last-child:before {
+  background:none;
+}
 
+section#timeline article.roadmap-ob-bg-roadmapline:before {
+  content:"";
+  display:block;
+  position:absolute;
+  left:-7px;
+  top:0;
+  margin:0 0 0 0px;
+  width:2px;
+  height:100%;
+  background:var(--ob-dark);
+}
+
+section#timeline article.roadmap-ob-bg-roadmapline:last-child:before {
+  background:none;
+}
+
+section#timeline article.roadmap-oh-bg-roadmapline:before {
+  content:"";
+  display:block;
+  position:absolute;
+  left:-7px;
+  top:0;
+  margin:0 0 0 0px;
+  width:2px;
+  height:100%;
+  background:var(--oh-dark);
+}
+section#timeline article.roadmap-oh-bg-roadmapline:last-child:before {
+  background:none;
+}
+
+section#timeline article.roadmap-highlight-bg-roadmapline:before {
+  content:"";
+  display:block;
+  position:absolute;
+  left:-7px;
+  top:0;
+  margin:0 0 0 0px;
+  width:2px;
+  height:100%;
+  background:var(--highlight-color-dark);
+}
+section#timeline article.roadmap-highlight-bg-roadmapline:last-child:before {
+  background:none;
+}
+
+section#timeline article.roadmap-business-bg-roadmapline:before {
+  content:"";
+  display:block;
+  position:absolute;
+  left:-7px;
+  top:0;
+  margin:0 0 0 0px;
+  width:2px;
+  height:100%;
+  background:var(--business-color-dark);
+}
+
+section#timeline article.roadmap-business-bg-roadmapline:last-child:before {
+  background:none;
+}
 
 .roadmap-oe-bg {
   border:2px solid var(--oe-dark);
