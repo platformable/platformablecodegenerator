@@ -9,6 +9,10 @@ import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage
 import SEO from "../components/seo"
 import Loadable from "react-loadable"
 
+import SingleColorButton from '../components/SingleColorButton'
+import colorFunction from "../components/colorsForComponents.js";
+const { roadmapColors } = colorFunction();
+
 const LoadableComponent = Loadable({
   loader: () => import("../components/roadmapRichEditorComponent"),
   loading: "Loading",
@@ -19,11 +23,32 @@ export default function Roadmap() {
   const [preview, setPreview] = useState(false)
   const [newHtml, setNewHtml] = useState("")
   const [errorMessage, setErrorMessage] = useState(false)
+  
+  const [selectedColor, setSelectedColor] = useState("")
+  
+  const addBorder = () => {
+    const allWrappers = document.querySelectorAll(".colors button")
+    allWrappers.forEach(element => {
+      element.addEventListener(
+        "click",
+        () => {
+          const prevSelected = document.querySelectorAll(".colors button")
+          prevSelected.forEach(selection => (selection.style.border = "0"))
 
-  const handleRoadmapContent = (data,index) => {
-    console.log("data",data)
+          element.style.border = "5px solid #fff"
+        },
+        false
+      )
+    })
+  }
 
-
+  useEffect(() => {
+    addBorder()
+  }, [])
+  
+  
+  const HandleRoadmapContent = (data,index) => {
+    
     setForm(prev => {
       return prev.map((item, i) => {
         /* return item as it is if index  is different */
@@ -108,6 +133,16 @@ export default function Roadmap() {
         <HeaderComponent componentName="Roadmap" image={roadmapImg} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927293/roadmapHowTo_zt2l2e.mov"} />
         <Row>
           <Col md={6}>
+
+          <section id="colorButtons">
+              <h4>Select color</h4>
+              <div className="d-flex flex-column flex-md-row">
+                {roadmapColors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
+                  setSelectedColor(color.color)
+                  setErrorMessage(false)
+                }} />)}
+              </div>
+            </section>
             <Button
               variant="primary"
               type="submit"
@@ -140,7 +175,7 @@ export default function Roadmap() {
                 <div className="my-3">
                   <p>Content</p>
                 <LoadableComponent
-                handleRoadmapContent={handleRoadmapContent}
+                handleRoadmapContent={HandleRoadmapContent}
                 name="content"
                 setPreview={setPreview}
                 index={index}
@@ -218,8 +253,8 @@ export default function Roadmap() {
                         return (
                           <article>
                             <div class="inner">
-                              <span class="date">
-                                <span class="month">{index + 1}</span>
+                              <span class={`date ${selectedColor}`}>
+                                <span class={`month `}>{index + 1}</span>
                               </span>
                               <h2>{item.title}</h2>
                               <div

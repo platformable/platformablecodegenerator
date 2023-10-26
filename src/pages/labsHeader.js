@@ -8,6 +8,9 @@ import HeaderComponent from '../components/HeaderComponent'
 import Loadable from "react-loadable"
 import SEO from "../components/seo"
 
+import SingleColorButton from '../components/SingleColorButton'
+import colorFunction from "../components/colorsForComponents.js";
+const { lasbColors } = colorFunction();
 
 const LoadableComponent = Loadable({
   loader: () => import("../components/RichEditorComponent"),
@@ -20,13 +23,16 @@ const LabsHeader = () => {
   const [content, setContent] = useState({
     content: "",
   })
+  const [selectedColor, setSelectedColor] = useState("")
   useEffect(() => {
     if (content.content === "") {
       setPreview(false)
     }
   }, [content])
+
+  console.log("selectedcolor", selectedColor)
   const html = `
-    <div class="labs-top-bar-posts-header">
+    <div class="labs-top-bar-posts-header ${selectedColor}">
       <div class="labs-top-bar-posts-header-img">
       <img src="https://res.cloudinary.com/platform1/image/upload/v1623947770/Labs_c8c4b81e63.png" alt="">
       </div>
@@ -50,6 +56,30 @@ const LabsHeader = () => {
     setErrorMessage(false)
     setContent({...content,content:data})
   }
+
+
+
+  const addBorder = () => {
+    const allWrappers = document.querySelectorAll(".colors button")
+    allWrappers.forEach(element => {
+      element.addEventListener(
+        "click",
+        () => {
+          const prevSelected = document.querySelectorAll(".colors button")
+          prevSelected.forEach(selection => (selection.style.border = "0"))
+
+          element.style.border = "5px solid #fff"
+        },
+        false
+      )
+    })
+  }
+
+  useEffect(() => {
+    addBorder()
+  }, [])
+
+
   return (
     <Layout>
       <SEO title="Labs Header" />
@@ -57,6 +87,16 @@ const LabsHeader = () => {
         <HeaderComponent componentName="Platformable Labs Post Header" image={labsPostHeader} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"}/>
         <Row>
           <Col md={6} id="left-side">
+
+          <section id="colorButtons">
+              <h4>Select color</h4>
+              <div className="d-flex flex-column flex-md-row">
+                {lasbColors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
+                  setSelectedColor(color.color)
+                  setErrorMessage(false)
+                }} />)}
+              </div>
+            </section>
             <Form>
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Content:</Form.Label>

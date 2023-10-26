@@ -182,23 +182,40 @@ export default function Table() {
                   ></button>
                 </Col>
 
-                {/* <Col md={2} className="colors ">
+                <Col md={2} className="colors ">
                   <button
-                    className="dynamicTable-sustain-dark colorBtn"
+                    className="dynamicTable-highlight-dark colorBtn"
                     onClick={e => {
                       if (content) {
-                        setSelectedColor("dynamicTable-os")
+                        setSelectedColor("dynamicTable-highlight")
                         const newContent = content.replace(
                           /".*">/,
-                          `"dynamicTable-os">`
+                          `"dynamicTable-highlight">`
                         )
                         setContent(newContent)
                       } else {
-                        setSelectedColor("dynamicTable-os")
+                        setSelectedColor("dynamicTable-highlight")
                       }
                     }}
                   ></button>
-                </Col> */}
+                </Col>
+                <Col md={2} className="colors ">
+                  <button
+                    className="dynamicTable-business-dark colorBtn"
+                    onClick={e => {
+                      if (content) {
+                        setSelectedColor("dynamicTable-business")
+                        const newContent = content.replace(
+                          /".*">/,
+                          `"dynamicTable-business">`
+                        )
+                        setContent(newContent)
+                      } else {
+                        setSelectedColor("dynamicTable-business")
+                      }
+                    }}
+                  ></button>
+                </Col>
               </div>
             </section>
             <LoadableComponent

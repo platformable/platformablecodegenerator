@@ -9,6 +9,10 @@ import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import SEO from "../components/seo"
 
+import SingleColorButton from '../components/SingleColorButton'
+import colorFunction from "../components/colorsForComponents.js";
+const { lasbColors } = colorFunction();
+
 const LoadableComponent = Loadable({
   loader: () => import("../components/RichEditorComponent"),
   loading: "Loading",
@@ -17,7 +21,7 @@ export default function LabsBlogComponent() {
   const [errorMessage, setErrorMessage] = useState(false)
   const [preview, setPreview] = useState(false)
   const [content, updateContent] = useState("")
-
+  const [selectedColor, setSelectedColor] = useState("")
 
   useEffect(() => {
     if (content === "") {
@@ -57,8 +61,29 @@ export default function LabsBlogComponent() {
     notify()
     navigator.clipboard.writeText(theHtml)
   }
+
+
+  const addBorder = () => {
+    const allWrappers = document.querySelectorAll(".colors button")
+    allWrappers.forEach(element => {
+      element.addEventListener(
+        "click",
+        () => {
+          const prevSelected = document.querySelectorAll(".colors button")
+          prevSelected.forEach(selection => (selection.style.border = "0"))
+
+          element.style.border = "5px solid #fff"
+        },
+        false
+      )
+    })
+  }
+
+  useEffect(() => {
+    addBorder()
+  }, [])
   const theHtml = `
-    <div class="lab-text-img-component-container">
+    <div class="lab-text-img-component-container ${selectedColor}-border-bottom">
             <div class=" labs-text-img-component">
               <div class="labs-text-img-component">
                 <img
@@ -80,6 +105,15 @@ export default function LabsBlogComponent() {
         <HeaderComponent componentName="Labs Blog Text Component" image={labsTextImg} video="https://res.cloudinary.com/dsppwrq84/video/upload/v1629927274/labsTextHowTo_veytds.mov" />
         <Row>
           <Col md={6}>
+          <section id="colorButtons">
+              <h4>Select color</h4>
+              <div className="d-flex flex-column flex-md-row">
+                {lasbColors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
+                  setSelectedColor(color.color)
+                  setErrorMessage(false)
+                }} />)}
+              </div>
+            </section>
             <h4>Enter the content </h4>
             <LoadableComponent
               handleLabsBlogContent={handleLabsBlogContent}

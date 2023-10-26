@@ -64,7 +64,7 @@ export default function LargeQuote() {
     <div class="large-quote ${selectedColor}">
       <p>${quoteContent.quote}</p>
       <div class="author"><h3 class="font-black">${quoteContent.author}</h3></div>
-      <div class="second-line">${quoteContent.secondLine}</div>
+      <div class="second-line"><p>${quoteContent.secondLine}</p></div>
     </div>
       `
   return (
