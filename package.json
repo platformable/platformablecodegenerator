@@ -2,7 +2,7 @@
   "name": "codegenerator",
   "private": true,
   "description": "Platformable code generator",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "Platformable.com",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^28.0.0",
