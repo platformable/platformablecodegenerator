@@ -21,6 +21,7 @@ body {
   -ms-font-feature-settings:"kern", "liga", "clig", "calt";
   -webkit-font-feature-settings:"kern", "liga", "clig", "calt";
   font-feature-settings:"kern", "liga", "clig", "calt";
+  scroll-behavior: smooth;
 }
 img {
   max-width:100%;
@@ -76,16 +77,29 @@ img {
   --highlight-color-light:#FBC6FD;
 }
 
+.navbar-light .navbar-nav .nav-link {
+  color:var(--russian-violet-dark) "!important";
+  font-weight: bold;
+}
+
+
+.nav-link {
+  
+}
 /* OUR CODE */
 
 .navbar img {
-  max-width:140px;
-  margin:-7px 0 0 0;
+/*   max-width:140px;
+  margin:-7px 0 0 0; */
 }
 
 .navbar-brand img {
-  max-width:140px;
+/*   max-width:140px; */
   margin:-7px 0 0 0;
+}
+
+.footer-bg {
+  background-color: #2f1bbb;
 }
 
 /* .btn-primary {
