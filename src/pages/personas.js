@@ -140,25 +140,25 @@ export default function Personas() {
       color: "api-architects",
     },
     {
-      name: "Non-Goverment Organizations Persona",
+      name: "Non-Goverment Organizations",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985126/Non_Goverment_Organizations_Persona_5afd032ed0.png",
       color: "api-architects",
     },
     {
-      name: "Equity Tech Persona",
+      name: "Equity Tech",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985122/Equity_Tech_Persona_b6e8ea6139.png",
       color: "api-architects",
     },
     {
-      name: "Data Governance Lead Persona",
+      name: "Data Governance Lead",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985122/Data_Governance_Lead_Persona_62f7631c46.png",
       color: "api-architects",
     },
     {
-      name: "Health Policy Lead Persona",
+      name: "Health Policy Lead",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985126/Health_Policy_Lead_Persona_e74af75353.png",
       color: "api-architects",
@@ -170,7 +170,7 @@ export default function Personas() {
       color: "api-architects",
     },
     {
-      name: "Health Tech Persona",
+      name: "Health Tech",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985122/Health_Tech_Persona_35485a3162.png",
       color: "api-architects",
