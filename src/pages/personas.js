@@ -56,123 +56,123 @@ export default function Personas() {
     {
       name: "API tool providers and consultants",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1631892660/Persona_ICON_API_tool_providers_863909b617.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_API_tool_providers_and_consultants_transparent_74888d6093.png",
       color: "api-tools-provider",
     },
     {
       name: "Regulators",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1631892805/Persona_ICON_Regulator_ec603f6c92.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950781/platformablewebsite/ICON_Regulators_transparent_2ed1d9f930.png",
       color: "regulator",
     },
     {
       name: "Fintech Associations",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1631892453/Persona_Fintech_Aso_ICON_18125ac8c5.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Fintech_associations_transparent_f4f6f25107.png",
       color: "fintech-associantions",
     },
     {
       name: "Banks",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1623688309/banks_5677bc5a64.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950783/platformablewebsite/ICON_Banks_transparent_b09f515020.png",
       color: "banks",
     },
     {
       name: "Fintech",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1623688314/fintechs_537b5f845c.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Fintech_Platform_provider_transparent_e0e4b336a4.png",
       color: "fintechs",
     },
     {
       name: "Financial inclusion advocates",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1623688309/Financial_Inclusion_39af4b9b50.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Financial_inclusion_advocates_transparent_65ea2b28fb.png",
       color: "financial-inclusion",
     },
     {
       name: "Policy Lead",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1625052721/Personas_Policy_Lead_265913d654.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Health_Policy_Lead_transparent_912038c1f2.png",
       color: "policy-lead",
     },
     {
       name: "Digital Government Lead",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Digital_Gov_Lead_3e539d4909.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950782/platformablewebsite/ICON_Digital_Government_lead_transparent_821ee442d1.png",
       color: "dg-lead",
     },
     {
       name: "Product Manager Lead",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1623688299/Policy_Leads_b1fad49ca4.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Product_Manager_Lead_transparent_151e19206f.png",
       color: "pm-lead",
     },
     {
       name: "API architects and developers",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1625052794/Personas_Developer_4903ab395f.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950781/platformablewebsite/ICON_ICON_API_architects_and_developers_transparent_5b3de2d038.png",
       color: "api-architects",
     },
     ,
-    {
+/*     {
       name: "Greentech founder",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985128/Greentech_Founder_129f9c4118.png",
       color: "api-architects",
-    },
-    {
+    }, */
+/*     {
       name: "Open Banking-Open Finance or Innovation Lead at a Bank",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985128/Open_Banking_Open_Finance_or_Innovation_Lead_at_a_Bank_0dee65d746.png",
       color: "api-architects",
-    },
+    }, */
     {
       name: "Fintech Platform Provider",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985128/Fintech_Platform_Provider_1b219421e9.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Fintech_Platform_provider_transparent_e0e4b336a4.png",
       color: "api-architects",
     },
     ,
     {
       name: "Financial inclusion advocate",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985124/Financial_inclusion_advocate_baf72b78d5.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Financial_inclusion_advocates_transparent_65ea2b28fb.png",
       color: "api-architects",
     },
     {
       name: "Non-Goverment Organizations",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985126/Non_Goverment_Organizations_Persona_5afd032ed0.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950782/platformablewebsite/ICON_Non_Government_Organisation_transparent_83adb4f320.png",
       color: "api-architects",
     },
     {
       name: "Equity Tech",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985122/Equity_Tech_Persona_b6e8ea6139.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950781/platformablewebsite/ICON_Equity_Tech_transparent_15b60fc751.png",
       color: "api-architects",
     },
     {
       name: "Data Governance Lead",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985122/Data_Governance_Lead_Persona_62f7631c46.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950782/platformablewebsite/ICON_Data_Governance_Lead_transparent_be202c3912.png",
       color: "api-architects",
     },
     {
       name: "Health Policy Lead",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985126/Health_Policy_Lead_Persona_e74af75353.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950780/platformablewebsite/ICON_Health_Policy_Lead_transparent_912038c1f2.png",
       color: "api-architects",
     },
     {
       name: "Incubator Program Manager",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985125/Incubator_Program_Manager_d32de233eb.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950786/platformablewebsite/ICON_Incubator_Program_Manager_Funded_Program_Administrators_transparent_5dfed98e59.png",
       color: "api-architects",
     },
     {
       name: "Health Tech",
       url:
-        "https://res.cloudinary.com/platform1/image/upload/v1641985122/Health_Tech_Persona_35485a3162.png",
+        "https://res.cloudinary.com/platform1/image/upload/v1710950781/platformablewebsite/ICON_Health_tech_transparent_c898f2d01d.png",
       color: "api-architects",
     },
   ]
