@@ -3,11 +3,11 @@ import { Container, Row, Col, Form, Button } from "react-bootstrap"
 import Layout from "../components/layout"
 import PersonaImg from "../../static/previewThumbnails/personaThumbnail.png"
 import CopyToClipboardBtn from "../components/CopyToClipboardBtn"
-import SingleColorButton from '../components/SingleColorButton'
-import HeaderComponent from '../components/HeaderComponent'
+import SingleColorButton from "../components/SingleColorButton"
+import HeaderComponent from "../components/HeaderComponent"
 import BlogComponentsErrorMessage from "../components/blogComponentsErrorMessage"
 import SEO from "../components/seo"
-import colorFunction from "../components/colorsForComponents.js";
+import colorFunction from "../components/colorsForComponents.js"
 export default function Personas() {
   const [selectedCard, setSelectedCard] = useState("")
   const [errorMessage, setErrorMessage] = useState(false)
@@ -15,10 +15,9 @@ export default function Personas() {
     content: "",
     subtitle: "",
   })
-  const { personaColors } = colorFunction();
+  const { personaColors } = colorFunction()
   const [selectedColor, setSelectedColor] = useState("")
   const [preview, setPreview] = useState(false)
-
 
   useEffect(() => {
     addBorder()
@@ -114,13 +113,13 @@ export default function Personas() {
       color: "api-architects",
     },
     ,
-/*     {
+    /*     {
       name: "Greentech founder",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985128/Greentech_Founder_129f9c4118.png",
       color: "api-architects",
     }, */
-/*     {
+    /*     {
       name: "Open Banking-Open Finance or Innovation Lead at a Bank",
       url:
         "https://res.cloudinary.com/platform1/image/upload/v1641985128/Open_Banking_Open_Finance_or_Innovation_Lead_at_a_Bank_0dee65d746.png",
@@ -194,7 +193,7 @@ export default function Personas() {
       )
     })
   }
-  const theHtml = `
+  /*   const theHtml = `
 <div class="main-personas ${selectedColor}">
     <div class="personas-top">
         <div class="personas-img-left">
@@ -209,7 +208,20 @@ export default function Personas() {
         <p>${cardContent.content}</p>
     </div>
 </div>
+` */
+
+  const theHtml = `
+<div class="newpersona ">
+    <div class="persona-icon ${selectedColor}">
+      <img src=${selectedCard.url}  alt="platformable">
+    </div>
+    <div class="persona-content">
+      <h4 className="font-bold">${cardContent.subtitle}</h4>
+      <p>${cardContent.content}</p>
+    </div>
+  </div>
 `
+
   const handleClick = e => {
     e.preventDefault()
 
@@ -228,7 +240,13 @@ export default function Personas() {
     <Layout>
       <SEO title="Persona" />
       <Container className="my-5">
-        <HeaderComponent componentName="Persona Card" image={PersonaImg} video={"https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"} />
+        <HeaderComponent
+          componentName="Persona Card"
+          image={PersonaImg}
+          video={
+            "https://res.cloudinary.com/dsppwrq84/video/upload/v1629927501/personaHowTo_w0vvuy.mov"
+          }
+        />
         <div className="row">
           <div className="col-md-12">
             <h4 className="mt-3">Select Persona</h4>
@@ -270,10 +288,16 @@ export default function Personas() {
                 <section id="colorButtons">
                   <h4 className="px-0 mx-0 my-3">Select color</h4>
                   <div className="d-flex flex-column flex-md-row">
-                    {personaColors.map((color, index) => <SingleColorButton key={index} colorClass={color.class} onSelectColor={() => {
-                      setSelectedColor(color.color)
-                      setErrorMessage(false)
-                    }} />)}
+                    {personaColors.map((color, index) => (
+                      <SingleColorButton
+                        key={index}
+                        colorClass={color.class}
+                        onSelectColor={() => {
+                          setSelectedColor(color.color)
+                          setErrorMessage(false)
+                        }}
+                      />
+                    ))}
                   </div>
                 </section>
                 <Col md={12}>

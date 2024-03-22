@@ -200,6 +200,25 @@ const colorsForComponents = () => {
       color: "smallQuote-business-bg",
     },
   ]
+  const quoteColors = [
+    {
+      class: "simple-quote-oe-dark",
+      color: "simple-quote-oe-dark",
+    },
+    {
+      class: "simple-quote-bank-dark",
+      color: "simple-quote-bank-dark",
+    },
+
+    {
+      class: "simple-quote-health-dark",
+      color: "simple-quote-health-dark",
+    },
+    {
+      class: "simple-quote-business-dark",
+      color: "simple-quote-business-dark",
+    },
+  ]
   const summaryBoxColors = [
     "summary-box-oe-dark",
     "summary-box-bank-dark",
@@ -268,7 +287,8 @@ const colorsForComponents = () => {
     summaryBoxColors,
     personaColors,
     lasbColors,
-    roadmapColors
+    roadmapColors,
+    quoteColors
   }
 }
 module.exports = colorsForComponents

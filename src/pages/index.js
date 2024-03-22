@@ -78,7 +78,7 @@ const IndexPage = () => (
             </Card.Body>
           </Card>
         </Col>
-        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+        {/* <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
             <Link to="/media">
               {" "}
@@ -111,8 +111,8 @@ const IndexPage = () => (
               </Link>
             </Card.Body>
           </Card>
-        </Col>
-        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+        </Col> */}
+       {/*  <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
             <Link to="/labsHeader">
               <StaticImage
@@ -143,9 +143,9 @@ const IndexPage = () => (
               </Link>
             </Card.Body>
           </Card>
-        </Col>
+        </Col> */}
 
-        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+ {/*        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
             <Link to="/roadmap">
               {" "}
@@ -160,7 +160,7 @@ const IndexPage = () => (
               </Link>
             </Card.Body>
           </Card>
-        </Col>
+        </Col> */}
         <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
             <Link to="/personas">
@@ -178,7 +178,7 @@ const IndexPage = () => (
             </Card.Body>
           </Card>
         </Col>
-        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+{/*         <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
             <Link to="/table">
               <StaticImage
@@ -192,8 +192,8 @@ const IndexPage = () => (
               </Link>
             </Card.Body>
           </Card>
-        </Col>
-        <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
+        </Col> */}
+{/*         <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
             <Link to="/small-quote">
               <StaticImage
@@ -207,19 +207,19 @@ const IndexPage = () => (
               </Link>
             </Card.Body>
           </Card>
-        </Col>
+        </Col> */}
         <Col md={{ span: 3, offset: 0 }} className="mt-1 mb-4">
           <Card className="shadow">
-            <Link to="/large-quote">
+            <Link to="/simple-quote">
               <StaticImage
                 src="../../static/previewThumbnails/largeQuoteThumbnail.png"
                 alt="platformable codegenerator"
               />
             </Link>
             <Card.Body>
-              <Link to="/large-quote">
+              <Link to="/simple-quote">
                 {" "}
-                <h6 className="fw-bold">Large Quote</h6>
+                <h6 className="fw-bold">Quote</h6>
               </Link>
             </Card.Body>
           </Card>
