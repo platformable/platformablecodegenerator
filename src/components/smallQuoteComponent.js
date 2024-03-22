@@ -19,9 +19,9 @@ export default function SmallQuoteComponent({
     ` */
 
     const theHtml = `
-    <div className="simple-quote ${selectedColor}">
+    <div class="simple-quote ${selectedColor}">
     <p>${quote}</p>
-    <h6 className="">${author}</h6>
+    <h6 class="">${author}</h6>
     <span>${secondLine}</span>
   </div>
     `

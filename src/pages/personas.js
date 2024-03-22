@@ -216,7 +216,7 @@ export default function Personas() {
       <img src=${selectedCard.url}  alt="platformable">
     </div>
     <div class="persona-content">
-      <h4 className="font-bold">${cardContent.subtitle}</h4>
+      <h4 class="font-bold">${cardContent.subtitle}</h4>
       <p>${cardContent.content}</p>
     </div>
   </div>
