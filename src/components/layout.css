@@ -2085,7 +2085,7 @@ pre {
 }
 
 .simple-quote-health-dark {
-background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #cce0ff 0%, #fbc6fd);
+background-image:url('https://res.cloudinary.com/platform1/image/upload/v1711386468/platformablewebsite/quote_reduced_2_02b937d0c0.svg'), linear-gradient(90deg, #cce0ff 0%, #fbc6fd);
   padding: 20px;
   border-radius: 10px;
   color: black !important;
