@@ -42,7 +42,7 @@ const colorsForComponents = () => {
   ]
   const personaColors = [
     {
-      class: "insetBox2-dark-oe",
+      class: "persona-card-bg-dark-oe",
       color: "persona-card-bg-dark-oe",
     },
     // {
@@ -50,7 +50,7 @@ const colorsForComponents = () => {
     //     color: "persona-card-bg-dark-purple"
     // },
     {
-      class: "insetBox2-bank-dark-btn",
+      class: "persona-card-bg-dark-orange",
       color: "persona-card-bg-dark-orange",
     },
     // {
@@ -58,15 +58,12 @@ const colorsForComponents = () => {
     //     color: "persona-card-bg-purple"
     // },
     {
-      class: "insetBox2-health-dark-btn",
+      class: "persona-card-bg-dark-oh",
       color: "persona-card-bg-dark-oh",
     },
+
     {
-      class: "insetBox2-highlight-dark-btn",
-      color: "persona-card-bg-dark-highlight",
-    },
-    {
-      class: "insetBox2-business-dark-btn",
+      class: "persona-card-bg-dark-business",
       color: "persona-card-bg-dark-business",
     },
     // {
