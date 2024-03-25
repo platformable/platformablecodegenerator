@@ -2099,7 +2099,7 @@ background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(
   }
 
 .simple-quote-bank-dark {
-  background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #fff1e4 0%, #fbc6fd 100%);
+  background-image:url('https://res.cloudinary.com/platform1/image/upload/v1711386468/platformablewebsite/quote_reduced_2_02b937d0c0.svg'), linear-gradient(90deg, #fff1e4 0%, #fbc6fd 100%);
   background-repeat:no-repeat;
   background-position: center;
   padding: 20px;
@@ -2114,7 +2114,7 @@ background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(
 
 .simple-quote-oe-dark {
 
-  background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #d0ffed 0%, #fbc6fd 100%) ;
+  background-image:url('https://res.cloudinary.com/platform1/image/upload/v1711386468/platformablewebsite/quote_reduced_2_02b937d0c0.svg'), linear-gradient(90deg, #d0ffed 0%, #fbc6fd 100%) ;
   background-repeat:no-repeat;
   background-position: center;
   padding: 20px;
@@ -2129,7 +2129,7 @@ background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(
 }
 
 .simple-quote-business-dark {
-  background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #E1DBFF 0%, #FBC6FD 100%);
+  background-image:url('https://res.cloudinary.com/platform1/image/upload/v1711386468/platformablewebsite/quote_reduced_2_02b937d0c0.svg'), linear-gradient(90deg, #E1DBFF 0%, #FBC6FD 100%);
   background-repeat:no-repeat;
   background-position: center;
   padding: 20px;
