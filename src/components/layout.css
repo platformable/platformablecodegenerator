@@ -2076,10 +2076,7 @@ pre {
 /* simple queote */
 
 .simple-quote {
-  background-image:url('https://www.svgrepo.com/show/294342/quotes-quote.svg');
-  background-repeat:no-repeat;
-  background-position: center;
-  background-size:100px;
+ 
   font-weight: bold;
 }
 
@@ -2088,39 +2085,59 @@ pre {
 }
 
 .simple-quote-health-dark {
-  background: linear-gradient(90deg, #cce0ff 0%, #fbc6fd 100%) 0% 0% no-repeat
-    padding-box;
+background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #cce0ff 0%, #fbc6fd);
+  padding: 20px;
+  border-radius: 10px;
+  color: black !important;
+  background-repeat:no-repeat;
+  background-position: center;
+
+}
+
+.simple-quote-health-dark-btn {
+  background:linear-gradient(90deg, #cce0ff 0%, #fbc6fd);
+  }
+
+.simple-quote-bank-dark {
+  background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #fff1e4 0%, #fbc6fd 100%);
+  background-repeat:no-repeat;
+  background-position: center;
   padding: 20px;
   border-radius: 10px;
   color: black !important;
 }
 
-.simple-quote-bank-dark {
-  background: linear-gradient(90deg, #fff1e4 0%, #fbc6fd 100%) 0% 0% no-repeat
-    padding-box;
-  padding: 20px;
-  border-radius: 10px;
-  color: black !important;
+.simple-quote-bank-dark-btn {
+  background:linear-gradient(90deg, #fff1e4 0%, #fbc6fd 100%);
+
 }
 
 .simple-quote-oe-dark {
-/*   background: linear-gradient(90deg, #d0ffed 0%, #fbc6fd 100%) 0% 0% no-repeat, url('https://www.svgrepo.com/show/294342/quotes-quote.svg') no-repeat; */
-  background: linear-gradient(90deg, #d0ffed 0%, #fbc6fd 100%) 0% 0% no-repeat
-    padding-box;
-/*     background-image:url('https://www.svgrepo.com/show/294342/quotes-quote.svg');
-    background-repeat:no-repeat; */
-  /*   background-position: center;
-    background-size:100px; */
+
+  background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #d0ffed 0%, #fbc6fd 100%) ;
+  background-repeat:no-repeat;
+  background-position: center;
   padding: 20px;
   border-radius: 10px;
   color: black !important;
 }
 
+.simple-quote-oe-dark-btn {
+
+  background:linear-gradient(90deg, #d0ffed 0%, #fbc6fd 100%) ;
+
+}
+
 .simple-quote-business-dark {
-  /* background-color:var(--oe-dark); */
-  background: linear-gradient(90deg, #E1DBFF 0%, #FBC6FD 100%) 0% 0% no-repeat
-    padding-box;
+  background-image:url('../../public/icons/quote_reduced_2.svg'), linear-gradient(90deg, #E1DBFF 0%, #FBC6FD 100%);
+  background-repeat:no-repeat;
+  background-position: center;
   padding: 20px;
   border-radius: 10px;
   color: black !important;
+}
+
+.simple-quote-business-dark-btn {
+  background: linear-gradient(90deg, #E1DBFF 0%, #FBC6FD 100%);
+
 }

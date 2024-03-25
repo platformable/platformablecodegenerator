@@ -199,20 +199,20 @@ const colorsForComponents = () => {
   ]
   const quoteColors = [
     {
-      class: "simple-quote-oe-dark",
+      class: "simple-quote-oe-dark-btn",
       color: "simple-quote-oe-dark",
     },
     {
-      class: "simple-quote-bank-dark",
+      class: "simple-quote-bank-dark-btn",
       color: "simple-quote-bank-dark",
     },
 
     {
-      class: "simple-quote-health-dark",
+      class: "simple-quote-health-dark-btn",
       color: "simple-quote-health-dark",
     },
     {
-      class: "simple-quote-business-dark",
+      class: "simple-quote-business-dark-btn",
       color: "simple-quote-business-dark",
     },
   ]
