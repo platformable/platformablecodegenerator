@@ -2054,22 +2054,22 @@ pre {
   padding: 10px 0;
 }
 .persona-card-bg-dark-oh {
-  background-color: var(--oh-dark);
+  background-color: #dce9ff;
 }
 .persona-card-bg-dark-oe {
   background-color: var(--oe-dark);
   color: white;
 }
 .persona-card-bg-dark-orange {
-  background-color: var(--red-orange-dark);
+  background-color: #FFE1C7;
   color: white;
 }
 .persona-card-bg-dark-highlight {
-  background-color: var(--highlight-color-dark);
+  background-color: #FFE1C7;
 }
 
 .persona-card-bg-dark-business {
-  background-color: var(--business-color-dark);
+  background-color: #e1dbff;
 }
 
 
