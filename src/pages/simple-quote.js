@@ -93,9 +93,9 @@ export default function SimpleQuote() {
       ` */
 
       const theHtml = `
-      <div className="simple-quote ${selectedColor}">
+      <div class="simple-quote ${selectedColor}">
       <p>${quoteContent.quote}</p>
-      <h6 className=" fw-bold">${quoteContent.author}</h6>
+      <h6 class="">${quoteContent.author}</h6>
       <span>${quoteContent.secondLine}</span>
     </div>
       `
