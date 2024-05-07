@@ -57,8 +57,8 @@ export default function SummaryQuote() {
 
   const theHtml = `  
     <div class="summary-box text-white ${selectedColor}">
-    <h3>Who should read this:</h3> <p>${blockquoteContent.whoShouldReadThis}</p> <br>
-    <h3>What it’s about:</h3> <p>${blockquoteContent.whatAbout}</p><br>
+    <h3>Who should read this:</h3> <p>${blockquoteContent.whoShouldReadThis}</p>
+    <h3>What it’s about:</h3> <p>${blockquoteContent.whatAbout}</p>
     <h3>Why it’s important:</h3> <p>${blockquoteContent.whyImportant}</p>
     </div>
     `
