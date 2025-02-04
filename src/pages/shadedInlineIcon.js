@@ -190,7 +190,7 @@ export default function ShadedInlineIcon({ data }) {
   )
 }
 
-export const query = graphql`
+/* export const query = graphql`
   query ShadedInlineIcon {
     allStrapiMedia(filter: { name: { regex: "/ICON /i" } }) {
       edges {
@@ -214,4 +214,4 @@ export const query = graphql`
       }
     }
   }
-`
+` */

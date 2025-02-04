@@ -302,6 +302,13 @@ img {
   border-radius: 10px;
   color: black !important;
 }
+.summary-box-traceability-dark {
+  background: linear-gradient(90deg, #C7F8FF 0%, #FBC6FD 100%) 0% 0% no-repeat
+    padding-box;
+  padding: 20px;
+  border-radius: 10px;
+  color: black !important;
+}
 .summary-box-sustain-dark {
   border-radius: 10px;
   background: linear-gradient(90deg, #f157ff 0%, #22da8f 100%) 0% 0% no-repeat

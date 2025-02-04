@@ -220,6 +220,7 @@ const colorsForComponents = () => {
     "summary-box-oe-dark",
     "summary-box-bank-dark",
     "summary-box-health-dark",
+    "summary-box-traceability-dark",
     // "summary-box-gov-dark","summary-box-general-dark",  "summary-box-sustain-dark"
   ]
   const lasbColors=[

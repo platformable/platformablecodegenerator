@@ -8,7 +8,7 @@ module.exports = {
    DEV_SSR: true
   },
   plugins: [
-    {
+   /*  {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `https://websiteserver-ds7cf.ondigitalocean.app`,
@@ -25,7 +25,7 @@ module.exports = {
           }
         ]
       },
-    },
+    }, */
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

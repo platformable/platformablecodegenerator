@@ -16,7 +16,7 @@ const Header = ({ siteTitle }) => {
         <div class="container">
           <a class="navbar-brand" href="/">
             <img
-              src="https://platformable.com/_next/static/media/Platformable-logo.a34d0147.png"
+              src="https://platformable.com/Platformable-logo.png"
               alt="Logo"
               width={'200px'}
             />
